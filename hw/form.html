@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Form</title>
+	</head>
+	<body>
+		<form action="#">
+			<fieldset>
+				<!-- fieldset用於建立form的外框線 -->
+				<legend>個人資訊</legend>
+				<!-- legend用於建立form的表頭 -->
+				<label for="userName">姓名&nbsp;:&nbsp; </label><input type="text" />
+				<!-- &nbsp; 只是space的空格鍵,為了更像原題目 -->
+				<br />
+				<label for="gender">性別&nbsp;:&nbsp; </label>
+				<input type="radio" name="gender" value="male" checked />
+				<!-- name相同,才會是擇一,不然可以多選  -->
+				<!-- checked 是預設選項,避免發生空值的情形  -->
+				<label for="male">男</label>
+				<input type="radio" name="gender" value="female" />
+				<label for="female">女</label>
+				<br />
+				<label for="grade">最高學歷&nbsp;:&nbsp;</label>
+				<select name="grade" id="grade" size="4">
+					<!-- size="4" 才能一次顯示所有選項,不然將縮為1項  -->
+					<option value="high_school">高中或以下</option>
+					<option value="college">大專院校</option>
+					<option value="master">碩士</option>
+					<option value="PhD">博士</option>
+				</select>
+				<br />
+				<label for="useful">專長:&nbsp;(&nbsp;可複選&nbsp;)&nbsp;</label>
+				<select name="useful" id="useful" multiple>
+					<!-- multiple屬性,將能進行複選,複選時要按住拖選或是+control -->
+					<option value="html">HTML/CSS</option>
+					<option value="JS">Javascript</option>
+					<option value="Database">Database</option>
+					<option value="Java">Java</option>
+				</select>
+			</fieldset>
+			<fieldset>
+				<legend>其他資訊</legend>
+				<label for="active"
+					>您喜歡下列哪些活動&nbsp;(&nbsp;可複選&nbsp;)&nbsp;?</label
+				>
+				<br />
+				<input type="checkbox" id="read" name="active[]" />
+				<label for="read">閱讀</label>
+				<input type="checkbox" id="ball" name="active[]" />
+				<label for="ball">打球</label>
+				<input type="checkbox" id="shopping" name="active[]" />
+				<label for="shopping">逛街</label>
+				<input type="checkbox" id="music" name="active[]" />
+				<label for="music">聽音樂</label>
+				<input type="checkbox" id="water" name="active[]" />
+				<label for="water">水上運動</label>
+				<input type="checkbox" id="trip" name="active[]" />
+				<label for="trip">旅行</label>
+				<br />
+				<label for="think">您對於使用臉書經營社群有何看法&nbsp;?</label>
+				<br />
+				<!-- 長文框tag為textarea,cols為寬度 rows為高度 ,但皆是預設,實際右下角的小三角仍可以調整 -->
+				<textarea name="think" cols="50" rows="5"></textarea>
+			</fieldset>
+		</form>
+	</body>
+</html>
