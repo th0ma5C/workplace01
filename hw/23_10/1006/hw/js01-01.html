@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        function fnPlus() {
+            var A1 = Number(i_A.value), B1 = Number(i_B.value);
+
+            // A1 = document.getElementById("i_A").value;
+            // B1 = document.getElementById("i_B").value;
+            // A1 = Number(i_A.value);
+            // B1 = Number(i_B.value);
+
+            msg = "A+B=" + (A1 + B1);
+
+            alert(msg);
+
+            //document.write(msg1);
+        }
+
+        function fnMinus() {
+            var A1 = Number(i_A.value), B1 = Number(i_B.value);
+
+            // A1 = Number(i_A.value);
+            // B1 = Number(i_B.value);
+
+            msg = "A-B=" + (A1 - B1);
+
+            alert(msg);
+
+        }
+
+        function fnHelp() {
+            alert("請輸入二個數值");
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        .in_text {}
+
+        .in_but {}
+
+        /* .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        } */
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div style="margin: 5px;">
+            <form>
+                <label for="n_A">A：</label>
+                <input type="text" id="i_A" name="n_A" placeholder="請輸入一個數字" /><br />
+                <label for="n_B">B：</label>
+                <input type="text" id="i_B" name="n_B" placeholder="請輸入一個數字" /><br />
+            </form>
+        </div>
+        <div style="margin: 5px; padding: 2px;">
+            <form>
+                <input type="button" value="＋" onclick="fnPlus();" />
+                <input type="button" value="－" onclick="fnMinus();" />
+                <input type="button" value="說明" onclick="fnHelp();" />
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
