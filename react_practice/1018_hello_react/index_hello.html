@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .title{
+        .title {
             background-color: orange;
             width: 200px;
         }
     </style>
 </head>
-
+.
 <body>
     <div id="test"></div>
 
@@ -23,24 +23,31 @@
     <script type="text/javascript" src="../js/babel.min.js"></script>
     <!-- type = babel -->
     <script type="text/babel">
-        const myID = "thomas";
-        const mydata = "hello, react";
+        const myID = "h2_";
+        const mydata = "hello, reaCT";
 
         //創建虛擬DOM
         const VDOM = (
-            <h2 stclassName="title" id={myID}>
-                <span style={{color:'white',fontSize:'36px'}}>{mydata}</span>
-            </h2>
+            // <h1 id="title">
+            //     <span>hello</span>
+            // </h1>
+            <div>
+                <h2 className="title" id={myID.toLowerCase()}>
+                    <span style={{ color: 'white', fontSize: '40px' }}>
+                        {mydata.toLocaleLowerCase()}
+                    </span>
+                </h2>
+                <h2 className="title" id={myID.toUpperCase()}>
+                    <span style={{ color: 'white', fontSize: '40px' }}>
+                        {mydata.toUpperCase()}
+                    </span>
+                </h2>
+                <input type="text" />
+            </div>
         )
         //渲染
-        ReactDOM.render(VDOM,document.getElementById("test"))
-        /*
-        定義虛擬DOM不要寫引號
-        標籤中混入JS要用{}
-        style用className引入
-        行內引入style用{{key:value}}
-        */
-        
+        ReactDOM.render(VDOM, document.getElementById("test"))
+
     </script>
 </body>
 
