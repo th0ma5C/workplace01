@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="div1">
+        <h1>hello</h1>
+        <em>em</em>
+        文本
+    </div>
+
+    <input type="text" name="hello" value="hello">
+    <ul>
+        <li class="box">1111</li>
+        <li name="hello">1111</li>
+        <li>1111</li>
+        <li class="box">1111</li>
+    </ul>
+    <ol>
+        <li>2222</li>
+        <li>2222</li>
+        <li class="li_">2222</li>
+        <li>2222</li>
+    </ol>
+    <script>
+        $(function () {
+            /*
+            //id
+            $("#div1").css("backgroundColor", "red");
+            //class
+            $(".box").css("backgroundColor","red");
+            //tagname
+            $("ul li").css("backgroundColor","yellow");
+            //name
+            $("[name=hello]").css("backgroundColor","blue");
+            //指定 :first :last :even :odd :eq() .class #id
+            $("ol li:eq(1)").css("backgroundColor","green");
+            //filter指定
+            $("ol li").filter(".li_").css("backgroundColor","lightblue");
+            */
+            /*
+            //點擊事件
+            $("h1").click(function(){
+                alert("點擊");
+            })
+            //事件監聽
+            $("ul").mouseover(function(){
+                this.style.backgroundColor = "red";
+            })
+            $("ul").mouseout(function(){
+                this.style.backgroundColor = "";
+            })
+            */
+            /*
+            //鍊式操作
+            $("h1")
+                .click(function () {
+                    alert("點擊");
+                })
+                .mouseover(function () {
+                    this.style.backgroundColor = "red";
+                })
+                .mouseout(function () {
+                    this.style.backgroundColor = "";
+                })
+            */
+            
+            //innerHTML value
+            //取值 
+            //alert($("#div1").html());
+            //賦值
+            //$("#div1").html("<h2>我是新內容</h2>");
+            //合體(取值 賦值一體)
+            alert($("input").val());
+            $("input").val("world hello");
+        });
+
+    </script>
+</body>
+
+</html>
