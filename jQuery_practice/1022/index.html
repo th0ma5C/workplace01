@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>
+        /*
+        filter 過濾 隊以獲取的元素進行過濾
+        not filter的反義詞
+        has 擁有，直接判斷子節點中是否有符合的元素
+        prev 查詢當前兄弟節點的上個節點
+        next 查詢當前兄弟節點的上個節點
+        find 查詢子節點
+        */
+        $(function () {
+            // $("div").filter(".box").css("backgroundColor","orange");
+            // $("div").not(".box").css("backgroundColor","orange");
+            // $("div").has(".box").css("backgroundColor", "orange");
+            // $("h3").prev().css("backgroundColor","red");
+            // $("h3").next().css("backgroundColor","yellow");
+            $("ul").find("li").css("backgroundColor","red");
+            $("ol").find(".box").css("backgroundColor","red");
+            //兩種寫法
+            $("ol").find("[name='hello']").css("backgroundColor","yellow");
+            // $("ol").find("[name=hello]").css("backgroundColor","yellow");
+            
+
+
+        })
+    </script>
+
+    <div class="box">div1</div>
+    <div>div2 <strong class="box"></strong></div>
+    <h2>h2</h2>
+    <p>p</p>
+    <h3>h3</h3>
+    <em>em</em>
+    <div>div</div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ol>
+        <li class="box"></li>
+        <li name="hello"></li>
+        <li></li>
+    </ol>
+</body>
+
+</html>
