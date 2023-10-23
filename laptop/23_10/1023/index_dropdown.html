@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        .header {
+            height: 100px;
+            width: 100%;
+            background-color: black;
+        }
+
+        .option {
+            float: left;
+            width: 150px;
+            border: 1px solid white;
+            text-align: center;
+            margin-top: 5px;
+            margin-left: 10px;
+            color: white;
+        }
+
+        .option-cont {
+            list-style-type: none;
+            padding: 0;
+            display: none;
+        }
+
+        .option-cont li {
+            background-color: white;
+            color: black;
+            border: 1px solid #808080;
+            padding: 10px;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        /*
+        // 網頁載入完成時執行
+        $(document).ready(function () {
+            //將#sel元素綁定mouseenter和mouseleave事件
+            //mouseenter和mouseleave事件被觸發時會執行fnToggleClass函式
+            //滑鼠碰到#sel顯示#about關於我們選單
+            //滑鼠離開#sel隱藏#about關於我們選單
+            $("#sel01").on({
+                "mouseenter": fnToggleClass01,
+                "mouseleave": fnToggleClass01
+            });
+            $("#sel02").on({
+                "mouseenter": fnToggleClass02,
+                "mouseleave": fnToggleClass02
+            });
+
+        });
+        
+        function fnToggleClass01() {
+            //切換顯示#about，即關於我們的選單
+            $("#about01").toggleClass("active");
+        }
+        function fnToggleClass02() {
+            //切換顯示#about，即關於我們的選單
+            $("#about02").toggleClass("active");
+        }
+        */
+        $(function () {
+            //寫法一
+            // $(".option").on("mouseover mouseout", function(){
+            //     $(this).children(".option-cont").toggleClass("active");
+            // });
+            //寫法二 加入stop()
+            $(".option").hover(
+                function () {
+                    $(this).children(".option-cont").stop(1,1).slideDown('fast');
+                },
+                function () {
+                    $(this).children(".option-cont").stop(1,1).slideUp('fast');
+                });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="option">
+            <p>首頁</p>
+        </div>
+        <div id="sel01" class="option">
+            <p>關於我們</p>
+            <ul id="about01" class="option-cont">
+                <li>簡介</li>
+                <li>聯絡方式</li>
+                <li>大才全</li>
+            </ul>
+        </div>
+        <div id="sel02" class="option">
+            <p>關於我們</p>
+            <ul id="about02" class="option-cont">
+                <li>簡介</li>
+                <li>聯絡方式</li>
+                <li>大才全</li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+</html>

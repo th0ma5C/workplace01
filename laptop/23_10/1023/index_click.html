@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Learning jQuery</title>
+	<link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<style>
+		.myLink {
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		$(function () {
+			$(".myLink").mouseover(()=>{
+				$("h1").css("color","red");
+			});
+			$(".myLink").mouseout(()=>{
+				$("h1").css("color","");
+			});
+			$(".myLink").click(() => {
+				alert($("h1").html())
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<h1>Welcome jQuery</h1>
+	<p class="myLink">Click Me</p>
+</body>
+
+</html>
