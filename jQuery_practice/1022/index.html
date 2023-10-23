@@ -18,6 +18,8 @@
         prev 查詢當前兄弟節點的上個節點
         next 查詢當前兄弟節點的上個節點
         find 查詢子節點
+        index() 獲取當前節點在兄弟節點的下標
+        eq(下標) 通過下標獲取指定的元素節點
         */
         $(function () {
             // $("div").filter(".box").css("backgroundColor","orange");
@@ -25,12 +27,14 @@
             // $("div").has(".box").css("backgroundColor", "orange");
             // $("h3").prev().css("backgroundColor","red");
             // $("h3").next().css("backgroundColor","yellow");
-            $("ul").find("li").css("backgroundColor","red");
-            $("ol").find(".box").css("backgroundColor","red");
+            // $("ul").find("li").css("backgroundColor","red");
+            // $("ol").find(".box").css("backgroundColor","red");
             //兩種寫法
-            $("ol").find("[name='hello']").css("backgroundColor","yellow");
+            // $("ol").find("[name='hello']").css("backgroundColor","yellow");
             // $("ol").find("[name=hello]").css("backgroundColor","yellow");
-            
+            // alert($("h3").index());
+            $("li").eq(2).css("backgroundColor", "orange");
+            $("li:eq(4)").css("backgroundColor", "yellow");
 
 
         })
@@ -38,21 +42,29 @@
 
     <div class="box">div1</div>
     <div>div2 <strong class="box"></strong></div>
-    <h2>h2</h2>
-    <p>p</p>
-    <h3>h3</h3>
+    <strong>strong</strong>
     <em>em</em>
-    <div>div</div>
-    <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    <ol>
-        <li class="box"></li>
-        <li name="hello"></li>
-        <li></li>
-    </ol>
+    <div id="div1">
+        <h2>h2</h2>
+        <p>p</p>
+        <h3>h3</h3>
+        <em>em</em>
+        <div>div</div>
+    </div>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div>
+        <ol>
+            <li class="box"></li>
+            <li name="hello"></li>
+            <li></li>
+        </ol>
+    </div>
 </body>
 
 </html>

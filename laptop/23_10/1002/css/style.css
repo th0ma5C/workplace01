@@ -1,0 +1,78 @@
+html{
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+.container {
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.box-a {
+    background-color: #e7eff5;
+    padding: 20px 20px 0 20px;
+    border: 2px solid #d3dee7;
+    margin-bottom: 15px;
+    margin: 10px;
+}
+/* .row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col{
+    width: 100%;
+} */
+
+.show-xl{
+    display: none;
+}
+
+@media screen and (min-width: 768px){
+    .box-a p{
+        color: red;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .show-xl{
+        display: block;
+    }    
+}
+/*
+@media screen and (min-width: 768px){
+    
+.col-md-11 {width: 91.662%}
+.col-md-10 {width: 83.332%;}
+.col-md-9 {width: 75%;}
+.col-md-8 {width: 66.662%;}
+.col-md-7 {width: 58.331%}
+.col-md-6 {width: 50%;}
+.col-md-5 {width: 41.662%}
+.col-md-4 {width: 33.332%;}
+.col-md-3 {width: 25%;}
+.col-md-2 {width: 16.662%;}
+.col-md-1 {width: 8.332%;}
+
+}
+
+@media screen and (min-width: 1200px) {
+
+	.col-xl-11 {width: 91.662%}
+	.col-xl-10 {width: 83.332%;}
+	.col-xl-9 {width: 75%;}
+	.col-xl-8 {width: 66.662%;}
+	.col-xl-7 {width: 58.331%}
+	.col-xl-6 {width: 50%;}
+	.col-xl-5 {width: 41.662%}
+	.col-xl-4 {width: 33.332%;}
+	.col-xl-3 {width: 25%;}
+	.col-xl-2 {width: 16.662%;}
+	.col-xl-1 {width: 8.332%;}
+
+}

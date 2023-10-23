@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        var A1, B1, C, D, E, F, G;
+        // A1 = 20;
+        // B1 = 3;
+
+        A1 = "A";
+        B1 = "B";
+
+        C = A1 + B1;
+        D = A1 - B1;
+        E = A1 == B1;
+        F = A1 < B1;
+        G = A1 > B1;
+
+        msg = "A+B :" + C + "\n";
+        // 字串的+=
+        msg += "A-B :" + D + "\n";
+        // msg = msg +  "A-B :" + D + "\n"
+        msg += "A=B :" + E + "\n";
+        msg += "A<B :" + F + "\n";
+        msg += "A>B : " + G + "\n";
+        // msg = "A+B :" + C + "\n" + "A-B :" + D + "\n" + "A=B :" + E + "\n" +"A<B :" + F + "\n" + "A>B : " + G + "\n"
+        alert(msg);
+        //html
+        msg1 = "A+B :" + C + "<br>";
+        msg1 += "A-B :" + D + "<br>";
+        msg1 += "A=B :" + E + "<br>";
+        // msg1 += "A<B :" + F + "<br>"; 
+        //HTML Entities, HTML Symbols
+        msg1 += "A&lt;B :" + F + "<br>";
+        msg1 += "A>B :" + G + "<br>";
+        document.write(msg1);
+
+    </script>
+</head>
+
+<body>
+
+
+</body>
+
+</html>

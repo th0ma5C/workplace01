@@ -1,0 +1,39 @@
+.box {
+    background-color: blue;
+    width: 500px;
+    height: 300px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box_font {
+    font-family: 'Gill Sans', sans-serif;
+    font-weight: 1200;
+    font-size: 10em;
+    color: #fff;
+  }
+
+
+  
+  @media (min-width: 768px) {
+    /* 當browser寬度>=768 */
+    .box {
+        background-color: rgb(250, 5, 9);
+        width: 768px;
+    }
+}
+
+@media (min-width: 1000px) {
+    /* 當browser寬度>=1000 */
+    .box {
+        background-color: yellow;
+        width: 600px;
+    }
+
+    .box_font {
+        color: #000;
+    }
+}
+ 

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>旅行相簿</title>
+    <style>
+        img:hover {
+            opacity: 0.6;
+            transform: rotate(10deg);
+        }
+        img{
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // var output = `<a href='#'><img src='images/1.jpg'></a>`;
+        // output += `<a href='#'><img src='images/2.jpg'></a>`;
+        // output += `<a href='#'><img src='images/3.jpg'></a>`;
+        // output += `<a href='#'><img src='images/4.jpg'></a>`;
+        // document.write(output);
+
+        let img_n = 1, output="";
+
+        for(img_n;img_n<=9;img_n++){
+            output += `<a href='#'><img src='images/${img_n}.jpg'></a>`;
+        }
+
+        document.write(output);
+
+    </script>
+</body>
+</html>

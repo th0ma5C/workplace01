@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script>
+    function fun(oper) {
+      let A = Number(i_A.value);
+      let sum = Number(i_sum.value);
+      let fnc;
+
+      if (oper == "+") {
+        func = function (A) {
+          return (sum += A);
+        };
+      }
+      else {
+        func = function (A) {
+          return (sum -= A);
+        };
+      }
+
+      i_sum.value = func(A);
+    }
+  </script>
+</head>
+
+<body>
+  <label for="n_A">值:</label>
+  <input type="text" id="i_A" name="n_A" value="0" />
+  <input type="submit" value="+" onclick="fun('+')" />
+  <input type="submit" value="-" onclick="fun('-')" />
+  <br /><br />
+  <label for="n_sum">合計:</label>
+  <input type="text" name="n_sum" id="i_sum" value="0" />
+</body>
+
+</html>

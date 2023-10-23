@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.lb{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div{
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+button{
+    width: 50%;
+    box-sizing: border-box;
+}

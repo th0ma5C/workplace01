@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>index</title>
+
+    <style>
+        body {
+            background-color: gainsboro;
+        }
+
+        .div-all {
+            width: 385px;
+            height: 100px;
+            background: white;
+            margin-top: 10px;
+            margin-left: 10px;
+            display: inline-block;
+            border-bottom: 1px solid grey;
+            border-right: 1px solid grey;
+            padding: 10px;
+        }
+
+        .div-img {
+            width: 135px;
+            height: 100%;
+            background-color: gainsboro;
+            float: left;
+        }
+
+        .div-img img {
+            width: 100%;
+        }
+
+        .div-cont {
+            width: 240px;
+            height: 100%;
+            float: left;
+            margin-left: 10px;
+            overflow: hidden;
+        }
+
+        .div-cont h4 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    </style>
+
+
+    <script>
+        // 宣告index用來代表目前是第幾筆記錄，0表示第一筆
+        // 共用的變數宣告在所有function之外
+        var index = 0;
+        var img = new Array("pic_01.jpg", "pic_02.jpg", "pic_03.jpg");
+        var title = new Array("一中商圈", "逢甲夜市", "旱溪夜市");
+        var info = new Array("位在台中第一中學附近的商圈，滿滿的美食也吸引外地遊客慕名而來。", "逢甲夜市鄰近逢甲大學，蘊含著許多人潮排隊美食。", "比起逢甲夜市與一中商圈聲勢也是越來越浩大。");
+
+        function toHTML() { //將某一筆(index)夜市資料呈現在#div_cont元素上
+            div_cont.innerHTML= `<div class="div-all">
+                <a href="https://travel.taichung.gov.tw/zh-tw/attractions/intro/400">
+                    <div class="div-img">
+                        <img src="images/${img[index]}">
+                    </div>
+                    <div class="div-cont">
+                        <h4>${title[index]}</h4>
+                        <p>${info[index]}</p>
+                    </div>
+                </a>
+            </div>`
+
+        }
+
+        window.onload = function () {
+            toHTML();
+        }
+
+        //按上一篇鈕執行
+        function fnPrev() {
+
+        }
+
+        //按下一篇鈕執行
+        function fnNext() {
+
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div style="display: flex;">
+        <p><input type="button" onclick="fnPrev();" value="上一篇"></p>
+        <div id="div_cont" style="margin-left:auto;margin-right:auto;width:500px; border-style:solid"> </div>
+        <p><input type="button" onclick="fnNext();" value="下一篇"></p>
+    </div>
+
+</body>
+
+</html>

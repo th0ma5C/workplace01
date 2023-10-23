@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        #con {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+
+        }
+
+        #con>div {}
+
+        .btnCon,
+        #imgCon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 400px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="con">
+        <div class="btnCon">
+            <button type="button" id="btnPre">上一張</button>
+        </div>
+        <div id="imgCon"></div>
+        <div class="btnCon">
+            <button type="button" id="btnNext">下一張</button>
+        </div>
+    </div>
+</body>
+
+</html>
