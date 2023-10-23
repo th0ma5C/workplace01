@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn1").click(function () {
+                $("#p1").hide("slow", function () {
+                    alert("The paragraph is now hidden");
+                });
+            });
+//二行指令依序執行
+            $("#btn2").click(function () {
+                $("#p1").hide(1000);
+                alert("The paragraph is now hidden");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <button id="btn1">Hide(call back)</button>
+    <button id="btn2">Hide(no call back)</button>
+
+    <p id="p1">This is a paragraph with little content.</p>
+    <br/><hr><br/>
+    <p id="p2">This is a paragraph with little content.</p>
+
+</body>
+
+</html>
