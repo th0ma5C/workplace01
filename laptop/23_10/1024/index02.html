@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #container {
+            position: relative;
+            width: 450px;
+            text-align: left;
+        }
+
+        p {
+            width: 250px;
+        }
+
+        #accordion {
+            float: right;
+            width: 200px;
+            margin: 5px 0 5px 10px;
+        }
+
+        .catalog {
+            position: relative;
+            color: #fff;
+            background-color: #015287;
+            border-bottom: 1px solid #fff;
+        }
+
+        .catalog h4 {
+            margin: 0;
+            cursor: pointer;
+            text-indent: 5px;
+            padding: 5px 0;
+        }
+
+        .active {
+            background-color: #555;
+        }
+
+        .item {
+            background-color: #A8D7E2;
+            margin: 0px 0 0px 0;
+            padding: 5px 5px 10px 5px;
+            list-style-type: none;
+        }
+
+        .item li {
+            display: block;
+            margin: 0;
+            padding: 1px 0px;
+        }
+
+        .item li a {
+            color: #015287;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#accordion .item").hide();
+            //修改div結構
+            $("#accordion .catalog").hover(
+                function(){
+                    $(this).find("ul").stop(1,1).slideDown();
+                    $(this).addClass("active");
+
+                },
+                function(){
+                    $(this).find("ul").stop(1,1).slideUp();
+                    $(this).removeClass("active");
+                }
+            );
+        });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="content">
+            <div id="accordion">
+                <div class="catalog">
+                    <h4>程式語言</h4>
+
+                    <ul class="item">
+                        <li><a href='#'>Java</a></li>
+                        <li><a href='#'>Visual Basic</a></li>
+                        <li><a href='#'>Visual C#</a></li>
+                    </ul>
+                </div>
+                <div class="catalog">
+                    <h4>網頁設計</h4>
+
+                    <ul class="item">
+                        <li><a href='#'>ASP.NET</a></li>
+                        <li><a href='#'>PHP</a></li>
+                        <li><a href='#'>JSP</a></li>
+                    </ul>
+                </div>
+                <div class="catalog">
+                    <h4>資料庫系統</h4>
+
+                    <ul class="item">
+                        <li><a href='#'>SQL Server</a></li>
+                        <li><a href='#'>Oracle</a></li>
+                        <li><a href='#'>MySQL</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

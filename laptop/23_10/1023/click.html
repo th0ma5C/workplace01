@@ -13,33 +13,22 @@
 	</style>
 	<script>
 		$(function () {
-			//寫法一
-			// $(".myLink").mouseover(()=>{
-			// 	$("h1").css("color","red");
-			// });
-			// $(".myLink").mouseout(()=>{
-			// 	$("h1").css("color","");
-			// });
-			//寫法二
-			$(".myLink").hover(function () {
+			$(".myLink").mouseover(() => {
 				$("h1").css("color", "red");
-			}, function () {
+			});
+			$(".myLink").mouseout(() => {
 				$("h1").css("color", "");
 			});
-
 			// $(".myLink").click(() => {
-			// 	$("h1").html("click!");
-			// 	alert($("h1").html());
+			// 	alert($("h1").html())
 			// });
 
 			$(".myLink").click(() => {
-				$("h1").text("Clicked!", function () {
+				$("h1").html("clicked!");
+				setTimeout(() => {
 					alert($("h1").html());
-				});
-			});
-
-
-
+				}, 0);
+			})
 		});
 	</script>
 </head>
