@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+        //創建組件，將狀態(state)放入組件
+        class Weather extends React.Component {
+            constructor(props) {
+                super(props);
+                //初始化狀態
+                this.state = {
+                    ishot: 0
+                }
+            }
+            render() {
+                console.log(this);
+                //讀取狀態
+                //return <h1>今天天氣{this.state.ishot ? '炎熱' : '涼爽'}</h1>
+                const { ishot } = this.state;
+                return <h1 onClick={demo}>今天天氣{ishot ? '炎熱' : '涼爽'}</h1>
+            }
+        }
+
+        ReactDOM.createRoot(document.getElementById("test")).render(<Weather />);
+        // ReactDOM.render(<Weather />, document.getElementById("test"))
+
+        function demo() {
+            console.log("clicked");
+        }
+        // const title = document.getElementById("title");
+        // title.addEventListener("click",()=>{
+        //     console.log('clicked');
+        // })
+
+        // const title = document.getElementById("title")
+        // title.onclick = () => {
+        //     console.log('clicked');
+        // }
+
+
+    </script>
+
+</body>
+
+</html>
