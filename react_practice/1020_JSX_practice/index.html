@@ -14,14 +14,14 @@
     <div id="test"></div>
     <script type="text/babel">
         //模擬數據
-        
+
         const data = ['Angular', 'React', 'Vue'];
         const VDOM = (
             <div>
                 <h1>前端框架列表</h1>
                 <ul>
                     {
-                        data.map((item,index)=>{
+                        data.map((item, index) => {
                             return <li key={index}>{item}</li>
                         })
                     }
@@ -30,6 +30,7 @@
         );
         ReactDOM.render(VDOM, document.getElementById("test"));
     </script>
+
 </body>
 
 </html>

@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Learning jQuery</title>
-	<link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<style>
 		.myLink {
 			cursor: pointer;
@@ -13,20 +13,39 @@
 	</style>
 	<script>
 		$(function () {
-			$(".myLink").mouseover(()=>{
-				$("h1").css("color","red");
+			//寫法一
+			// $(".myLink").mouseover(()=>{
+			// 	$("h1").css("color","red");
+			// });
+			// $(".myLink").mouseout(()=>{
+			// 	$("h1").css("color","");
+			// });
+			//寫法二
+			$(".myLink").hover(function () {
+				$("h1").css("color", "red");
+			}, function () {
+				$("h1").css("color", "");
 			});
-			$(".myLink").mouseout(()=>{
-				$("h1").css("color","");
-			});
+
+			// $(".myLink").click(() => {
+			// 	$("h1").html("click!");
+			// 	alert($("h1").html());
+			// });
+
 			$(".myLink").click(() => {
-				alert($("h1").html())
+				$("h1").text("Clicked!", function () {
+					alert($("h1").html());
+				});
 			});
+
+
+
 		});
 	</script>
 </head>
 
 <body>
+
 	<h1>Welcome jQuery</h1>
 	<p class="myLink">Click Me</p>
 </body>
