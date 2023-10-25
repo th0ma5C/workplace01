@@ -40,6 +40,7 @@
             position: absolute;
             top: 45%;
             left: 5px;
+            display: none;
         }
 
         #btnNext {
@@ -98,9 +99,9 @@
         }
     </style>
     <script>
-        var select = 0;
-        var sel_val = 0;
-        var Mpage = (Math.floor(13 / 5));
+        let select = 0;
+        let sel_val = 0;
+        let Mpage = (Math.floor(13 / 5));
         // 網頁載入完成執行
         $(document).ready(function () {
             //先清空再增加
@@ -131,14 +132,38 @@
                     `<div id='div${i}'><img src='images/pic_${i}.jpg'></div>`
                 )
             }
+            for (let i = 1; i <= 5; i++) {
+                $("#div-select").append(
+                    `<div id='div${i}'><img src='images/pic_${i}.jpg'></div>`
+                )
+            }
+
             //Passing data to the handler, 即pass num給fnChange, fnChange可由event.data.num取得值
             //https://api.jquery.com/on/
             // 預覽圖區塊div1~div13新增click事件處理函式fnChange
             // 按下預覽圖會傳送num參數，此參數為圖片編號
             $("#div-select div").click(function () {
-                let big_imgNum = $(this).attr("id").substr(3);
-                $("#show").attr("src", "images/pic_" + big_imgNum + ".jpg");
+                let big_img = $(this).attr("id").substr(3);
+                $("#show").attr("src", "images/pic_" + big_img + ".jpg");
                 $("#show").hide().fadeIn(300);
+                console.log("sel_img", $(this).index(), "big_img", big_img);
+                let sel_img = ($(this).index());
+                // $(`#div${sel_img}`).css("border", "2px solid purple");
+                $("#div-select div").css("border", "none");
+                $(this).css("border", "3px solid purple"); //變紫框
+                sel_val = sel_img * -255;
+                $("#div-select").css("left", sel_val + "px");//移動
+                if (sel_img != 0) {
+                    $("#btnPrev").attr("style", "display:block");
+                } else {
+                    $("#btnPrev").attr("style", "display:none;");
+                }
+                if (sel_img == 12) {
+                    $("#btnNext").attr("style", "display:none;");
+                } else {
+                    $("#btnNext").attr("style", "display:block;");
+                }
+                select = sel_img;
             })
             /*
             $("#div1").on("click", {
@@ -165,37 +190,41 @@
             function iconShow() {
                 if (select <= 0) {
                     $("#btnPrev").attr("style", "display:none;");
-                } else if (select > Mpage) {
+                } else if (select > 11) {
                     $("#btnNext").attr("style", "display:none;");
                 } else {
-                    $("#btnPrev").removeAttr("style");
+                    $("#btnPrev").attr("style", "display:block");
                     $("#btnNext").removeAttr("style");
                 }
             };
+            // iconShow();
             // 按下往左鈕執行fnPrev函式
             $("#btnPrev").on("click", function fnPrev() {
                 select -= 1;
+                sel_val += 255;
                 iconShow();
-                if (sel_val == 0) {
-                    alert("已經是第一張了")
-                }
-                else {
-                    sel_val += 100;
-                }
-                $("#div-select").css("left", sel_val + "%");
+                // if (sel_val == 0) {
+                //     alert("已經是第一張了")
+                // }
+                // else {
+                //     sel_val += 254;
+                // }
+                $("#div-select").css("left", sel_val + "px");
             });
             // 按下往右鈕執行fnNext函式
             $("#btnNext").on("click", function fnNext() {
                 select += 1;
-                console.log('select:', select)
+                sel_val -= 255;
                 iconShow();
-                if (sel_val == -300) {
-                    alert("已經是最後一張了")
-                }
-                else {
-                    sel_val -= 100;
-                }
-                $("#div-select").css("left", sel_val + "%");
+                // if (sel_val == -3048) {
+                //     alert("已經是最後一張了")
+                // }
+                // else {
+                //     sel_val -= 254;
+                // }
+                $("#div-select").css("left", sel_val + "px");
+                console.log('select:', select)
+                console.log('sel_val:', sel_val)
             });
         })
 
