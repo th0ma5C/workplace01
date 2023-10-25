@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #div-show {
+            width: 100%;
+            height: 70%;
+            background-color: black;
+            text-align: center;
+        }
+
+        #div-show img {
+            height: 100%;
+        }
+
+        #div-cont {
+            position: relative;
+            width: 100%;
+            height: 30%;
+            overflow: hidden;
+        }
+
+        #btnPrev {
+            width: 30px;
+            height: 30px;
+            background-image: url("images/icon/prev.png");
+            background-size: contain;
+            position: absolute;
+            top: 45%;
+            left: 5px;
+        }
+
+        #btnNext {
+            width: 30px;
+            height: 30px;
+            background-image: url("images/icon/next.png");
+            background-size: cover;
+            position: absolute;
+            top: 45%;
+            right: 5px;
+        }
+
+        /* .border_l:hover #btnPrev,
+        .border_r:hover #btnNext {
+            display: block;
+        } */
+
+        #div-select {
+            height: 100%;
+            width: 1000%;
+            position: absolute;
+            background-color: black;
+            left: 0%;
+            transition: 1.5s;
+        }
+
+        #div-select div {
+            height: 85%;
+            width: 240px;
+            float: left;
+            margin-left: 14px;
+            margin-top: 10px;
+        }
+
+        #div-select img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .border_l {
+            height: 172px;
+            width: 30px;
+            position: absolute;
+            top: 5%;
+            left: 5px;
+            z-index: 999;
+        }
+
+        .border_r {
+            height: 172px;
+            width: 30px;
+            position: absolute;
+            top: 5%;
+            right: 5px;
+            z-index: 999;
+        }
+    </style>
+    <script>
+        var select = 0;
+        var sel_val = 0;
+        var Mpage = (Math.floor(13 / 5));
+        // 網頁載入完成執行
+        $(document).ready(function () {
+            //先清空再增加
+            $("#div-select").empty();
+            // 將預覽圖div1~div13新增到#div-select元素
+            /*
+            $("#div-select").append(
+                "<div id='div1'><img src='images/pic_1.jpg'></div>"
+            );
+            $("#div-select").append(
+                "<div id='div2'><img src='images/pic_2.jpg'></div>"
+            );
+            $("#div-select").append(
+                "<div id='div3'><img src='images/pic_3.jpg'></div>"
+            );
+            $("#div-select").append(
+                "<div id='div4'><img src='images/pic_4.jpg'></div>"
+            );
+            $("#div-select").append(
+                "<div id='div5'><img src='images/pic_5.jpg'></div>"
+            );
+            $("#div-select").append(
+                "<div id='div6'><img src='images/pic_6.jpg'></div>"
+            );
+            */
+            for (let i = 1; i <= 13; i++) {
+                $("#div-select").append(
+                    `<div id='div${i}'><img src='images/pic_${i}.jpg'></div>`
+                )
+            }
+            //Passing data to the handler, 即pass num給fnChange, fnChange可由event.data.num取得值
+            //https://api.jquery.com/on/
+            // 預覽圖區塊div1~div13新增click事件處理函式fnChange
+            // 按下預覽圖會傳送num參數，此參數為圖片編號
+            $("#div-select div").click(function () {
+                let big_imgNum = $(this).attr("id").substr(3);
+                $("#show").attr("src", "images/pic_" + big_imgNum + ".jpg");
+                $("#show").hide().fadeIn(300);
+            })
+            /*
+            $("#div1").on("click", {
+                num: 1
+            }, fnChange);
+            $("#div2").on("click", {
+                num: 2
+            }, fnChange);
+            $("#div3").on("click", {
+                num: 3
+            }, fnChange);
+            $("#div4").on("click", {
+                num: 4
+            }, fnChange);
+            $("#div5").on("click", {
+                num: 5
+            }, fnChange);
+            $("#div6").on("click", {
+                num: 6
+            }, fnChange);
+            // }
+            */
+            // 判斷往左與右鈕是否出現
+            function iconShow() {
+                if (select <= 0) {
+                    $("#btnPrev").attr("style", "display:none;");
+                } else if (select > Mpage) {
+                    $("#btnNext").attr("style", "display:none;");
+                } else {
+                    $("#btnPrev").removeAttr("style");
+                    $("#btnNext").removeAttr("style");
+                }
+            };
+            // 按下往左鈕執行fnPrev函式
+            $("#btnPrev").on("click", function fnPrev() {
+                select -= 1;
+                iconShow();
+                if (sel_val == 0) {
+                    alert("已經是第一張了")
+                }
+                else {
+                    sel_val += 100;
+                }
+                $("#div-select").css("left", sel_val + "%");
+            });
+            // 按下往右鈕執行fnNext函式
+            $("#btnNext").on("click", function fnNext() {
+                select += 1;
+                console.log('select:', select)
+                iconShow();
+                if (sel_val == -300) {
+                    alert("已經是最後一張了")
+                }
+                else {
+                    sel_val -= 100;
+                }
+                $("#div-select").css("left", sel_val + "%");
+            });
+        })
+
+        // function fnChange(event) {
+
+        // }
+        function iconShow() { }
+
+        function fnPrev() { }
+
+        function fnNext() { }
+    </script>
+
+
+</head>
+
+<body>
+    <div id="div-show">
+        <img id="show" src="images/pic_1.jpg">
+    </div>
+    <div id="div-cont">
+        <div id="div-select">
+        </div>
+        <div class="border_l">
+            <div id="btnPrev"></div>
+        </div>
+        <div class="border_r">
+            <div id="btnNext"></div>
+        </div>
+    </div>
+</body>
+
+</html>
