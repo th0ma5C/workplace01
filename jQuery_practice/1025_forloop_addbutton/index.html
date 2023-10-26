@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 550px;
+            margin: 5px auto;
+        }
+
+        p {
+            margin: 10px;
+            height: 300px;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+
+        #tabs {
+            position: relative;
+            list-style-type: none;
+        }
+
+        #tabs li {
+            position: relative;
+            float: left;
+            width: 155px;
+            text-align: center;
+            margin: 0 3px;
+        }
+
+        #tabs li a.active {
+            position: relative;
+            color: #555;
+            top: 1px;
+            background-color: #fff;
+        }
+
+        #tabs li a {
+            position: relative;
+            border-top: 1px solid #333;
+            border-left: 1px solid #333;
+            border-right: 1px solid #333;
+            color: #fff;
+            display: block;
+            background-color: #555;
+            padding: 5px 5px 5px 0px;
+            text-decoration: none;
+        }
+
+        .content {
+            border: 1px solid #333;
+            background-color: #fff;
+        }
+
+        .tab {
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        //jQuery寫法
+        $(function () {
+            let abtn = $("#container").find("button");
+            let adiv = $("#container").find("div");
+            console.log('abtn:', abtn);
+            console.log('adiv:', adiv);
+
+            //添加點擊事件
+            abtn.attr("class","");
+            adiv.css("diplay","none");
+
+            $(this).attr("class","active");
+            adiv.eq($(this).index()).css("display","block");
+        });
+        //原生JS寫法
+        // window.onload=function(){
+        //     let odiv = document.getElementById("container");
+        //     let abtn = odiv.getElementsByTagName("button");
+        //     let adiv = odiv.getElementsByTagName("div");
+        //     console.log('odiv:', odiv);
+        //     console.log('abtn:', abtn);
+        //     console.log('adiv:', adiv);
+
+        //     //透過循環添加點擊事件
+        //     for(let i = 0;i<abtn.length;i++){
+        //         //添加自訂義屬性紀錄當前下標
+        //         abtn[i].index=i;
+        //         abtn[i].onclick = function(){
+        //             //清除按鈕style，隱藏所有div
+        //             for(let j = 0;j<abtn.length;j++){
+        //                 abtn[j].className = '';
+        //                 adiv[j].style.display='none';
+        //             }
+        //             //顯示點擊中之按鈕
+        //             this.className = "active";
+        //             adiv[this.index].style.display = "block";
+
+        //         }
+        //     }
+        // }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="tabs" class="clearfix">
+            <button>Angular</button>
+            <button>Vue.js</button>
+            <button>React</button>
+            <!-- <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li> -->
+        </ul>
+        
+            <div class="tab" style="display: block;">
+                <p>Angular是由Google維護的前端框架。 它是一個全功能的框架，提供了許多工具和功能，包括元件化、依賴注入、路由、模組化、表單處理、HTTP客戶端等。
+                    Angular支援TypeScript，使得開發更容易維護和類型安全。 Angular的學習曲線相對較高，適合大型企業應用且需要豐富功能的專案。</p>
+            </div>
+            <div class="tab">
+                <p>ue.js是由尤雨溪（Evan You）創建的漸進式框架，允許逐步引入專案。 它具有簡單的API、雙向資料綁定、元件系統、指令等功能，使建立互動性應用變得容易。
+                    Vue.js的學習曲線相對較低，適合小到中型項目，特別適用於快速原型設計和建立互動性應用。</p>
+            </div>
+            <div class="tab">
+                <p>React是由Facebook開發，現在由社群維護的使用者介面庫。 它強調元件化開發，透過虛擬DOM提高效能，支援伺服器端渲染，並且可以很好地與其他程式庫和框架整合。
+                    React的學習曲線相對較低，適用於各種項目，包括單頁應用、行動應用和小到大型應用。</p>
+            </div>
+        
+    </div>
+</body>
+
+</html>
