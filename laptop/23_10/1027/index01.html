@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        html,
+        body {
+            box-sizing: border-box;
+            height: 100%;
+            margin: 0;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit
+        }
+
+        #div-show {
+            width: 100%;
+            height: 70%;
+            background-color: black;
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        #div-show img {
+            height: 95%;
+        }
+
+        #div-cont {
+            position: relative;
+            width: 100%;
+            height: 30%;
+            overflow: hidden;
+        }
+
+        #btnPrev {
+            width: 30px;
+            height: 30px;
+            background-image: url("images/icon/prev.png");
+            background-size: cover;
+            position: absolute;
+            top: 40%;
+            left: 5px;
+        }
+
+        #btnNext {
+            width: 30px;
+            height: 30px;
+            background-image: url("images/icon/next.png");
+            background-size: cover;
+            position: absolute;
+            top: 40%;
+            right: 5px;
+        }
+
+        #div-select {
+            height: 100%;
+            width: 1000%;
+            position: absolute;
+            background-color: black;
+            left: 0%;
+            transition: 1.5s;
+        }
+
+        #div-select div {
+            display: flex;
+            height: 85%;
+            width: 240px;
+            float: left;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin-left: 14px;
+            margin-top: 10px;
+        }
+
+        #div-select img {
+            width: 95%;
+            height: 95%;
+        }
+
+        .addBorder {
+            border-width: 3px;
+            border-color: transparent;
+            border-style: solid;
+        }
+
+        .showBorder {
+            border-color: blueviolet;
+        }
+
+        ul {
+            position: absolute;
+            bottom: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            background-color: gray;
+            width: 5px;
+            height: 5px;
+            border-radius: 99px;
+            margin: 3px;
+        }
+
+        .slc_li {
+            background-color: red;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+        var select = 1;
+        var preSelect = 0;
+        var sel_val = 0;
+        // var Mpage = Math.floor(13/5);
+        var Mpage = 13;
+        let position = 0;
+        let slc_img = 1;
+        // 網頁載入完成執行
+        $(document).ready(function () {
+            $("#div-select").empty();
+            // 將預覽圖div1~div13新增到#div-select元素
+            for (var i = 1; i <= 13; i++) {
+                $("#div-select").append
+                    (
+                        "<div class = 'addBorder' id='div" + i + "'><img src='images/pic_" + i + ".jpg'></div>"
+                    );
+            }
+            for (var i = 1; i <= 13; i++) {
+                $("#div-show ul").append
+                    (
+                        "<li id='li" + i + "'></li>"
+                    );
+            }
+            $(`#li1`).addClass("slc_li");
+            //點圖片
+            $("#div-select div").click(function () {
+                //變紫框
+                $("#div-select div").css("border", "none");
+                $(this).css("border", "3px solid purple");
+                // 顯示圖片
+                slc_img = Number($(this).attr("id").substr(3));
+                let filename = "images/pic_" + slc_img + ".jpg"
+                $("#show").attr("src", filename);
+                //顯示紅點
+                $("#div-show ul li").removeClass("slc_li");
+                $(`#li${slc_img}`).addClass("slc_li");
+                // 淡出動畫
+                $("#show").hide().fadeIn(1000);
+                //移動
+                position = (slc_img - 1) * -254;
+                $("#div-select").css("left", (position + "px"));
+                iconShow();
+            })
+            //點圓點
+            $("li").click(function () {
+                // 顯示圖片
+                slc_img = Number($(this).attr("id").substr(2));
+                let filename = "images/pic_" + slc_img + ".jpg"
+                $("#show").attr("src", filename);
+                //變紫框
+                $("#div-select div").css("border", "none");
+                $(`#div-select #div${slc_img}`).css("border", "3px solid purple");
+                //顯示紅點
+                $("#div-show ul li").removeClass("slc_li");
+                $(`#li${slc_img}`).addClass("slc_li");
+                // 淡出動畫
+                $("#show").hide().fadeIn(1000);
+                //移動
+                position = (slc_img - 1) * -254;
+                $("#div-select").css("left", (position + "px"));
+                iconShow();
+            })
+            fnChange();
+            // 判斷往左與右鈕是否出現
+            iconShow();
+            // 按下往左鈕執行fnPrev函式
+            $("#btnPrev").on("click", fnPrev);
+            // 按下往右鈕執行fnNext函式
+            $("#btnNext").on("click", fnNext);
+
+
+            function fnChange() {
+                // $("#div" + preSelect).removeClass("showBorder");
+                // $(".addBorder").removeClass("showBorder");
+                // $("#div" + slc_img).addClass("showBorder");
+                $("#div-select div").css("border", "none");
+                $(`#div-select #div${slc_img}`).css("border", "3px solid purple");
+                // 取得選取的圖片編號並組成完成圖檔
+                var filename = "images/pic_" + slc_img + ".jpg"
+                // 顯示圖片
+                $("#show").attr("src", filename);
+                // 呈現淡出動畫
+                $("#show").hide().fadeIn(300);
+                //紅點
+                $("#div-show ul li").removeClass("slc_li");
+                $(`#li${slc_img}`).addClass("slc_li");
+                //紫框
+
+            }
+            // 判斷往左與右鈕是否出現
+            function iconShow() {
+                if (slc_img <= 1) {
+                    $("#btnPrev").attr("style", "display:none;");
+                } else if (slc_img >= Mpage) {
+                    $("#btnNext").attr("style", "display:none;");
+                } else {
+                    $("#btnPrev").removeAttr("style");
+                    $("#btnNext").removeAttr("style");
+                }
+                console.log('position:', position)
+                console.log('slc_img:', slc_img)
+            }
+            // 往左鈕事件處理函式
+            function fnPrev() {
+                // preSelect = select;
+                slc_img -= 1;
+                fnChange();
+                position += 254
+                $("#div-select").css("left", position + "px");
+                iconShow()
+            }
+            // 往右鈕事件處理函式
+            function fnNext() {
+                //往左捲動動畫
+                // preSelect = select;
+                slc_img += 1;
+                fnChange();
+                position -= 254
+                $("#div-select").css("left", position + "px");
+                iconShow();
+            }
+        })
+    </script>
+
+</head>
+
+<body>
+    <div id="div-show">
+        <img id="show" src="images/pic_1.jpg">
+        <ul>
+        </ul>
+    </div>
+
+    <div id="div-cont">
+        <div id="div-select">
+        </div>
+        <div id="btnPrev"></div>
+        <div id="btnNext"></div>
+    </div>
+</body>
+
+</html>
