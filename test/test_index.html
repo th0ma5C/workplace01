@@ -5,21 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
-        let a = [1, 2, 3];
-        console.log(typeof a);
-        class b {
-            constructor(height, width) {
-                this.height = height;
-                this.width = width;
-            }
+    <style>
+        #test:hover {
+            cursor: pointer;
         }
-        console.log(typeof b)
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            // "use strict";
+            class student {
+                constructor(name, age) {
+                    this.name = name;
+                    this.age = age;
+                    // this.clik = this.clik.bind(this);
+                }
+                speak() {
+                    return `<h1 onclick="clik()">我是${this.name}我${this.age}歲</h1>`;
+                }
+
+            }
+
+            const s1 = new student("tom", 18);
+            // console.log('s1:', s1);
+            $("#test").html(s1.speak());
+        })
+        function clik() {
+            console.log("點到了");
+        }
+
     </script>
 </head>
 
 <body>
-
+    <div id="test"></div>
 </body>
 
 </html>

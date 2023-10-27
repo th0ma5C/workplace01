@@ -21,24 +21,38 @@
                 this.state = {
                     ishot: 0
                 }
+                this.demo= this.demo.bind(this);
             }
             render() {
                 console.log(this);
                 //讀取狀態
                 //return <h1>今天天氣{this.state.ishot ? '炎熱' : '涼爽'}</h1>
                 const { ishot } = this.state;
-                return <h1 onClick={demo}>今天天氣{ishot ? '炎熱' : '涼爽'}</h1>
+                return <h1 onClick={this.demo}>今天天氣{ishot ? '炎熱' : '涼爽'}</h1>
             }
+            demo() {
+                // console.log("clicked");
+                // const { ishot } = this.state;
+                // console.log('ishot:', ishot)
+                const ishot = this.state.ishot;
+                //↓↓↓狀態(state)不可直接更改↓↓↓
+                // this.state.ishot = !ishot;
+                //↓↓↓需透過setState進行修改、更新↓↓↓(是合併，不是替換)
+                this.setState({ishot:!ishot});
+                console.log(this.state.ishot);
+
+            }
+
         }
 
         ReactDOM.createRoot(document.getElementById("test")).render(<Weather />);
         // ReactDOM.render(<Weather />, document.getElementById("test"))
 
-        function demo() {
-            console.log("clicked");
-            const { ishot } = this.state;
-            console.log('ishot:', ishot)
-        }
+        // function demo() {
+        //     console.log("clicked");
+        //     const { ishot } = this.state;
+        //     console.log('ishot:', ishot)
+        // }
         // const title = document.getElementById("title");
         // title.addEventListener("click",()=>{
         //     console.log('clicked');
