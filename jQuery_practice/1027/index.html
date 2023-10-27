@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("ul").on("click", "li", function () {
+                $(this).css("backgroundColor", "red");
+            });
+
+            let i = 5;
+            $("#btn1").on("click", function () {
+                $(`<li>${i++ * 1111}</li>`).appendTo($("ul"));
+            });
+
+            // $("#btn2").on("click", function () {
+            //     $("#div1").off();
+            // })
+
+            $("#btn2").click(function(){
+                $("#test ul").off();
+            })
+        })
+
+    </script>
+</head>
+
+<body>
+    <div id="test">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+        <button id="btn1">增加節點</button>
+        <button id="btn2">取消事件</button>
+    </div>
+</body>
+
+</html>
