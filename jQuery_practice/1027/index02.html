@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            height: 1200px;
+        }
+
+        button {
+            cursor: pointer;
+            position: sticky;
+            top: 0px;
+        }
+
+        #div1 {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            position: absolute;
+            display: none;
+        }
+
+        #close {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+
+        #close:hover {
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            //計算居中top、left值
+            let top =/* $(window).scrollTop() + */($(window).height() - $("#div1").outerHeight(true)) / 2;
+            let left = ($(window).width() - $("#div1").outerWidth(true)) / 2;
+
+            $("#div1").css({
+                left: left,
+                top: top
+            });
+
+            $(window).on("scroll resize", function () {
+                top = $(window).scrollTop() + ($(window).height() - $("#div1").outerHeight(true)) / 2;
+                left = ($(window).width() - $("#div1").outerWidth(true)) / 2;
+
+                $("#div1").css({
+                    left: left,
+                    top: top
+                });
+
+            });
+
+            $("#issue").click(function () {
+                $("#div1").css("display", "block");
+            });
+
+            $("#close").click(function () {
+                $("#div1").css("display", "none");
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <button id="issue">登入</button>
+    <div id="div1">
+        <input type="text" placeholder="用戶名" />
+        <input type="text" placeholder="密碼">
+        <div id="close">X</div>
+    </div>
+</body>
+
+</html>
