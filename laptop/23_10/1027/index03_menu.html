@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            // when a hanburger menu is clicked
+            // $(".nav__menu").click(function () {
+            //     $(".nav__list").toggleClass("menu-click");
+            // });
+
+            $(".nav__menu").on("click",function () {
+                $(".nav__list").toggleClass("menu-click");
+            });
+        });
+    </script>
 
 <body>
 
@@ -16,7 +28,10 @@
         <div class="container">
             <h1 class="header__title">Website Title</h1>
             <p class="header__slogan show-large">Website slogan included here.</p>
+        </div>
+        <div class="container--fluid">
             <nav class="nav">
+                <span class="nav__menu">&#9776</span>
                 <ul class="nav__list">
                     <li class="nav__item"><a class="nav__link" href="#">Home</a></li>
                     <li class="nav__item"><a class="nav__link" href="#">About</a></li>
@@ -26,7 +41,7 @@
                     <li class="nav__item"><a class="nav__link" href="#">Contact Us</a></li>
                 </ul>
             </nav>
-        </div><!-- /container -->
+        </div>
 
     </header>
 
