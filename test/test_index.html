@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
+        /*
         $(function () {
             // "use strict";
             class student {
@@ -37,10 +38,27 @@
 
         $("span").insertBefore($("div"));
         $("div").before($("span"));
+        */
+        $(function () {
+            let wid =$(window).width(), iner =$(window).innerWidth(), outer =$(window).outerWidth(), outer_t =$(window).outerWidth(true);
+
+            console.log('wid:', wid);
+            console.log('iner:', iner);
+            console.log('outer:', outer);
+            console.log('outer_t:', outer_t);
+
+            $(window).on("resize", function () {
+                wid =$(window).width(), iner =$(window).innerWidth(), outer =$(window).outerWidth(), outer_t =$(window).outerWidth(true);
+                console.log('wid:', wid);
+                console.log('iner:', iner);
+                console.log('outer:', outer);
+                console.log('outer_t:', outer_t);
+            })
+        })
     </script>
 </head>
 
-<body>
+<body style="margin: 10px;">
     <div id="test"></div>
 </body>
 

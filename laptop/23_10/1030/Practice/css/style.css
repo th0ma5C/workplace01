@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Noto Sans TC', sans-serif;
+    color: #2b2b2b;
+}
+
+a, a:active, a:hover, a:link, a:visited{
+    text-decoration: none;
+    outline: none;
+    color: #2b2b2b;
+}
+
+a:hover{
+    color: #999;
+}
+
+h2, .title-color{
+    color: #0099d1;
+}
+
+@media screen and (max-width: 768px){
+    .navbar-brand img{
+        width: 60px;
+    }
+}
+
+.shop-menu a {
+    padding: 8px 16px;
+    color: #0099d1 !important;
+    border: 1px solid #0099d1;
+    border-radius: 10px;
+}
+
+.shop-menu a:hover, .shop-menu .active a{
+    color: #fff !important;
+    background-color: #0099d1;
+}
