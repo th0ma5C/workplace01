@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="test"></div>
+    <script type="text/babel">
+        class Weather extends React.Component {
+            // constructor(props) {
+            //     super(props);
+            //     this.state = {
+            //         ishot: 0,
+            //         wind: "微風",
+            //     }
+            //     this.changeWeather = this.changeWeather.bind(this);
+            // }
+            
+            //初始化狀態
+            state = {
+                ishot: 0,
+                wind: "微風",
+            }
+            render() {
+                const { ishot, wind } = this.state;
+                return <h1 onClick={this.changeWeather}>今天天氣{ishot ? '炎熱' : '涼爽'}，{wind}</h1>
+            }
+            //自定義函數要用賦值語句+箭頭函數的形式
+            //function沒有this，用箭頭函數會自動找向Weather的實例對象
+            changeWeather = () => {
+                const ishot = this.state.ishot;
+                this.setState({ ishot: !ishot });
+
+            }
+
+        }
+
+        ReactDOM.createRoot(document.getElementById("test")).render(<Weather />);
+    </script>
+
+</body>
+
+</html>

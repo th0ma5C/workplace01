@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        //創建組件
+        class Person extends React.Component {
+            render() {
+                //解構重複部分
+                const {name,age,sex} = this.props;
+                return (
+                    <ul>
+                        <li>姓名:{name}</li>
+                        <li>性別:{sex}</li>
+                        <li>年齡:{age}</li>
+                    </ul>
+                )
+            }
+        }
+        //渲染組件，可傳入參數
+        ReactDOM.createRoot(document.getElementById("test0")).render(<Person name="tom" age="18" sex="男" />)
+        ReactDOM.createRoot(document.getElementById("test1")).render(<Person name="ham" age="19" sex="男" />)
+        
+        const p = {name:"annie",age:"20",sex:"女"}
+        //ReactDOM.createRoot(document.getElementById("test2")).render(<Person name={p.name} age={p.age} sex={p.sex} />)
+        ReactDOM.createRoot(document.getElementById("test2")).render(<Person {...p} />)
+    
+    </script>
+</head>
+
+<body>
+    <div id="test0"></div>
+    <div id="test1"></div>
+    <div id="test2"></div>
+
+
+</body>
+
+</html>
