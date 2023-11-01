@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            const vm = Vue.createApp({
+                data() {
+                    return {
+                        message: "hello vue!"
+                    }
+                }
+            })
+
+            vm.mount('#test');
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="test">
+        <p>{{message}}</p>
+        <p>{{message}}</p>
+        <p>{{message}}</p>
+        <input v-model = "message">
+    </div>
+
+</body>
+
+</html>

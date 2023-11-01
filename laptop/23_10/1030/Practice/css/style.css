@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
-
+/*首頁*/
 html {
     margin: 0;
     padding: 0;
@@ -95,4 +95,8 @@ section li {
     .send-btn {
         width: 100%;
     }
+}
+/*關於*/
+.page-content{
+    min-height: 700px;
 }
