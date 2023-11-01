@@ -51,58 +51,265 @@
     <!-- header/end -->
 
     <!-- 廣告/start -->
-    <section>
-        <div id="carouselBanner" class="carousel slide" data-bs-ride=" carousel">
+    <section class="banners">
+        <div id="carouselBanner" class="carousel slide" data-bs-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-bs-target="#carouselBanner" data-bs-slide-to="0" class="active"></li>
                 <li data-bs-target="#carouselBanner" data-bs-slide-to="1"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="caroulsel-item active">
+                <div class="carousel-item active">
                     <img class="d-block w-100" src="./images/slider_1.jpg" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption d-none d-md-block text-dark">
                         <h3>EVA發泡板</h3>
                         <p>依國際標準Pantone標準色卡之色號來製作</p>
                     </div>
-                    <div class="carousel-item">
-                        <img src="./images/slider_2.jpg" alt="Second slide" class="d-block w-100">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>廠房設備</h3>
-                            <p>高專業的製造能力</p>
-                        </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/slider_2.jpg" alt="Second slide" class="d-block w-100">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>廠房設備</h3>
+                        <p>高專業的製造能力</p>
                     </div>
                 </div>
-                <a href="#carouselBanner" role="button" data-bs-slide="prev" class="carousel-control-prev">
-                    <span class=""></span>
+            </div>
+
+            <a href="#carouselBanner" role="button" data-bs-slide="prev" class="carousel-control-prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </a>
+            <a href="#carouselBanner" class="carousel-control-next" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </a>
+
+        </div>
+    </section>
+    <!-- 廣告/end -->
+
+    <!-- 產品分類/start -->
+    <section class="container mt-5">
+        <h2>產品分類</h2>
+        <p>登山拐杖握把與人體工學專用握把，也生產EVA發泡握把/軟木握把、尼龍帶及相關配件，特殊設計及客製尺寸歡迎來信來電詢問</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 product-categories">
+            <div class="col">
+                <a href="shop.html" class="card">
+                    <img src="./images/services_1.jpg" alt="登山拐杖握把" class="card-img-top">
+                    <div class="card-body bg-dark">
+                        <h4 class="mb-0 text-white text-center">
+                            登山拐杖握把
+                        </h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="shop.html" class="card">
+                    <img class="card-img-top" src="./images/services_2.jpg" alt="登山拐杖組合樣式">
+                    <div class="card-body bg-dark">
+                        <h4 class="mb-0 text-white text-center">
+                            登山拐杖組合樣式
+                        </h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="shop.html" class="card">
+                    <img class="card-img-top" src="./images/services_3.jpg" alt="發泡套管">
+                    <div class="card-body bg-dark">
+                        <h4 class="mb-0 text-white text-center">
+                            發泡套管
+                        </h4>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="shop.html" class="card">
+                    <img class="card-img-top" src="./images/services_4.jpg" alt="發泡板">
+                    <div class="card-body bg-dark">
+                        <h4 class="mb-0 text-white text-center">
+                            發泡板
+                        </h4>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
-    <!-- 廣告/end -->
-    <!-- 產品分類/start -->
-
     <!-- 產品分類/end -->
+
     <!-- 熱門產品/start -->
+    <section class="container mt-5">
+        <div class="row">
+            <div class="mb-2">
+                <h2>熱門產品</h2>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card mb-3">
+                    <img src="./images/product/eva_1.jpg" alt="LTG-BY-0001" class="card-img-top">
+                    <div class="card-body">
+                        <h4 class="card-little">LTG-BY-0001</h4>
+                        <p class="card-text">專利樣式雙色登山拐杖握把，EVA發泡材質</p>
+                        <h5 class="card-text text-danger">
+                            <small class="text-secondary me-2">
+                                <del>NT$&nbsp;600</del>
+                            </small>
+                            NT$&nbsp;500
+                        </h5>
+                        <div class="d-grid gap-2">
+                            <a href="product.html" class="btn btn-outline-secondary">查看商品</a>
+                            <a href="cart.html" class="btn btn-outline-primary">加入購物車</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card">
+                    <img src="./images/product/eva_2.jpg" alt="TG-B-0001" class="card-img-top">
+                    <h4 class="card-little">TG-B-0001</h4>
+                    <p class="card-text">登山拐杖握把，EVA發泡材質</p>
+                    <h5 class="card-text">NT$&nbsp;600</h5>
+                    <div class="d-grid gap-2">
+                        <a href="product.html" class="btn btn-outline-secondary">查看商品</a>
+                        <a href="cart.html" class="btn btn-outline-primary">加入購物車</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card">
+                    <img src="./images/product/eva_3.jpg" alt="LTG-B-0001" class="card-img-top">
+                    <h4 class="card-little">LTG-B-0001</h4>
+                    <p class="card-text">登山拐杖握把，EVA發泡材質</p>
+                    <h5 class="card-text">NT$&nbsp;600</h5>
+                    <div class="d-grid gap-2">
+                        <a href="product.html" class="btn btn-outline-secondary">查看商品</a>
+                        <a href="cart.html" class="btn btn-outline-primary">加入購物車</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card">
+                    <img src="./images/product/eva_4.jpg" alt="G-B-0001" class="card-img-top">
+                    <h4 class="card-little">G-B-0001</h4>
+                    <p class="card-text">登山拐杖握把，EVA發泡材質</p>
+                    <h5 class="card-text">NT$&nbsp;600</h5>
+                    <div class="d-grid gap-2">
+                        <a href="product.html" class="btn btn-outline-secondary">查看商品</a>
+                        <a href="cart.html" class="btn btn-outline-primary">加入購物車</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card">
+                    <img src="./images/product/eva_5.jpg" alt="G-B-0002" class="card-img-top">
+                    <h4 class="card-little">G-B-0002</h4>
+                    <p class="card-text">登山拐杖握把，EVA發泡材質</p>
+                    <h5 class="card-text">NT$&nbsp;600</h5>
+                    <div class="d-grid gap-2">
+                        <a href="product.html" class="btn btn-outline-secondary">查看商品</a>
+                        <a href="cart.html" class="btn btn-outline-primary">加入購物車</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card">
+                    <img src="./images/product/eva_6.jpg" alt="TU-BY-0001" class="card-img-top">
+                    <h4 class="card-little">TU-BY-0001</h4>
+                    <p class="card-text">專利樣式雙色EVA發泡套管</p>
+                    <h5 class="card-text">NT$&nbsp;600</h5>
+                    <div class="d-grid gap-2">
+                        <a href="product.html" class="btn btn-outline-secondary">查看商品</a>
+                        <a href="cart.html" class="btn btn-outline-primary">加入購物車</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card">
+                    <img src="./images/product/eva_7.jpg" alt="MG-GO-0002" class="card-img-top">
+                    <h4 class="card-little">MG-GO-0002</h4>
+                    <p class="card-text">客製化雙色登山拐杖握把，EVA發泡材質</p>
+                    <h5 class="card-text">NT$&nbsp;600</h5>
+                    <div class="d-grid gap-2">
+                        <a href="product.html" class="btn btn-outline-secondary">查看商品</a>
+                        <a href="cart.html" class="btn btn-outline-primary">加入購物車</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card">
+                    <img src="./images/product/eva_8.jpg" alt="LG-GP-0001" class="card-img-top">
+                    <h4 class="card-little">LG-GP-0001</h4>
+                    <p class="card-text">客製化雙色登山拐杖握把，EVA發泡材質</p>
+                    <h5 class="card-text">NT$&nbsp;600</h5>
+                    <div class="d-grid gap-2">
+                        <a href="product.html" class="btn btn-outline-secondary">查看商品</a>
+                        <a href="cart.html" class="btn btn-outline-primary">加入購物車</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+
+    </section>
     <!-- 熱門產品/end -->
+
     <!-- 關於岡南/start -->
-
+    <section class="container mt-5">
+        <h2>關於岡南</h2>
+        <p>
+            本公司創立於西元1980年,前身為岡南木業有限公司,期間經營各種內外銷高品
+            質木製家具及木製品加工製造項目。後期因台灣家具業外移至大陸地區生產製造,本公司基
+            社會責任並根留台灣力拼轉型,並於西元2003年轉型開EVA材之登山
+            提供世界各大代工製造服務,因業展需要,公司於西元2014年更為
+            限公司。我們將竭盡心力繼續優良的服及專業的技術及高度的品質來提供您
+            品。歡迎您來電或來信與我們聯絡
+        </p>
+    </section>
     <!-- 關於岡南/end -->
+
     <!-- google map/start -->
-
+    <section class="mt-5">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10231.43437563492!2d121.22540464180683!3d24.953920929467696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34682248fcfa49d7%3A0x57e0b78df52b3c96!2z5Lit5aOi54Gr6LuK56uZ!5e0!3m2!1szh-TW!2stw!4v1698814862091!5m2!1szh-TW!2stw"
+            width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+    </section>
     <!-- google map/end -->
+
     <!-- 頁腳/start -->
+    <footer class="bg-dark">
+        <div class="container pt-3 pt-md-5">
+            <div class="row">
+                <!-- 選單連結/start -->
+                <div class="col-md-6 mb-3">
+                    <ul class="footer-menu">
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="about.html">關於岡南</a></li>
+                        <li><a href="shop.html">產品首頁</a></li>
+                        <li><a href="job.html">人力資源</a></li>
+                        <li><a href="contact.html">聯絡我們</a></li>
+                        <li><a href="login.html">登入</a></li>
+                        <li><a href="cart.html">購物車</a></li>
+                        <li><a href="checkout.html">結帳</a></li>
+                    </ul>
 
-    <!-- 選單連結/start -->
-
-    <!-- 選單連結/end -->
-    <!-- 訂閱/start -->
-
-    <!-- 訂閱/end -->
-    <!-- 版權所有/start -->
-
-    <!-- 版權所有/end -->
-
+                </div>
+                <!-- 選單連結/end -->
+                <!-- 訂閱/start -->
+                <div class="col-md-6 mb-3">
+                    <h6 class="text-white">留下E-mail，訂閱岡南塑膠發泡，可搶先獲得最新的資訊喔!</h6>
+                    <form action="" class="text-white">
+                        <input type="email" name="" id="" class="form-control mt-3 mb-2" placeholder="請輸入E-mail">
+                        <button type="submit" class="btn btn-outline-primary float-end send-btn">傳送</button>
+                    </form>
+                </div>
+                <!-- 訂閱/end -->
+                <!-- 版權所有/start -->
+                <div class="mt-3">
+                    <p class="text-white text-center">(c)Copyrights 2022 岡南塑膠發泡.</p>
+                </div>
+                <!-- 版權所有/end -->
+            </div>
+        </div>
+    </footer>
     <!-- 頁腳/end -->
 </body>
 
