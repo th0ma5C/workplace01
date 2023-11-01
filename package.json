@@ -3,6 +3,7 @@
     "@babel/plugin-syntax-jsx": "^7.22.5"
   },
   "dependencies": {
-    "@babel/standalone": "^7.23.2"
+    "@babel/standalone": "^7.23.2",
+    "sass": "^1.69.5"
   }
 }

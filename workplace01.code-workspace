@@ -5,6 +5,20 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.port": 5501
-	}
+		"liveServer.settings.port": 5501,
+		"launch": {
+			"configurations": [],
+			"compounds": []
+		},
+		"liveSassCompile.settings.formats": [
+			
+			{
+				"format": "expanded",
+				"extensionName": ".css",
+				"savePath": "~/../scss/css",
+				"savePathReplacementPairs": null
+			}
+		]
+	},
+	
 }
