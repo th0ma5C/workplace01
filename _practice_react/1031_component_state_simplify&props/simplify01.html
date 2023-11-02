@@ -8,10 +8,6 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
-
-<body>
-    <div id="test"></div>
     <script type="text/babel">
         class Weather extends React.Component {
             // constructor(props) {
@@ -22,7 +18,7 @@
             //     }
             //     this.changeWeather = this.changeWeather.bind(this);
             // }
-            
+
             //初始化狀態
             state = {
                 ishot: 0,
@@ -44,6 +40,11 @@
 
         ReactDOM.createRoot(document.getElementById("test")).render(<Weather />);
     </script>
+
+</head>
+
+<body>
+    <div id="test"></div>
 
 </body>
 
