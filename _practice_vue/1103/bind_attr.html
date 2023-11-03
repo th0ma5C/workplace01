@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        window.onload = function () {
+            const vm = Vue.createApp({
+                data() {
+                    return {
+                        msg: 'You loaded this page on ' + new Date().toLocaleString()
+                    }
+                }
+            });
+            console.log('vm:', vm)
+            vm.mount("#test");
+        }
+    </script>
+    <style>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bind-attribute" class="demo">
+        <span>
+            滑鼠懸停幾秒鐘查看此處動態綁定的提示信息！
+        </span>
+    </div>
+    <script>
+        $("#bind-attribute").attr('title', 'You loaded this page on ' + new Date().toLocaleString());
+    </script>
+
+    <div id="test" class="demo">
+        <span :title="msg">
+            滑鼠懸停幾秒鐘查看此處動態綁定的提示信息！
+        </span>
+    </div>
+
+</body>
+
+</html>

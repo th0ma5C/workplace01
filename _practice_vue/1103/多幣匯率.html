@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        window.onload = function () {
+            const vm = Vue.createApp({
+                data() {
+                    return {
+                        twd: 1,
+                    }
+                },
+
+                computed: {
+                    // twd: {
+                    //     get() {
+                    //         return Number.parseFloat(this.twd).toFixed(2);
+                    //     },
+                    //     set(val) {
+                    //         this.twd = val;
+                    //     }
+                    // },
+                    jpy: {
+                        get() {
+                            console.log("@", typeof (this.twd));
+                            return parseFloat(Number(this.twd) / 0.21).toFixed(2);
+                        },
+                        set(val) {
+                            val = Number(val);
+                            this.twd = (val * 0.21).toFixed(2);
+                            console.log('twd:', typeof (this.twd));
+                            console.log('val:', typeof (val));
+                        }
+                    },
+                    usd: {
+                        get() {
+                            return parseFloat(Number(this.twd) / 32.24).toFixed(2);
+                        },
+                        set(val) {
+                            this.twd = (val * 32.24).toFixed(2);
+                        }
+
+                    }
+                },
+            });
+
+            vm.mount("#test");
+        }
+    </script>
+</head>
+
+<body>
+    <div id="test">
+        <p>匯率換算</p>
+        台幣:
+        <input type="text" v-model.lazy="twd"><br>
+        日幣:
+        <input type="text" v-model.lazy="jpy"><br>
+        美元:
+        <input type="text" v-model.lazy="usd"><br>
+
+    </div>
+</body>
+
+</html>
