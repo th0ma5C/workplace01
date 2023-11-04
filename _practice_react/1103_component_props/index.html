@@ -11,7 +11,7 @@
     <script type="text/babel">
         class Person extends React.Component {
             render() {
-                console.log(this);
+                // console.log(this);
                 //解構重複部分
                 const { name, sex, age } = this.props
                 return (
@@ -29,7 +29,7 @@
 
         const p ={name:"老劉",sex:"男",age:"30"}
         // ReactDOM.createRoot(document.getElementById("test3")).render(<Person name={p.name} sex={p.sex} age={p.age} />);
-        //簡寫->...p
+        //簡寫->...p，僅適用於標籤屬性的傳遞
         ReactDOM.createRoot(document.getElementById("test3")).render(<Person {...p} />);
 
     </script>
