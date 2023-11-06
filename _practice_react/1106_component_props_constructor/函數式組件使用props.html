@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- 引入prop-types，用於對組件標籤屬性進行限制 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+    <script type="text/babel">
+        //創建組件
+        function Person(props) {
+            const { name, sex, age } = props
+            return (
+                <ul>
+                    <li>姓名:{name}</li>
+                    <li>性別:{sex}</li>
+                    <li>年齡:{age + 1}</li>
+                </ul >
+            )
+        }
+        // 對標籤屬性進行類型、必要性的限制
+            Person.propTypes = {
+            name: PropTypes.string.isRequired,
+            sex: PropTypes.string,
+            age: PropTypes.number,
+        }
+        // 指定預設標籤屬性值
+            Person.defaultProps = {
+            sex: "男",
+            age: 18,
+        }
+        //渲染組件
+        ReactDOM.createRoot(document.getElementById("test1")).render(<Person name="jerry" />);
+    </script>
+</head>
+
+<body>
+    <div id="test1"></div>
+
+</body>
+
+</html>
