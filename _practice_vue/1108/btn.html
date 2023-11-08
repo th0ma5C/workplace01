@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        #con {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+
+        }
+
+
+        .btnCon,
+        #imgCon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 400px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="test" >
+        <div>
+            <div class="btnCon">
+                <button type="button" @click="pre">上一張</button>
+            </div>
+            <div id="imgCon" v-html="img" style="height: 400px;" @mouseenter.native="pause_timer" @mouseleave.native="resume_timer"
+                @click="clik">
+            </div>
+            <div class="btnCon">
+                <button type="button" @click="next">下一張</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const img_src = ["img_00", "img_01", "img_02"];
+        let index = 0;
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    //首圖
+                    img: `<img src="img/${img_src[index]}.jpeg" alt="一張圖片" />`,
+                    timer: null,
+                }
+            },
+            mounted() {
+                //自動輪播
+                this.timer = setInterval(() => {
+                    this.next();
+                }, 1000);
+            },
+            beforeUnmount() {
+                clearInterval(timer);
+            },
+
+            methods: {
+                //按鈕
+                pre() {
+                    if (index > 0) {
+                        index -= 1;
+                    }
+                    else {
+                        index = 2;
+                    }
+                    this.img = `<img src="img/${img_src[index]}.jpeg" alt="一張圖片" />`
+                },
+                next() {
+                    if (index == 2) {
+                        index = 0;
+                    }
+                    else {
+                        index += 1;
+                    }
+                    this.img = `<img src="img/${img_src[index]}.jpeg" alt="一張圖片" />`
+                },
+                //暫停輪播
+                pause_timer() {
+                    console.log('@enter')
+                    clearInterval(this.timer);
+                },
+                //恢復輪播
+                resume_timer() {
+                    console.log('@leave')
+                    this.timer = setInterval(() => {
+                        this.next();
+                    }, 1000);
+                },
+                clik() {
+                    console.log('@click');
+                }
+            }
+
+        });
+
+        vm.mount("#test");
+    </script>
+
+</body>
+
+</html>

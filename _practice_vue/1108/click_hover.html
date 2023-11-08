@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+        p{
+            display: inline-block;
+            background-color: lightgray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test" @mouseenter.native="hov">
+        <h1 v-text="msg" :class="{red:redFont}"></h1>
+        <p @click="clik" @mouseenter="mouse" @mouseleave="mouse">Click me~</p>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    msg: "Welcome Vue!",
+                    redFont: false
+                }
+            },
+
+            methods: {
+                clik() {
+                    alert("clicked!");
+                    this.msg = "You clicked!";
+                },
+                mouse() {
+                    this.redFont = !this.redFont;
+                },
+                hov(){
+                    console.log('@enter');
+                },
+            },
+        });
+
+        vm.mount("#test");
+    </script>
+</body>
+
+</html>

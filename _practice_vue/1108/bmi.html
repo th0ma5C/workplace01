@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>身體質量指數(BMI)(kg/m<sup>2</sup>)</th>
+                </tr>
+                <tr>
+                    <th>體重過輕</th>
+                    <td>BMI &lt; 18.5</td>
+                </tr>
+                <tr>
+                    <th>體重正常</th>
+                    <td>18.5 &le; BMI &lt; 24</td>
+                </tr>
+                <tr>
+                    <th>體重過重</th>
+                    <td>過重:24 &le; BMI &lt; 27 <br>
+                        輕度肥胖:27 &le; BMI &lt; 30 <br>
+                        中度肥胖:30 &le; BMI &lt; 35 <br>
+                        重度肥胖:BMI &ge; 35 <br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </header>
+    <hr>
+    <main>
+        <div id="test">
+            <div>
+                <form action="">
+                    <label for="weight">體重：</label>
+                    <input type="text" name="weight" id="weight" v-moudel.number="A">
+                    <label for="weight">公斤</label>
+                    <br>
+                    <label for="height">身高：</label>
+                    <input type="text" name="height" id="weight" v-moudel.number="B">
+                    <label for="height">公尺</label>
+                </form>
+            </div>
+            <div>
+                <input type="button" value="計算BMI" onclick="">
+            </div>
+            <hr>
+            <div>
+                <p>體重:{{A}}公斤</p>
+                <p>身高:{{B}}公分</p>
+                <p>BMI:{{bmi}}</p>
+                <p>結果:{{result}}</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const vm=Vue.createApp({
+
+
+        });
+
+        vm.mount("#test");
+    </script>
+</body>
+
+</html>
