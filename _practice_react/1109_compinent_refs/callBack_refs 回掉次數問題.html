@@ -13,25 +13,34 @@
     <script type="text/babel">
         //創建組件
         class Demo extends React.Component {
-            //展示左側輸入框內容
-            showData = () => {
+
+            state = { isHot: 1 }
+
+            changeWeather = () => {
+                const { isHot } = this.state;
+                this.setState({ isHot: !isHot });
+            }
+
+            showInfo = () => {
                 const { input1 } = this;
                 alert(input1.value);
             }
-            //展示右側輸入框內容
-            showData2 = () => {
-                const { input2 } = this;
-                alert(input2.value);
+
+            saveInput = (c) => {
+                this.input1 = c;
+                console.log('@', c)
             }
 
             render() {
-                console.log(this);
+                const { isHot } = this.state //解構賦值
                 return (
-
                     <div>
-                        <input ref={(c) => { this.input1 = c }} type="text" placeholder="點擊顯示" />&nbsp;
-                        <button onClick={this.showData}>點擊顯示左邊數據</button>&nbsp;
-                        <input ref={c => this.input2 = c} onBlur={this.showData2} type="text" placeholder="點擊顯示" />&nbsp;
+                        {//<input ref={(c) => { this.input1 = c; console.log('@', c) }} type="text" />&nbsp;
+                        }
+                        <input ref={this.saveInput} type="text" />&nbsp;
+                        <button onClick={this.showInfo}>點我提示輸入文字</button>
+                        <h2>今天天氣{isHot ? "很熱" : "涼爽"}</h2>
+                        <button onClick={this.changeWeather}>切換天氣</button>
                     </div>
                 )
             }

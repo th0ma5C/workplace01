@@ -11,17 +11,17 @@
     <!-- 引入prop-types，用於對組件標籤屬性進行限制 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
     <script type="text/babel">
-        
+
         class Person extends React.Component {
             render() {
-                const { name, sex, age } = this.props
+                const { name, sex, age } = this.props;
                 //props是唯讀的
                 //this.props.name = "jack" 因為是唯獨的，所以沒有用
                 return (
                     <ul>
                         <li>姓名:{name}</li>
                         <li>性別:{sex}</li>
-                        <li>年齡:{age+1}</li>
+                        <li>年齡:{age + 1}</li>
                     </ul>
                 )
             }
@@ -35,16 +35,16 @@
         }
         //指定預設標籤屬性值
         Person.defaultProps = {
-            sex:"男",
-            age:18,
+            sex: "男",
+            age: 18,
         }
-        
-        ReactDOM.createRoot(document.getElementById("test1")).render(<Person name="jerry" sex="男" age={18} speak={speak}/>);
+
+        ReactDOM.createRoot(document.getElementById("test1")).render(<Person name="jerry" sex="男" age={18} speak={speak} />);
         ReactDOM.createRoot(document.getElementById("test2")).render(<Person name="lisa" sex="女" age={19} />);
 
         const p = { name: "老劉", sex: "男", age: 30 }
         ReactDOM.createRoot(document.getElementById("test3")).render(<Person {...p} />);
-        function speak(){
+        function speak() {
             console.log('說話');
         }
     </script>

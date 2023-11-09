@@ -13,7 +13,8 @@
     <script type="text/babel">
         //創建組件
         function Person(props) {
-            const { name, sex, age } = props
+            const { name, sex, age } = props;
+            console.log('Person:', Person);
             return (
                 <ul>
                     <li>姓名:{name}</li>
@@ -23,13 +24,13 @@
             )
         }
         // 對標籤屬性進行類型、必要性的限制
-            Person.propTypes = {
+        Person.propTypes = {
             name: PropTypes.string.isRequired,
             sex: PropTypes.string,
             age: PropTypes.number,
         }
         // 指定預設標籤屬性值
-            Person.defaultProps = {
+        Person.defaultProps = {
             sex: "男",
             age: 18,
         }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,21 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
+
 <body>
     <div id="test"></div>
 
     <script type="text/babel">
         //創建類式組件
-        class MyComponent extends React.Component{
-            //renser放哪?放MyComponent圓形對象上，供實例使用
-            render(){
+        class MyComponent extends React.Component {
+            //render放哪?放MyComponent圓形對象上，供實例使用
+            render() {
                 return <h2>我是類式組件!(適用複雜組件)</h2>
             }
         }
         //渲染組件
-        ReactDOM.createRoot(document.getElementById("test")).render(<MyComponent/>);
+        ReactDOM.createRoot(document.getElementById("test")).render(<MyComponent />);
     </script>
 </body>
+
 </html>
