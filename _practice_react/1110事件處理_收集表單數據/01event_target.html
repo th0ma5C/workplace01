@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- 引入prop-types，用於對組件標籤屬性進行限制 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+    <script type="text/babel">
+        //創建組件
+        class Demo extends React.Component {
+            /*
+                1.透過onXxxx屬性指定事件處理函數(注意大小寫)
+                    a.React使用的是自定義(合成)事件，而不是使用原生DOM事件---為了更好的間容性
+                    b.React中的事件是通過事件委託方式處理的(委託給組件最外層的元素)---為了高效
+                2.透過event.target得到發生事件的DOM元素對象---勿過度使用ref
+            */
+            //創建ref容器
+            myRef = React.createRef()
+            myRef2 = React.createRef()
+            //展示左側輸入數據
+            showData = () => {
+                alert(this.myRef.current.value);
+            }
+            //展示右側輸入數據
+            showData2 = (event) => {
+                alert(event.target.value);
+
+            }
+
+            render() {
+                console.log(this);
+                return (
+                    <div>
+                        <input ref={this.myRef} type="text" placeholder="點擊顯示" />&nbsp;
+                        <button onClick={this.showData}>點擊顯示左邊數據</button>&nbsp;
+                        <input onBlur={this.showData2} type="text" placeholder="點擊顯示" />&nbsp;
+                    </div>
+                )
+            }
+        }
+        //渲染組件
+        ReactDOM.createRoot(document.getElementById("test")).render(<Demo />);
+    </script>
+</head>
+
+<body>
+    <div id="test">
+
+    </div>
+</body>
+
+</html>

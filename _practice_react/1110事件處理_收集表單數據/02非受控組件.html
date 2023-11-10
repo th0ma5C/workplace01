@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.0/prop-types.js"></script>
+    <script type="text/babel">
+        //創建非受控組件，現用現取
+        class Login extends React.Component {
+            handleSubmit = (event) => {
+                event.preventDefault();//阻止表單提交
+                const { username, password } = this;
+                alert(`帳號:${username.value},密碼:${password.value}`);
+            }
+            render() {
+                return (
+                    <form action="#" onSubmit={this.handleSubmit}>
+                        帳號:&nbsp;<input ref={c => this.username = c} type="text" name="username" /><br />
+                        密碼:&nbsp;<input ref={c => this.password = c} type="password" name="password" /><br />
+                        <button>登入</button>
+                    </form>
+                )
+            }
+        }
+        //渲染組件
+        ReactDOM.createRoot(document.getElementById("test")).render(<Login />)
+    </script>
+</head>
+
+<body>
+    <div id="test"></div>
+</body>
+
+</html>
