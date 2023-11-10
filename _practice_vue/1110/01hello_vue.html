@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+
+    <div id="root">
+        <h1>hello {{name}}!</h1>
+        <h2>hello {{address}}!</h2>
+    </div>
+
+    <div id="root">
+        <h1>hello {{name}}!</h1>
+    </div>
+
+    <script>
+        //創建vue實例
+        const vm = Vue.createApp({
+            data() { //data用於儲存數據，供指定容器使用
+                return {
+                    name: "Vue",
+                    address: "台北"
+                }
+            },
+        }).mount("#root")
+    </script>
+
+</body>
+
+</html>
