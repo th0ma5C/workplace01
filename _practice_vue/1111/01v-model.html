@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="test">
+        單向數據綁定: <input type="text" :value="name">
+        雙向數據綁定: <input type="text" v-model="name">
+
+        <!-- 下圍錯誤程式碼，因v-model只能用於表單類元素(輸入類元素)上 -->
+        <h2 v-model="name">你好</h2>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    name: "谷歌",
+                }
+            },
+        }).mount("#test")
+    </script>
+</body>
+
+</html>
