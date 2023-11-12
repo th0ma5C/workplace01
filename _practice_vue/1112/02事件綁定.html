@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="test">
+        <h2>歡迎來{{name}}!</h2>
+        <button @click="showInfo">點我提示(不傳參數)</button>
+        <button @click="showInfo2($event,66)">點我提示2(傳參數)</button>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    name: "谷哥"
+                }
+            },
+            methods: {
+                showInfo() {
+                    alert("你好");
+                },
+                showInfo2(event, number) {
+                    console.log(event, number);
+                }
+            },
+        }).mount("#test")
+    </script>
+</body>
+
+</html>

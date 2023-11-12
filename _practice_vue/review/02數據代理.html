@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 數據代理:透過一個代理對象對另一個目標對象中屬性的進行操作(讀/寫) -->
+    <script>
+        let obj = { x: 100 }, obj2 = { y: 200 };
+
+        Object.defineProperty(obj2, "x", {
+            get() {
+                return obj.x;
+            },
+            set(value) {
+                obj.x = value;
+            }
+        })
+
+        // 可透過更改obj2.x同步變更obj的x
+    </script>
+</body>
+
+</html>

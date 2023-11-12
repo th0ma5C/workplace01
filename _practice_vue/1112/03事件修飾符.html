@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        * {
+            margin-top: 10px;
+        }
+
+        .demo1 {
+            height: 50px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test">
+        <h2>歡迎來{{name}}!</h2>
+        <!-- 阻止事件預設動作 -->
+        <a href="https://www.google.com.tw/" @click.prevent="showInfo">阻止預設事件</a>
+        <!-- 阻止事件冒泡 -->
+        <div class="demo1" @click="showInfo">
+            <button @click.stop="showInfo">阻止冒泡</button>
+        </div>
+        <!-- 事件只觸發一次 -->
+        <button @click.once="showInfo">只觸發一次</button>
+        <!-- 使用事件捕獲 -->
+        <div style="border: 1px black solid;padding: 5px;">
+            div1
+            <div style="border: 1px black solid;">div2</div>
+        </div>
+
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    name: "谷哥"
+                }
+            },
+            methods: {
+                showInfo(event) {
+                    //event.preventDefault(); 阻止預設動作
+                    //event.stopPropagation(); 阻止冒泡
+                    alert("你好");
+                },
+                showMsg() {
+
+                }
+            },
+        }).mount("#test")
+    </script>
+</body>
+
+</html>

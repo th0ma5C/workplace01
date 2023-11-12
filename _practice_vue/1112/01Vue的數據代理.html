@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="test">
+        <h2>學校名稱:{{name}}</h2>
+        <h2>學校地址:{{addr}}</h2>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    name: "谷哥",
+                    addr: "台北",
+                }
+            },
+        }).mount("#test")
+    </script>
+</body>
+
+</html>
