@@ -15,6 +15,17 @@
             height: 50px;
             background-color: aqua;
         }
+
+        .list {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            overflow: auto;
+        }
+
+        li {
+            height: 100px;
+        }
     </style>
 </head>
 
@@ -30,11 +41,21 @@
         <!-- 事件只觸發一次 -->
         <button @click.once="showInfo">只觸發一次</button>
         <!-- 使用事件捕獲 -->
-        <div style="border: 1px black solid;padding: 5px;">
+        <div style="border: 1px black solid;padding: 5px;" @click.capture="showMsg(1)">
             div1
-            <div style="border: 1px black solid;">div2</div>
+            <div style="border: 1px black solid;" @click="showMsg(2)">div2</div>
         </div>
-
+        <!-- 只有event.target是當前操作的元素時才觸發  -->
+        <div class="demo1" @click.self="showInfo">
+            <button @click="showInfo">點我提示</button>
+        </div>
+        <!-- 事件的默認行為立即執行，無需等待事件回調完畢 -->
+        <ul class="list" @wheel.passive="demo">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
     </div>
 
     <script>
@@ -50,8 +71,14 @@
                     //event.stopPropagation(); 阻止冒泡
                     alert("你好");
                 },
-                showMsg() {
-
+                showMsg(msg) {
+                    console.log(msg);
+                },
+                demo() {
+                    for (let i = 0; i < 100000; i++) {
+                        console.log("@");
+                    }
+                    console.log('累壞了')
                 }
             },
         }).mount("#test")
