@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+
+<body>
+    <div id="test">
+        <h2>歡迎來到{{name}}</h2>
+        <input type="text" placeholder="按下enter提示輸入" @keyup.enter="showInfo">
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    name: "這裡",
+                }
+            },
+            methods: {
+                showInfo(e) {
+                    // console.log(e.keyCode);
+                    // if (e.keyCode !== 13) { }
+                    // else {
+                    //     return console.log(e.target.value);
+                    // }
+                    // if (e.keyCode !== 13) return
+                    console.log(e.target.value);
+                },
+            },
+        }).mount("#test");
+    </script>
+</body>
+
+</html>
