@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    @keyframes rev_marquee {
+        0% {
+            transform: translateX(-100%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    .marquee-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        overflow: hidden;
+        white-space: nowrap;
+        width: max-content;
+    }
+
+    .marquee-content {
+        width: 10%;
+        display: flex;
+        /* animation: marquee 15s linear infinite; */
+    }
+
+    .rev_marquee-content {
+        display: flex;
+        /* animation: rev_marquee 15s linear infinite; */
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <img src="./img/5.jpg" alt="Image 5">
+            <img src="./img/6.jpg" alt="Image 6">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <img src="./img/5.jpg" alt="Image 5">
+            <img src="./img/6.jpg" alt="Image 6">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <img src="./img/5.jpg" alt="Image 5">
+            <img src="./img/6.jpg" alt="Image 6">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <img src="./img/5.jpg" alt="Image 5">
+            <img src="./img/6.jpg" alt="Image 6">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+
+    <div class="marquee-container">
+        <div class="rev_marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/6.jpg" alt="Image 6">
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <img src="./img/5.jpg" alt="Image 5">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="rev_marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/6.jpg" alt="Image 6">
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <img src="./img/5.jpg" alt="Image 5">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="rev_marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/6.jpg" alt="Image 6">
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <img src="./img/5.jpg" alt="Image 5">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="rev_marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/6.jpg" alt="Image 6">
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <img src="./img/5.jpg" alt="Image 5">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/5.jpg" alt="Image 5">
+            <img src="./img/6.jpg" alt="Image 6">
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/5.jpg" alt="Image 5">
+            <img src="./img/6.jpg" alt="Image 6">
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/5.jpg" alt="Image 5">
+            <img src="./img/6.jpg" alt="Image 6">
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <!-- Add more images as needed -->
+        </div>
+        <div class="marquee-content">
+            <!-- Your images go here -->
+            <img src="./img/5.jpg" alt="Image 5">
+            <img src="./img/6.jpg" alt="Image 6">
+            <img src="./img/1.jpg" alt="Image 1">
+            <img src="./img/2.jpg" alt="Image 2">
+            <img src="./img/3.jpg" alt="Image 3">
+            <img src="./img/4.jpg" alt="Image 4">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+
+</body>
