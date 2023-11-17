@@ -21,23 +21,24 @@
                 return {
                     firstName: "張",
                     lastName: "三"
-                    //此處返回的值為屬性名+屬性值
                 }
             },
             computed: {
-                fullName: {
-                    //get有甚麼作用?有人讀取fullName時，get就會被調用，且返回值作為fullName的值
-                    //get甚麼時候調用?1.初次讀取fullName時 2.依賴的數據發生變化時
-                    get() {
-                        //此處的this為vm
-                        return this.firstName + "-" + this.lastName;
-                    },
-                    //set甚麼時候調用? 當fullName被修改時
-                    set(value) {
-                        const arr = value.split("-");
-                        this.firstName = arr[0];
-                        this.lastName = arr[1];
-                    }
+                // 完整寫法
+                // fullName: {
+                //     get() {
+                //         return this.firstName + "-" + this.lastName;
+                //     },
+                //     set(value) {
+                //         const arr = value.split("-");
+                //         this.firstName = arr[0];
+                //         this.lastName = arr[1];
+                //     }
+                // }
+
+                //簡寫，只讀取不修改時可以用此簡寫
+                fullName() {
+                    return this.firstName + "-" + this.lastName;
                 }
 
             },
