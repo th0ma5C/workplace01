@@ -12,7 +12,7 @@
     <div id="test">
         姓: <input type="text" v-model="firstName"><br>
         名: <input type="text" v-model="lastName"><br>
-        全名: <span>{{firstName.slice(0,3)}}-{{lastName}}</span>
+        全名: <span>?</span><br>
     </div>
 
     <script>
@@ -21,8 +21,10 @@
                 return {
                     firstName: "張",
                     lastName: "三"
+                    //此為屬性名+屬性值
                 }
             },
+
 
         }).mount("#test");
     </script>
