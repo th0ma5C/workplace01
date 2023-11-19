@@ -4,14 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        .mber_crd {
+            display: grid;
+            grid-template-columns: auto auto;
+            position: fixed;
+            right: 0;
+            top: 50vh;
+
+        }
+
+        .mber_con {
+            border: 1px solid black;
+            overflow: scroll;
+            width: 300px;
+            height: 500px;
+            transform: translate(0, -50%);
+        }
+
+        .mber_btn>button {
+            transform: translate(0, -50%);
+        }
+    </style>
 </head>
 
 <body>
-    <button popovertarget="my-popover">Open Popover</button>
+    <div id="demo">
+        <div class="mber_crd" :style="{ gap: display ? '1rem':'0rem'}">
+            <div class="mber_con" v-show="display">
+                <header>
+                    <div>
+                        <p>歡迎</p>
+                        <h2>會員小幫手</h2>
+                    </div>
+                    <div>
+                        <button>獎勵</button>
+                        <button>登入</button>
+                    </div>
+                </header>
 
-    <div popover id="my-popover">Greetings, one and all!</div>
+                <Section>
+                    <div>
+                        <h3>1</h3>
+                        <p>123</p>
+                    </div>
+                    <div>
+                        <h3>1</h3>
+                        <p>123</p>
+                    </div>
+                    <div>
+                        <h3>1</h3>
+                        <p>123</p>
+                    </div>
+                    <div>
+                        <h3>1</h3>
+                        <p>123</p>
+                    </div>
+                    <div>
+                        <h3>1</h3>
+                        <p>123</p>
+                    </div>
+                </Section>
 
+                <footer>
+                    <div>
+                        <button>登入</button>
+                    </div>
+                    <div>
+                        <a href="#">加入會員</a>
+                    </div>
+                </footer>
+            </div>
+
+            <div class="mber_btn" @click="toggle()">
+                <button>會員中心</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    display: true,
+
+                }
+            },
+            methods: {
+                toggle() {
+                    this.display = !this.display;
+                },
+            },
+        }).mount("#demo")
+    </script>
 </body>
 
 </html>
