@@ -26,10 +26,3 @@ Vue:
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 */
-function foo() {
-    return 42;
-}
-
-foo.bar = "Hello";
-
-console.log('foo:', typeof foo());
