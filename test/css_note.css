@@ -28,4 +28,7 @@ button {
 
 ===禁止選取===
     user-select: none;
+
+===直式文字===
+    writing-mode: vertical-lr 
 */

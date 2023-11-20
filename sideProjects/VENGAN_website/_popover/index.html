@@ -6,56 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: inherit;
-        }
-
-        .mber_crd {
-            display: grid;
-            grid-template-columns: auto auto;
-            position: fixed;
-            right: 0;
-            top: 50vh;
-
-        }
-
-        .mber_con {
-            border: 1px solid black;
-            overflow: scroll;
-            width: 300px;
-            height: 500px;
-            transform: translate(0, -50%);
-        }
-
-        .mber_btn>button {
-            transform: translate(0, -50%);
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <div id="demo">
-        <div class="mber_crd" :style="{ gap: display ? '1rem':'0rem'}">
+        <div class="mber_crd" :style="{ gap: display ? '1vw':'0vw'}">
             <div class="mber_con" v-show="display">
                 <header>
                     <div>
-                        <p>歡迎</p>
-                        <h2>會員小幫手</h2>
+                        <button class="mber_clsbtn"><img src="./img/x_icon.svg" alt=""></button>
+                        <div class="mber_conHeader">
+                            <p>歡迎</p>
+                            <h2>會員卡小幫手</h2>
+                        </div>
                     </div>
-                    <div>
-                        <button>獎勵</button>
-                        <button>登入</button>
+                    <div class="mber_conTab">
+                        <button aria-selected="true">會員獎勵</button>
+                        <button aria-selected="false">帳戶</button>
                     </div>
                 </header>
 
-                <Section>
+                <section class="mber_tabPanels">
                     <div>
                         <h3>1</h3>
                         <p>123</p>
@@ -76,7 +48,7 @@
                         <h3>1</h3>
                         <p>123</p>
                     </div>
-                </Section>
+                </section>
 
                 <footer>
                     <div>
@@ -87,28 +59,12 @@
                     </div>
                 </footer>
             </div>
-
-            <div class="mber_btn" @click="toggle()">
-                <button>會員中心</button>
-            </div>
+            <div class="mber_btn" @click="toggle()" v-if="display == false" v-html="crd_cls"></div>
+            <div class="mber_btn" @click="toggle()" v-else v-html="crd_opn"></div>
         </div>
     </div>
 
-    <script>
-        const vm = Vue.createApp({
-            data() {
-                return {
-                    display: true,
-
-                }
-            },
-            methods: {
-                toggle() {
-                    this.display = !this.display;
-                },
-            },
-        }).mount("#demo")
-    </script>
+    <script src="./script/script.js"></script>
 </body>
 
 </html>

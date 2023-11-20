@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.mber_crd {
+    display: flex;
+    width: fit-content;
+    position: fixed;
+    right: 0;
+    top: 50vh;
+    transform: translateY(-50%);
+    align-items: center;
+    user-select: none;
+}
+
+.mber_con {
+    border: 1px solid black;
+    width: 300px;
+    height: 500px;
+    overflow: scroll;
+    box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 0.1),
+        1px 1px 20px 0px rgba(0, 0, 0, 0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.mber_con * {
+    margin: 0;
+}
+
+.mber_con::-webkit-scrollbar {
+    display: none;
+}
+
+.mber_clsbtn {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.mber_conHeader {
+    padding: 10px 10px 0 10px;
+}
+
+.mber_conTab {
+    position: relative;
+    display: flex;
+    margin-top: 10px;
+    height: 50px;
+}
+
+.mber_tabPanels {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    padding: 10px;
+    overflow: auto;
+}
+
+.mber_conTab button {
+    padding: 10px 0;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    border-color: transparent;
+    background-color: transparent;
+    border-bottom: 2px solid gray;
+    width: 50%;
+}
+
+.mber_btn {
+    writing-mode: vertical-lr;
+    height: fit-content;
+    background-color: rgb(191, 251, 231);
+    border-radius: 10px 0 0 10px;
+    font-size: 12px;
+    padding: 0 0 6px 0;
+    box-shadow: 1px 1px 20px 0px rgba(0, 0, 0, 0.1),
+        1px 1px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.mber_btn:hover {
+    cursor: pointer;
+}
+
+.mber_btn img {
+    width: 48px;
+}
