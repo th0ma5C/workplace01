@@ -65,9 +65,63 @@ button:hover {
 .mber_tabPanels {
     position: relative;
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
     padding: 10px;
     overflow: auto;
+}
+
+.mber_reward {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+}
+
+
+.mber_reward img {
+    width: 24px;
+}
+
+.reward_title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reward_icon {
+    width: 40px;
+    height: 40px;
+}
+
+.reward_body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.reward_body img {
+    width: 24px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reward_list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.reward {
+    width: 100%;
+    display: flex;
+    padding: 4px 0;
+    gap: 10px;
 }
 
 .mber_conTab button {
