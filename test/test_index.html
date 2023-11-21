@@ -5,26 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hidden Button</title>
-    <style>
-        .hidden-button {
-            width: 100px;
-            height: 100px;
-            background-color: transparent;
-            /* 背景色設為透明 */
-            border: none;
-            /* 移除邊框 */
-            padding: 0;
-            /* 移除內邊距 */
-            margin: 0;
-            /* 移除外邊距 */
-            overflow: hidden;
-            /* 隱藏溢出部分 */
-        }
-    </style>
 </head>
 
 <body>
-    <button class="hidden-button" style="color: transparent;user-select: none;">123</button>
+    <button popovertarget="my-popover">Open Popover</button>
+
+    <div popover id="my-popover">Greetings, one and all!</div>
 </body>
 
 </html>

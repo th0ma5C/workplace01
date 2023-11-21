@@ -7,9 +7,22 @@ const vm = Vue.createApp({
                       <span>會員中心</span>`,
         }
     },
+    mounted() {
+        document.addEventListener("click", this.bodyClosePop)
+    },
+    beforeDestroy() {
+        document.removeEventListener("click", this.bodyClosePop)
+    },
     methods: {
         toggle() {
             this.display = !this.display;
         },
-    },
+        bodyClosePop() {
+            if (this.display == true) {
+                this.display = false;
+            }
+            // this.display = !this.display;
+        },
+    }
+
 }).mount("#demo")
