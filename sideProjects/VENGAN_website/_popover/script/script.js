@@ -10,7 +10,7 @@ const vm = Vue.createApp({
     mounted() {
         document.addEventListener("click", this.bodyClosePop)
     },
-    beforeDestroy() {
+    beforeUnmount() {
         document.removeEventListener("click", this.bodyClosePop)
     },
     methods: {
