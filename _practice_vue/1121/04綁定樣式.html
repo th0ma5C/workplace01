@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .basic {
+            width: 400px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .happy {
+            background-color: yellow;
+        }
+
+        .sad {
+            background-color: blue;
+        }
+
+        .normal {
+            background-color: greenyellow;
+        }
+
+        .goo {
+            font-size: 2rem;
+        }
+
+        .goo2 {
+            text-shadow: 2px 2px #FF0000;
+        }
+
+        .goo3 {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo">
+        <!-- 綁定class樣式，字符串寫法，適用於:樣式類名不確定，需動態指定時 -->
+        <div class="basic" :class="mood" @click="changeMood">{{name}}</div><br><br>
+
+        <!-- 綁定class樣式，數組寫法，適用於:要綁定的樣式個數不確定，名字也不確定  -->
+        <div class="basic" :class="classArr">{{name}}</div><br><br>
+
+        <!-- 綁定class樣式，物件寫法，適用於:要綁定的樣式對象、個數確定，但要動態切換時 -->
+        <div class="basic" :class="classObj">{{name}}</div><br><br>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    name: "谷歌",
+                    mood: "normal",
+                    classArr: ["goo", "goo2", "goo3"],
+                    classObj: {
+                        goo: false,
+                        goo2: false,
+                    },
+                }
+            },
+            methods: {
+                changeMood() {
+                    const arr = ["happy", "sad", "normal"];
+                    let index = Math.floor(Math.random() * 3);
+                    this.mood = arr[index];
+                }
+            },
+
+        }).mount("#demo")
+    </script>
+</body>
+
+</html>

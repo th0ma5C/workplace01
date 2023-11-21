@@ -56,8 +56,10 @@
                 //         console.log('a+1');
                 //     }
                 // },
+
                 //監視多級結構中所有屬性的變化
                 numbers: {
+                    deep: true,
                     handler() {
                         console.log('numbers改變了');
                     }
