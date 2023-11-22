@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        <h2>當前的n值是:{{n}}</h2>
+        <button @click="n++">n+1</button>
+
+        <!-- 使用v-show作條件渲染，有節點，但隱藏-->
+        <!-- <h2 v-show="a">歡迎來{{name}}</h2> -->
+
+        <!-- 使用v-if作條件渲染，沒有節點-->
+        <!-- <h2 v-if="a">歡迎來{{name}}</h2> -->
+
+        <!-- v-if與template的配合使用 -->
+        <template v-if="n == 1">
+            <h2>1</h2>
+            <h2>2</h2>
+            <h2>3</h2>
+        </template>
+
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    name: "台灣",
+                    a: false,
+                    n: 0,
+
+                }
+            },
+        }).mount("#demo")
+    </script>
+</body>
+
+</html>
