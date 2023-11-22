@@ -49,6 +49,12 @@
 
         <!-- 綁定class樣式，物件寫法，適用於:要綁定的樣式對象、個數確定，但要動態切換時 -->
         <div class="basic" :class="classObj">{{name}}</div><br><br>
+
+        <!-- 綁定style樣式，原始、物件、數組寫法-->
+        <div class="basic" :style="{fontSize: fSize+ 'px'}">{{name}}</div>
+        <div class="basic" :style="styleObj">{{name}}</div>
+        <div class="basic" :style="[styleObj,styleObj2]">{{name}}</div>
+        <div class="basic" :style="styleArr">{{name}}</div>
     </div>
 
     <script>
@@ -60,8 +66,25 @@
                     classArr: ["goo", "goo2", "goo3"],
                     classObj: {
                         goo: false,
-                        goo2: false,
+                        goo2: true,
                     },
+                    fSize: 40,
+                    styleObj: {
+                        fontSize: "40px",
+                        color: "red",
+                    },
+                    styleObj2: {
+                        backgroundColor: "lightblue",
+                    },
+                    styleArr: [
+                        {
+                            fontSize: "40px",
+                            color: "red",
+                        },
+                        {
+                            backgroundColor: "lightblue",
+                        },
+                    ]
                 }
             },
             methods: {
