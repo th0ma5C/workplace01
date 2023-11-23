@@ -15,13 +15,13 @@
         <div class="mber_crd" :style="{ gap: display ? '1vw':'0vw'}" @click.stop>
             <div class="mber_con" v-show="display">
                 <header>
-                    <div>
-                        <button class="mber_clsbtn"><img src="./img/x_icon.svg" alt=""></button>
+                    <div style="padding: 18px 12px 0;text-align: center;">
+                        <button class="mber_clsbtn" @click="toggle"><img src="./img/x_icon.svg" alt=""></button>
                         <div class="mber_conHeader">
-                            <p>歡迎</p>
                             <h2>會員卡小幫手</h2>
                         </div>
                     </div>
+                    <!-- 切換 -->
                     <div class="mber_conTab">
                         <button aria-selected="true">會員獎勵</button>
                         <button aria-selected="false">帳戶</button>
@@ -29,6 +29,7 @@
                 </header>
 
                 <section class="mber_tabPanels">
+                    <!-- 獲獎方式 -->
                     <div class="mber_reward">
                         <div class="reward_title">
                             <p>獲得獎勵方式</p>
@@ -49,12 +50,48 @@
                             <hr>
                             <div class="reward">
                                 <div class="reward_icon">
-                                    <img src="./img/cart.svg" alt="cart">
+                                    <img src="./img/cake.svg" alt="cart">
+                                </div>
+                                <div class="reward_body"
+                                    style="flex-direction: row;justify-content: space-between;align-items: center;">
+                                    <div>
+                                        <h4>生日禮金</h4>
+                                        <p>5000點</p>
+                                    </div>
+                                    <div style="width: 24px; height: 24px;">
+                                        <button
+                                            style="max-width: 100%; border: none; background-color: transparent;"><img
+                                                src="./img/next.svg" alt=""></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="reward">
+                                <div class="reward_icon">
+                                    <img src="./img/note.svg" alt="cart">
                                 </div>
                                 <div class="reward_body">
+                                    <h4>完成會員檔案</h4>
+                                    <p>2000點</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 會員等級 -->
+                    <div class="mber_vip">
+                        <div class="vip_title">
+                            <p>獲得獎勵方式</p>
+                            <p>會員等級越高回饋越多！</p>
+                        </div>
+                        <div class="vip_list">
+                            <div class="vip">
+                                <div class="vip_icon">
+                                    <img src="" alt="cart">
+                                </div>
+                                <div class="vip_body">
                                     <div>
-                                        <h4>消費點數回饋</h4>
-                                        <p>每消費 $1 獲得 1 點，每100點可折抵 $1</p>
+                                        <h4>一般會員</h4>
                                     </div>
                                     <div>
                                         <button><img src="./img/next.svg" alt=""></button>
@@ -62,6 +99,79 @@
                                 </div>
                             </div>
                             <hr>
+                            <div class="vip">
+                                <div class="vip_icon">
+                                    <img src="" alt="cart">
+                                </div>
+                                <div class="vip_body">
+                                    <div>
+                                        <h4>白銀會員</h4>
+                                        <p>消費 $3,000 TWD + 2 張單</p>
+                                    </div>
+                                    <div>
+                                        <button><img src="./img/next.svg" alt=""></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="vip">
+                                <div class="vip_icon">
+                                    <img src="" alt="cart">
+                                </div>
+                                <div class="vip_body">
+                                    <div>
+                                        <h4>黃金會員</h4>
+                                        <p>消費 $12,000 TWD + 5 張單</p>
+                                    </div>
+                                    <div>
+                                        <button><img src="./img/next.svg" alt=""></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="vip">
+                                <div class="vip_icon">
+                                    <img src="" alt="cart">
+                                </div>
+                                <div class="vip_body">
+                                    <div>
+                                        <h4>鉑金會員</h4>
+                                        <p>消費 $18,000 TWD + 7 張單</p>
+                                    </div>
+                                    <div>
+                                        <button><img src="./img/next.svg" alt=""></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="vip">
+                                <div class="vip_icon">
+                                    <img src="" alt="cart">
+                                </div>
+                                <div class="vip_body">
+                                    <div>
+                                        <h4>尊榮會員</h4>
+                                        <p>消費 $30,000 TWD + 10 張單</p>
+                                    </div>
+                                    <div>
+                                        <button><img src="./img/next.svg" alt=""></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+
+                        </div>
+                    </div>
+
+                    <!-- 好友推薦 -->
+                    <div class="mber_reward">
+                        <div class="reward_title">
+                            <p>獲得獎勵方式</p>
+                            <button>
+                                瀏覽全部<img src="./img/next.svg" alt="">
+                            </button>
+                        </div>
+                        <div class="reward_list">
                             <div class="reward">
                                 <div class="reward_icon">
                                     <img src="./img/cart.svg" alt="cart">
@@ -72,27 +182,40 @@
                                 </div>
                             </div>
                             <hr>
+                            <div class="reward">
+                                <div class="reward_icon">
+                                    <img src="./img/cake.svg" alt="cart">
+                                </div>
+                                <div class="reward_body"
+                                    style="flex-direction: row;justify-content: space-between;align-items: center;">
+                                    <div>
+                                        <h4>生日禮金</h4>
+                                        <p>5000點</p>
+                                    </div>
+                                    <div style="width: 24px; height: 24px;">
+                                        <button
+                                            style="max-width: 100%; border: none; background-color: transparent;"><img
+                                                src="./img/next.svg" alt=""></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="reward">
+                                <div class="reward_icon">
+                                    <img src="./img/note.svg" alt="cart">
+                                </div>
+                                <div class="reward_body">
+                                    <h4>完成會員檔案</h4>
+                                    <p>2000點</p>
+                                </div>
+                            </div>
+                            <hr>
 
                         </div>
                     </div>
-                    <div>
-                        <h3>1</h3>
-                        <p>123</p>
-                    </div>
-                    <div>
-                        <h3>1</h3>
-                        <p>123</p>
-                    </div>
-                    <div>
-                        <h3>1</h3>
-                        <p>123</p>
-                    </div>
-                    <div>
-                        <h3>1</h3>
-                        <p>123</p>
-                    </div>
                 </section>
 
+                <!-- 登入 -->
                 <footer>
                     <div>
                         <button>登入</button>
@@ -102,8 +225,8 @@
                     </div>
                 </footer>
             </div>
-            <!-- <div class="mber_btn" @click="toggle()" v-if="display == false" v-html="crd_cls"></div>
-            <div class="mber_btn" @click="toggle()" v-else v-html="crd_opn"></div> -->
+
+            <!-- 會員卡開關 -->
             <div class="mber_btn" @click="toggle()" v-show="!display" v-html="crd_cls"></div>
             <div class="mber_btn" @click="toggle()" v-show="display" v-html="crd_opn"></div>
         </div>
