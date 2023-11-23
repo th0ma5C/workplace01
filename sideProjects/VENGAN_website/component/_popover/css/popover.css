@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-*,
 *::before,
 *::after {
     box-sizing: inherit;
@@ -69,6 +68,10 @@ button:hover {
     flex-grow: 1;
     padding: 10px;
     overflow: auto;
+}
+
+.mber_tabPanels::-webkit-scrollbar {
+    display: none;
 }
 
 .mber_reward {

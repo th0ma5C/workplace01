@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/popover.css">
 </head>
 
 <body>
+    <!-- popover start -->
     <div id="demo">
         <div class="mber_crd" :style="{ gap: display ? '1vw':'0vw'}" @click.stop>
             <div class="mber_con" v-show="display">
@@ -101,12 +102,15 @@
                     </div>
                 </footer>
             </div>
-            <div class="mber_btn" @click="toggle()" v-if="display == false" v-html="crd_cls"></div>
-            <div class="mber_btn" @click="toggle()" v-else v-html="crd_opn"></div>
+            <!-- <div class="mber_btn" @click="toggle()" v-if="display == false" v-html="crd_cls"></div>
+            <div class="mber_btn" @click="toggle()" v-else v-html="crd_opn"></div> -->
+            <div class="mber_btn" @click="toggle()" v-show="!display" v-html="crd_cls"></div>
+            <div class="mber_btn" @click="toggle()" v-show="display" v-html="crd_opn"></div>
         </div>
     </div>
 
     <script src="./script/script.js"></script>
+    <!-- popover end -->
 </body>
 
 </html>
