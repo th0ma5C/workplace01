@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="test">
+        <!-- 遍歷數組 -->
+        <h2>人員列表</h2>
+        <ul>
+            <li v-for="(p,index) in persons" :key="key">
+                {{p.name}}--{{p.age}}--{{}}
+            </li>
+        </ul>
+        <!-- 遍歷物件 -->
+        <h2>汽車列表</h2>
+        <ul>
+            <li v-for="(val,k,index) in car" :key="key">
+                {{k}}--{{val}}--{{index}}
+            </li>
+        </ul>
+        <!-- 遍歷字串 -->
+        <h2>字串(用的少)</h2>
+        <ul>
+            <li v-for="(char,index) in str" :key="key">
+                {{index}}--{{char}}
+            </li>
+        </ul>
+        <!-- 遍歷指定次數 -->
+        <h2>指定次數(用的少)</h2>
+        <ul>
+            <li v-for="(number,index) in 5" :key="key">
+                {{index}}--{{number}}
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    persons: [
+                        { id: "001", name: "張三", age: 18 },
+                        { id: "001", name: "李四", age: 19 },
+                        { id: "001", name: "王五", age: 20 }
+                    ],
+                    car: {
+                        name: "audi",
+                        price: "300萬",
+                        color: "黑色"
+                    },
+                    str: "hello",
+                }
+            },
+        }).mount("#test")
+    </script>
+</body>
+
+</html>
