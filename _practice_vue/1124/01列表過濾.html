@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="test">
+        <h2>人員列表</h2>
+        <input type="text" placeholder="請輸入姓名" v-model="keyword">
+        <ul>
+            <li v-for="(p,index) in filperson" :key="p.id">
+                {{p.name}}--{{p.age}}--{{p.sex}}
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+
+        //用watch寫
+        /*
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    keyword: "",
+                    persons: [
+                        { id: "001", name: "馬冬梅", age: 18, sex: "男" },
+                        { id: "002", name: "周冬雨", age: 19, sex: "男" },
+                        { id: "003", name: "周杰倫", age: 20, sex: "女" },
+                        { id: "004", name: "溫兆倫", age: 21, sex: "女" },
+                    ],
+                    filPersons: [],
+                }
+            },
+            watch: {
+                // keyword(val) {
+                //     this.filPersons = this.persons.filter((p) => {
+                //         return p.name.indexOf(val) !== -1;
+                //     })
+
+                // }
+                keyword: {
+                    immediate: true,
+                    handler(val) {
+                        this.filPersons = this.persons.filter((p) => {
+                            return p.name.indexOf(val) !== -1;
+                        })
+                    }
+                }
+            },
+        }).mount("#test")
+        */
+
+        //用computed寫
+
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    keyword: "",
+                    persons: [
+                        { id: "001", name: "馬冬梅", age: 18, sex: "男" },
+                        { id: "002", name: "周冬雨", age: 19, sex: "男" },
+                        { id: "003", name: "周杰倫", age: 20, sex: "女" },
+                        { id: "004", name: "溫兆倫", age: 21, sex: "女" },
+                    ],
+                }
+            },
+            computed: {
+                filperson() {
+                    return this.persons.filter((p) => {
+                        return p.name.indexOf(this.keyword) !== -1;
+                    })
+                }
+            },
+
+
+        }).mount("#test")
+    </script>
+</body>
+
+</html>
