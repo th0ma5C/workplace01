@@ -64,7 +64,8 @@
                 add(e) {
 
                     if (e == "-") {
-                        this.num == 0 ? this.num = 0 : this.num--;
+                        // this.num == 0 ? this.num = 0 : this.num--;
+                        this.num = Math.max(0, this.num - 1);
                     } else {
                         this.num++;
                     }
@@ -73,18 +74,14 @@
             computed: {
                 bar_process: {
                     get() {
-                        if (this.num >= 0) {
-                            return Math.floor((this.num * 180 / 1800) * 100);
-                        } else {
-                            return 0
-                        }
+                        // if (this.num >= 0) {
+                        //     return Math.floor((this.num * 180 / 1800) * 100);
+                        // } else {
+                        //     return 0
+                        // }
+                        return this.num >= 0 ? Math.round((this.num * 180 / 1800) * 100) : 0;
                     },
                 },
-                // bar_process: {
-                //     get() {
-                //         return this.num >= 0 ? (this.num * 180 / 1800).toFixed(1) * 100 : 0;
-                //     },
-                // }
             },
         }).mount("#demo")
     </script>

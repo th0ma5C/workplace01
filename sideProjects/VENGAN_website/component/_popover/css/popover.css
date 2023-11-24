@@ -114,15 +114,15 @@ button {
 }
 
 .reward_icon {
-    width: 40px;
-    height: 40px;
+    height: 36px;
+    min-width: 36px;
     background-color: rgb(252, 250, 247);
     border-radius: 6px;
     display: inline-flex;
     justify-content: center;
 
     & img {
-        width: 24px;
+        width: 22px;
     }
 }
 
@@ -153,7 +153,7 @@ button {
     width: 100%;
     display: flex;
     padding: 4px 0;
-    gap: 10px;
+    gap: 12px;
 }
 
 .mber_conTab button {
@@ -291,5 +291,73 @@ button {
     .share_list {
         display: flex;
         flex-direction: column;
+        gap: 12px;
+
+        .share {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .share_head p {
+                font-size: 14px;
+            }
+
+            .share_body {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 12px;
+
+                & span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 36px;
+                    height: 36px;
+                    background-color: rgb(252, 250, 247);
+                    border-radius: 6px;
+
+                    & img {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+
+                & p {
+                    font-size: 16px;
+                }
+
+            }
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    border-top: 1px solid rgb(236, 236, 236);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & div {
+        width: 100%;
+    }
+
+    .footer_login button {
+        width: 100%;
+        border-radius: 6px;
+        font-size: 14px;
+        padding: 10px 0px;
+    }
+
+    .footer_register a {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        text-decoration: none;
+        font-size: 12px;
+        margin-top: 8px;
     }
 }
