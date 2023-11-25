@@ -4,13 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden Button</title>
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: height 1s ease;
+        }
+
+        .v-enter-from {
+            height: 100px;
+        }
+
+        .v-enter-to {
+            height: 200px;
+        }
+    </style>
 </head>
 
 <body>
-    <button popovertarget="my-popover">Open Popover</button>
+    <div id="demo">
+        <transition>
+            <div style="border: 1px solid black;" :style="{height:hit+'px'}">
+                <button @click="hit=200">+++</button>
+            </div>
+        </transition>
+    </div>
 
-    <div popover id="my-popover">Greetings, one and all!</div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    hit: 100
+                }
+            },
+        }).mount("#demo")
+    </script>
 </body>
 
 </html>

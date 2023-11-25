@@ -13,7 +13,44 @@ button:hover {
 
 button {
     padding: 0px;
+
+    &:hover {
+        background-color: rgb(237, 242, 247) !important;
+    }
 }
+
+/* 動畫 */
+.mber_con-enter-active,
+.mber_con-leave-active {
+    transition: 0.3s ease-out;
+}
+
+.mber_con-enter-from,
+.mber_con-leave-to {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.mber_con-enter-to,
+.mber_con-leave-from {
+    opacity: 1;
+}
+
+.header_collapse-enter-active,
+.header_collapse-leave-active {
+    transition: height 1s ease;
+}
+
+.header_collapse-enter-from,
+.header_collapse-leave-to {
+    height: 121px;
+}
+
+.header_collapse-enter-to,
+.header_collapse-leave-from {
+    height: 61px;
+}
+
 
 .mber_crd {
     display: flex;
@@ -36,6 +73,13 @@ button {
     position: relative;
     display: flex;
     flex-direction: column;
+    /* animation: popover_slideToRight 0.3s ease-out 0s 1; */
+
+    & header {
+        /* transition: height 0.3s ease 0s; */
+        overflow: hidden;
+        flex-shrink: 0;
+    }
 }
 
 .mber_con * {
@@ -76,6 +120,18 @@ button {
     overflow: auto;
 
     & p {
+        font-size: 14px;
+    }
+
+    &>p {
+        display: flex;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
         font-size: 14px;
     }
 }
@@ -352,12 +408,16 @@ footer {
         padding: 10px 0px;
     }
 
-    .footer_register a {
+    .footer_register {
         display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        text-decoration: none;
-        font-size: 12px;
-        margin-top: 8px;
+        flex-direction: row-reverse;
+
+        & a {
+            width: fit-content;
+            text-decoration: none;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
     }
 }
