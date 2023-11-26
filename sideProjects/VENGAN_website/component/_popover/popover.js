@@ -8,8 +8,8 @@ const vm = Vue.createApp({
                 text: 0,
                 height: 120
             },
-            crd_opn: `<span><img src="./img/x_icon.svg" alt="X" style="padding: 6px 6px 0 6px; width: 36px;"></span>`,
-            crd_cls: `<span><img src="./img/Logo1.PNG" alt="LOGO"></span>
+            crd_opn: `<span><img src="./popover_img/x_icon.svg" alt="X" style="padding: 6px 6px 0 6px; width: 36px;"></span>`,
+            crd_cls: `<span><img src="./popover_img/Logo1.PNG" alt="LOGO"></span>
                       <span>會員中心</span>`,
             mber_tab: `<p>請先登入</p>`,
 
@@ -45,4 +45,4 @@ const vm = Vue.createApp({
         },
     }
 
-}).mount("#demo")
+}).mount("#popover")

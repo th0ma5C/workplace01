@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+button {
+    border-radius: 24px;
+}
+
+.login_section {
+    margin: 0 auto;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    max-width: 25vw;
+
+    & h1 {
+        margin: 0 0 0.5em 0;
+    }
+
+    & form {
+        margin-top: 1rem;
+
+        & div {
+            &:first-of-type:has(input) {
+                margin-top: 0;
+            }
+
+            &:has(input) {
+                margin: 1rem 0 0 0;
+                width: 100%;
+            }
+
+            &:has(a) {
+                display: block;
+                margin: 0 auto;
+            }
+
+            &:has(button) {
+                margin: 2rem 0 0.5rem 0;
+            }
+        }
+
+        & input {
+            padding: 0.5rem;
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+        }
+
+    }
+
+    .signin_btn {
+        border: 0;
+        padding: 0 1rem;
+        min-width: 6rem;
+        min-height: 2rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .recover {
+        margin: 0.5rem 0 0 0;
+        max-width: fit-content;
+        text-decoration: underline;
+    }
+
+    .signin_link {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+        text-decoration: underline;
+    }
+}
+
+.social_login {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    margin-top: 30px;
+
+    & div {
+
+        &:has(p) {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            white-space: nowrap;
+
+            &::before,
+            &::after {
+                content: "";
+                width: 100%;
+                background-color: gray;
+                height: 1px;
+            }
+        }
+
+        & p {
+            margin: 0;
+        }
+
+        &:has(button) {
+            margin: 0 auto !important;
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+        }
+
+        & button {
+            width: 40px;
+            height: 40px;
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gray;
+            border-radius: 6px;
+            background-color: transparent;
+
+            & img {
+                width: 24px;
+            }
+        }
+    }
+}
