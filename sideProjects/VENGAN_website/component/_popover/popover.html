@@ -30,12 +30,12 @@
                         </div>
                         <!-- 切換按鈕 -->
                         <div class="mber_conTab" v-show="header.title">
-                            <button @click="tab=1">會員獎勵</button>
-                            <button @click="tab=2">帳戶</button>
+                            <button @click="tab=1" :aria-selected="tab == 1 ? 'true' : 'false'">會員獎勵</button>
+                            <button @click="tab=2" :aria-selected="tab == 2 ? 'true' : 'false'">帳戶</button>
                         </div>
                     </header>
 
-                    <section class="mber_tabPanels" v-show="tab == 1" @wheel="header_collapse($event)">
+                    <section class=" mber_tabPanels" v-show="tab == 1" @wheel="header_collapse($event)">
                         <!-- 獲獎方式 -->
                         <div class="mber_reward">
                             <div class="reward_title">

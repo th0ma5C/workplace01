@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./questionnaire.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <quiz>
+        <div id="quiz">
+            <div class="container">
+                <div class="quiz_page">
+                    <!-- 第0頁 -->
+                    <div class="slide0">
+                        <a href="#">
+                            <img src="./questionnaire_img/Logo1.PNG" alt="Logo">
+                            <h3>果漾蔬食</h3>
+                        </a>
+                        <div>
+                            <!-- 示意圖+文字 -->
+                            <div>
+                                <h1>尋找我的美味關係</h1>
+                                <p>分析我的飲食行為和健康態度</p>
+                            </div>
+                        </div>
+                        <div>
+                            <button>開始分析</button>
+                        </div>
+                    </div>
+                    <!-- 稱呼 -->
+                    <div class="slide1">
+                        <a href="#"><img src="" alt=""></a>
+                        <div>
+                            <!-- 進度條 -->
+                        </div>
+                        <!--  -->
+                        <div>
+                            <div>
+                                <h1>該怎麼稱呼您呢？</h1>
+                            </div>
+                            <div>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div>
+                                <button>NEXT</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 第一題 -->
+                    <div class="slide2">
+                        <div>
+                            <h1>您通常的蔬食偏好是什麼？</h1>
+                            <!-- <p>使用者姓名</p> -->
+                        </div>
+                        <div>
+                            <button>米食</button>
+                            <button>沙拉</button>
+                            <button>甜點</button>
+                            <button>果昔</button>
+                            <button>我全都要</button>
+                        </div>
+                        <div>
+                            <button>NEXT</button>
+                        </div>
+                    </div>
+                    <!-- 第二題 -->
+                    <div class="slide3">
+                        <div>
+                            <h1>您會注意食材是否為有機的嗎?</h1>
+                        </div>
+                        <div>
+                            <button>我會特別挑選有機食材</button>
+                            <button>沒特別注意</button>
+                        </div>
+                    </div>
+                    <!-- 第三題 -->
+                    <div class="slide4">
+                        <div>
+                            <h1>是否有特殊的飲食需求或過敏原？</h1>
+                        </div>
+                        <div>
+                            <button>無麩質</button>
+                            <button>不喜歡藥膳</button>
+                            <input type="text" placeholder="其他">
+                        </div>
+                        <div>
+                            <button>NEXT</button>
+                        </div>
+                    </div>
+                    <!-- 第四題 -->
+                    <div class="slide5">
+                        <div>
+                            <h1>您特別喜歡的蔬菜有？(最多三項)</h1>
+                        </div>
+                        <div>
+                            <button>菠菜</button>
+                            <button>番茄</button>
+                            <button>胡蘿蔔</button>
+                            <button>紅椒</button>
+                            <button>馬鈴薯</button>
+                        </div>
+                        <div>
+                            <button>NEXT</button>
+                        </div>
+                    </div>
+                    <!-- 第五題 -->
+                    <div class="slide6">
+                        <div>
+                            <h1>辣的接受程度？</h1>
+                        </div>
+                        <div>
+                            <button>大辣</button>
+                            <button>中辣</button>
+                            <button>小辣</button>
+                            <button>胡椒都覺得辣</button>
+                        </div>
+                    </div>
+                    <!-- 第六題 -->
+                    <div class="slide7">
+                        <div>
+                            <h1>您對餐點的熱量考量？</h1>
+                        </div>
+                        <div>
+                            <button>越高越好</button>
+                            <button>我都吃八分飽</button>
+                            <button>我在減肥</button>
+                        </div>
+                    </div>
+                    <!-- 第七題 -->
+                    <div class="slide8">
+                        <div>
+                            <h1>您喜歡的口味主調？(最多兩項)</h1>
+                        </div>
+                        <div>
+                            <button>酸</button>
+                            <button>甜</button>
+                            <button>鹹</button>
+                            <button>苦</button>
+                            <button>辣</button>
+                            <button>我選擇困難</button>
+                        </div>
+                        <div>
+                            <button>NEXT</button>
+                        </div>
+                    </div>
+                    <!-- 第八題 -->
+                    <div class="slide9">
+                        <div>
+                            <h1>對於餐點的口感有偏好嗎？</h1>
+                        </div>
+                        <div>
+                            <button>清脆</button>
+                            <button>軟嫩</button>
+                            <button>口感豐富</button>
+                        </div>
+                    </div>
+                    <!-- 第九題 -->
+                    <div class="slide10">
+                        <div>
+                            <h1>您最喜歡的素食料理？</h1>
+                        </div>
+                        <div>
+                            <button>沙拉</button>
+                            <button>米食</button>
+                            <button>麵食</button>
+                            <button>麵包類</button>
+                        </div>
+                    </div>
+                    <!-- 第十題 -->
+                    <div class="slide11">
+                        <div>
+                            <h1>您喜歡的水果有？(最多三項)</h1>
+                        </div>
+                        <div>
+                            <button>蘋果</button>
+                            <button>草莓</button>
+                            <button>芒果</button>
+                            <button>香蕉</button>
+                            <button>葡萄</button>
+                        </div>
+                        <div>
+                            <button>NEXT</button>
+                        </div>
+                    </div>
+                    <!-- 第十一題 -->
+                    <div class="slide12">
+                        <div>
+                            <h1>您對於餐點中添加的植物蛋白有興趣嗎？</h1>
+                        </div>
+                        <div>
+                            <button>有，我需要植物蛋白</button>
+                            <button>沒有，我不喜歡植物蛋白</button>
+                        </div>
+                    </div>
+                    <!-- 第十二題 -->
+                    <div class="slide13">
+                        <div>
+                            <h1>是否有特殊的營養需求？</h1>
+                        </div>
+                        <div>
+                            <button>蛋白質</button>
+                            <button>維生素B12</button>
+                            <button>鐵質</button>
+                            <button>鈣質</button>
+                            <button>Omega-3脂肪酸</button>
+                        </div>
+                    </div>
+                    <!-- 第十三題 -->
+                    <div class="slide14">
+                        <div>
+                            <h1>您對食物的呈現有什麼要求？</h1>
+                        </div>
+                        <div>
+                            <button>顏色豐富</button>
+                            <button>菜色多樣化</button>
+                            <button>高貴精緻</button>
+                        </div>
+                    </div>
+                    <!-- 第十四題 -->
+                    <div class="slide15">
+                        <div>
+                            <h1>您會特別挑選當季食材嗎？</h1>
+                        </div>
+                        <div>
+                            <button>會，都吃當季的為主</button>
+                            <button>沒注意過</button>
+                        </div>
+                    </div>
+                    <!-- 第十五題 -->
+                    <div class="slide16">
+                        <div>
+                            <h1>您希望的餐點價格區間為？</h1>
+                        </div>
+                        <div>
+                            <button>100-200元</button>
+                            <button>200-300元</button>
+                            <button>健康無價</button>
+                        </div>
+                    </div>
+
+                </div>
+                <button><img src="./questionnaire_img/x_icon.svg" alt="X"></button>
+            </div>
+        </div>
+    </quiz>
+
+    <script src="./questionnaire.js"></script>
+</body>
+
+</html>
