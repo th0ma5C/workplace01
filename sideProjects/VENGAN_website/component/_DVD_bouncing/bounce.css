@@ -1,0 +1,20 @@
+.logo {
+    position: absolute;
+    width: 80px;
+    fill: rgb(0, 81, 255);
+}
+
+.bounce {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 40px;
+    }
+}

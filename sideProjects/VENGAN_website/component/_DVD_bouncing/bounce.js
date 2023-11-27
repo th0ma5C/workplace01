@@ -1,36 +1,3 @@
-const vm = Vue.createApp({
-    data() {
-        return {
-            bounce_display: 1,
-            page_top: 0,
-            page_num: 1,
-            userName: "",
-
-        }
-    },
-    methods: {
-        bounce() {
-            alert("恭喜獲得5%折價券");
-            this.bounce_display = 0;
-        },
-        next_page() {
-            if (this.userName.trim() === "") {
-                alert("請輸入您的名字");
-                return;
-            }
-            this.page_top -= 100;
-            this.page_num += 1;
-        },
-        pre_page() {
-            this.page_top += 100;
-            this.page_num -= 1;
-        }
-    },
-    computed: {
-
-    },
-}).mount("#quiz")
-
 const section = document.querySelector(".bounce");
 const logo = document.querySelector(".logo");
 const FPS = 60;
@@ -76,5 +43,3 @@ window.addEventListener("resize", () => {
     section.style.height = window.innerHeight + "px";
     section.style.width = window.innerWidth + "px";
 });
-
-
