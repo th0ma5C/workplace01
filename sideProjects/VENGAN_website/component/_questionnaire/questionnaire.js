@@ -5,6 +5,13 @@ const vm = Vue.createApp({
             page_top: 0,
             page_num: 1,
             userName: "",
+            score: {
+                a: 0,//米食
+                b: 0,//沙拉
+                c: 0,//甜點
+                d: 0,//果昔
+            },
+            option_class: "",
 
         }
     },
@@ -23,8 +30,20 @@ const vm = Vue.createApp({
         },
         pre_page() {
             this.page_top += 100;
-            this.page_num -= 1;
-        }
+            if (this.page_num == 1) { }
+            else {
+                this.page_num -= 1;
+            }
+        },
+        option_click() {
+            if (this.option_class == "") {
+                this.option_class = "click";
+                this.next_page();
+            } else {
+                this.option_class = "";
+            }
+
+        },
     },
     computed: {
 

@@ -207,7 +207,7 @@
                             </div>
                         </div>
                         <div>
-                            <button @click="next_page">開始分析</button>
+                            <button @click="this.page_top=-100">開始分析</button>
                         </div>
                     </div>
                     <!-- 稱呼 -->
@@ -219,11 +219,11 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process" :style="{width:(page_num/15)*100+'%'}"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>{{page_num}}/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
                         <!--  -->
@@ -245,11 +245,11 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
@@ -257,15 +257,15 @@
                             <h1>您通常的蔬食偏好是什麼？</h1>
                             <!-- <p>使用者姓名</p> -->
 
-                            <button>米食</button>
+                            <button :class="option_class" @click="option_click()" @click.once=this.score.a++>米食</button>
                             <button>沙拉</button>
                             <button>甜點</button>
                             <button>果昔</button>
                             <button>我全都要</button>
                         </div>
-                        <div class="s_footer">
+                        <!-- <div class="s_footer">
                             <button @click="next_page">NEXT</button>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- 第二題 -->
                     <div class="slide_n">
@@ -276,17 +276,17 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
                         <div class="s_body">
                             <h1>您會注意食材是否為有機的嗎?</h1>
 
-                            <button>我會特別挑選有機食材</button>
+                            <button :class="option_class" @click="option_click()">我會特別挑選有機食材</button>
                             <button>沒特別注意</button>
                         </div>
                     </div>
@@ -299,24 +299,24 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
                         <div class="s_body">
                             <h1>是否有特殊的飲食需求或過敏原？</h1>
 
-                            <button>無麩質</button>
+                            <button :class="option_class" @click="option_click()">無麩質</button>
                             <button>不喜歡藥膳</button>
-                            <input type="text" placeholder="其他">
+                            <!-- <input type="text" placeholder="其他"> -->
                         </div>
-                        <div class="s_footer">
+                        <!-- <div class="s_footer">
                             <button @click="next_page">NEXT</button>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- 第四題 -->
                     <div class="slide_n">
@@ -327,26 +327,26 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
                         <div class="s_body">
-                            <h1>您特別喜歡的蔬菜有？(最多三項)</h1>
+                            <h1>您特別喜歡的蔬菜有？</h1>
 
-                            <button>菠菜</button>
+                            <button :class="option_class" @click="option_click()">菠菜</button>
                             <button>番茄</button>
                             <button>胡蘿蔔</button>
                             <button>紅椒</button>
                             <button>馬鈴薯</button>
                         </div>
-                        <div class="s_footer">
+                        <!-- <div class="s_footer">
                             <button @click="next_page">NEXT</button>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- 第五題 -->
                     <div class="slide_n">
@@ -357,18 +357,18 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
                         <div class="s_body">
                             <h1>辣的接受程度？</h1>
 
-                            <button>大辣</button>
+                            <button :class="option_class" @click="option_click()">大辣</button>
                             <button>中辣</button>
                             <button>小辣</button>
                             <button>胡椒都覺得辣</button>
@@ -383,18 +383,18 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
                         <div class="s_body">
                             <h1>您對餐點的熱量考量？</h1>
 
-                            <button>越高越好</button>
+                            <button :class="option_class" @click="option_click()">越高越好</button>
                             <button>我都吃八分飽</button>
                             <button>我在減肥</button>
                         </div>
@@ -408,27 +408,27 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
                         <div class="s_body">
-                            <h1>您喜歡的口味主調？(最多兩項)</h1>
+                            <h1>您喜歡的口味主調？</h1>
 
-                            <button>酸</button>
+                            <button :class="option_class" @click="option_click()">酸</button>
                             <button>甜</button>
                             <button>鹹</button>
                             <button>苦</button>
                             <button>辣</button>
                             <button>我選擇困難</button>
                         </div>
-                        <div class="s_footer">
+                        <!-- <div class="s_footer">
                             <button @click="next_page">NEXT</button>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- 第八題 -->
                     <div class="slide_n">
@@ -439,18 +439,18 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
                         <div class="s_body">
                             <h1>對於餐點的口感有偏好嗎？</h1>
 
-                            <button>清脆</button>
+                            <button :class="option_class" @click="option_click()">清脆</button>
                             <button>軟嫩</button>
                             <button>口感豐富</button>
                         </div>
@@ -464,18 +464,18 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
                         <div class="s_body">
                             <h1>您最喜歡的素食料理？</h1>
 
-                            <button>沙拉</button>
+                            <button :class="option_class" @click="option_click()">沙拉</button>
                             <button>米食</button>
                             <button>麵食</button>
                             <button>麵包類</button>
@@ -490,26 +490,26 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
                         <div class="s_body">
-                            <h1>您喜歡的水果有？(最多三項)</h1>
+                            <h1>您喜歡的水果有？</h1>
 
-                            <button>蘋果</button>
+                            <button :class="option_class" @click="option_click()">蘋果</button>
                             <button>草莓</button>
                             <button>芒果</button>
                             <button>香蕉</button>
                             <button>葡萄</button>
                         </div>
-                        <div class="s_footer">
+                        <!-- <div class="s_footer">
                             <button @click="next_page">NEXT</button>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- 第十一題 -->
                     <div class="slide_n">
@@ -520,18 +520,18 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
                         <div class="s_body">
                             <h1>您對於餐點中添加的植物蛋白有興趣嗎？</h1>
 
-                            <button>有，我需要植物蛋白</button>
+                            <button :class="option_class" @click="option_click()">有，我需要植物蛋白</button>
                             <button>沒有，我不喜歡植物蛋白</button>
                         </div>
                     </div>
@@ -544,17 +544,17 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
                         <div class="s_body">
                             <h1>是否有特殊的營養需求？</h1>
 
-                            <button>蛋白質</button>
+                            <button :class="option_class" @click="option_click()">蛋白質</button>
                             <button>維生素B12</button>
                             <button>鐵質</button>
                             <button>鈣質</button>
@@ -570,17 +570,17 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
                         <div class="s_body">
                             <h1>您對食物的呈現有什麼要求？</h1>
 
-                            <button>顏色豐富</button>
+                            <button :class="option_class" @click="option_click()">顏色豐富</button>
                             <button>菜色多樣化</button>
                             <button>高貴精緻</button>
                         </div>
@@ -594,17 +594,17 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
                         <div class="s_body">
                             <h1>您會特別挑選當季食材嗎？</h1>
 
-                            <button>會，都吃當季的為主</button>
+                            <button :class="option_class" @click="option_click()">會，都吃當季的為主</button>
                             <button>沒注意過</button>
                         </div>
                     </div>
@@ -617,11 +617,11 @@
                             </a>
                             <!-- 進度條 -->
                             <div class="bar">
-                                <div class="process"></div>
+                                <div class="process" :style="{width:(page_num/16)*100+'%'}"></div>
                             </div>
                             <div class="pre_page">
                                 <p @click="pre_page">上一頁</p>
-                                <p>2/15</p>
+                                <p>{{page_num}}/16</p>
                             </div>
                         </div>
 
@@ -630,11 +630,27 @@
 
                             <button>100-200元</button>
                             <button>200-300元</button>
-                            <button>健康無價</button>
+                            <button :class="option_class" @click="option_click()">健康無價</button>
                         </div>
                     </div>
                     <!-- 推薦頁面 -->
-                    <div></div>
+                    <div class="slide_n">
+                        <div class="s_header" style="left: 0;">
+                            <a href="">
+                                <h3>果漾蔬食</h3>
+                                <p>Relation-ship</p>
+                            </a>
+                        </div>
+
+                        <div class="s_body">
+                            <h1>您的最佳餐食和果昔推薦如下：</h1>
+
+                        </div>
+
+                        <div class="s_footer">
+
+                        </div>
+                    </div>
                 </div>
                 <button><img src="./questionnaire_img/x_icon.svg" alt="X"></button>
             </div>

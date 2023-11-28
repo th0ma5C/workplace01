@@ -24,10 +24,16 @@ body {
     z-index: 99;
     /* overflow: hidden; */
 
+
+
     & button {
         border-radius: 10px;
         font-family: inherit;
         cursor: pointer;
+
+        /* &.click {
+            background-color: yellowgreen;
+        } */
     }
 
     &>button {
@@ -49,10 +55,15 @@ body {
         }
     }
 
+    /* .show{
+        opacity: 1;
+    } */
+
     .quiz_page {
         width: 100%;
         height: 100%;
         position: relative;
+        transition: top ease-in-out 0.5s;
 
         &>div {
             width: 100%;
@@ -204,7 +215,7 @@ body {
         }
 
         .pre_page {
-            & p {
+            & p:nth-child(1) {
                 cursor: pointer;
             }
         }
