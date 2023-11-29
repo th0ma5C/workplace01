@@ -44,6 +44,7 @@
                 //     })
 
                 // }
+                //初始頁面要顯示原始數據，需使用immediate，故不能用簡寫
                 keyword: {
                     immediate: true,
                     handler(val) {
@@ -57,7 +58,6 @@
         */
 
         //用computed寫
-
         const vm = Vue.createApp({
             data() {
                 return {
