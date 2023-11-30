@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <h2>學校名稱:{{name}}</h2>
+        <h2>學校地址:{{addr}}</h2>
+        <h2>校長:{{leader}}</h2> <!--限制-->
+        <hr>
+        <button @click="addSex">添加性別，預設男</button>
+        <h2>學生姓名:{{student.name}}</h2>
+        <h2 v-if="student.sex">性別:{{student.sex}}</h2>
+        <h2>學生年齡:真實{{student.age.rAge}},對外{{student.age.sAge}}</h2>
+        <button @click="addHobby">添加興趣</button>
+        <h2>興趣</h2>
+        <ul>
+            <li v-for="(h,index) in student.hobby" :key="index">
+                {{h}}
+            </li>
+        </ul>
+        <h2>朋友們</h2>
+        <ul>
+            <li v-for="(f,index) in student.friends" :key="index">
+                {{f.name}}--{{f.age}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    name: "Google",
+                    addr: "台北",
+                    student: {
+                        name: "tom",
+                        age: {
+                            rAge: 40,
+                            sAge: 29
+                        },
+                        hobby: ["抽菸", "喝酒", "打麻將"],
+                        friends: [
+                            { name: "jerry", age: 35 },
+                            { name: "tony", age: 36 },
+
+                        ]
+                    }
+                }
+            },
+            methods: {
+                addSex() {
+                    // Vue.set(this.student, "sex", "男") //Vue2的用法，Vue3中因為有了proxy的代理檢測，固可直接在data中的物件上添加屬性
+                    // 限制:無法直接在data上新增屬性，只能在data中的物件上新增屬性
+                    this.student.sex = "男"
+                },
+                addHobby() {
+                    this.student.hobby.push("打電動");
+                }
+            },
+
+        }).mount("#demo")
+        // let data = {
+        //     name: "Google",
+        //     addr: "台北",
+        //     student: {
+        //         name: "tom",
+        //         age: {
+        //             rAge: 40,
+        //             sAge: 29
+        //         },
+        //         friends: [
+        //             { name: "jerry", age: 35 }
+        //         ]
+        //     }
+        // }
+
+        // //會陷入無窮迴圈
+        // /*Object.defineProperty(data,"name",{
+        //     get(){
+        //         return data.name
+        //     },
+        //     set(val){
+        //         data.name = val
+        //     }
+        // })
+        // */
+
+        // //創建一個監視的實例對象，用於監視data中的屬性變化
+        // const obs = new observer(data)
+        // console.log('obs', obs)
+
+        // //準備vm實例對象
+        // // let vm = {}
+        // // vm._data = data = obs
+
+        // function observer(obj) {
+        //     //彙總對象中的所有屬性形成一個數組
+        //     const keys = Object.keys(obj)
+        //     //遍歷
+        //     keys.forEach((k) => {
+        //         Object.defineProperty(this, k, {
+        //             get() {
+        //                 return obj[k];
+        //             },
+        //             set(val) {
+        //                 console.log(`${k}被改了`)
+        //                 obj[k] = val
+        //             }
+        //         })
+        //     })
+        // }
+    </script>
+</body>
+
+</html>
