@@ -20,6 +20,7 @@
         <button @click="student.hobby.push('打電動')">添加一個興趣</button><br><br>
         <button @click="student.hobby.splice(0,1,'開車')">修改第一個愛好為開車</button><br><br>
         <!-- <button @click="student.hobby[0]='開車'">修改第一個愛好為開車</button><br><br> -->
+        <button @click="removeSmoke">過濾興趣中的抽菸</button>
 
         <h2>姓名:{{student.name}}</h2>
         <h2 v-if="student.sex">性別:{{student.sex}}</h2>
@@ -55,6 +56,11 @@
                 }
             },
             methods: {
+                removeSmoke() {
+                    this.student.hobby = this.student.hobby.filter((h) => {
+                        return h != "抽菸";
+                    })
+                }
             },
 
         }).mount("#demo")
