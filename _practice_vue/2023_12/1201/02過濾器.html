@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- 引入 dayjs -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <h2>顯示格式化後的時間</h2>
+        <!-- 計算屬性實現 -->
+        <h3>現在是：{{fmtTime}}</h3>
+        <!-- methods實現 -->
+        <h3>現在是：{{getTime()}}</h3>
+        <!-- 過濾器實現 Vue3已移除-->
+        <!-- <h3>現在是：{{time | timeFormater}}</h3> -->
+        <!-- 過濾器改methods並傳入參數-->
+        <h3>現在是：{{timeFormater(time)}}</h3>
+        <h3>現在是：{{timeFormater(time,'YYYY年MM月DD日 HH:mm:ss')}}</h3>
+        <!--  -->
+        <h3>現在是：{{myslice()}}</h3>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    time: Date.now(),
+                }
+            },
+            computed: {
+                fmtTime() {
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss'); //dayjs無傳入參數便是用現在時間
+                }
+            },
+            methods: {
+                getTime() {
+                    return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss');
+                },
+                timeFormater(val, str = "YYYY-MM-DD HH:mm:ss") {
+                    // if (!str) {
+                    //     return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+                    // } else {
+                    //     return dayjs(val).format(str);
+                    // }
+
+                    //用ES6 預設參數實現
+                    return dayjs(val).format(str);
+                },
+                myslice() {
+                    let val = this.timeFormater(this.time);
+                    return val.slice(0, 4);
+                }
+            },
+            // //Vue3 已移除
+            // filters: {
+            //     timeFormater(val) {
+            //         return dayjs(val).format('YYYY-MM-DD HH:mm:ss');
+            //     }
+            // },
+        }).mount("#demo")
+    </script>
+</body>
+
+</html>
