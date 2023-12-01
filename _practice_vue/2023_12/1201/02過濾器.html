@@ -26,6 +26,10 @@
         <h3>現在是：{{myslice()}}</h3>
     </div>
 
+    <div id="demo2">
+        <h1>{{msg}}</h1>
+    </div>
+
     <script>
         const vm = Vue.createApp({
             data() {
@@ -64,6 +68,14 @@
             //     }
             // },
         }).mount("#demo")
+
+        const vm2 = Vue.createApp({
+            data() {
+                return {
+                    msg: "hello"
+                }
+            },
+        }).mount("#demo2")
     </script>
 </body>
 

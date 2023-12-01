@@ -1,5 +1,5 @@
 //創建方式有三種
-//1. alloc 會將每個內存數據歸零
+//1. alloc 創建全新的暫存，並將每個數據為零
 let buf = Buffer.alloc(10)
 // console.log(buf);
 
