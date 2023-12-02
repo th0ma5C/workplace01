@@ -1,19 +1,19 @@
-function foo() {
-    console.log(this.bar);
+function getDay(strings, ...values) {
+    let result = '', week = ['日', '一', '二', '三', '四', '五', '六'];
+
+    strings.forEach(function (key, i) {
+        if (values[i]) {
+            let setTime = new Date(values[i]);//日期物件
+            result += values[i] + '是星期' + week[setTime.getDay()] + '\n';
+        }
+    })
+    return result;
 }
 
-let bar = "global";
+const a = '2019-8-1', b = '2019-9-1', c = '2019-10-1';
 
-let obj1 = {
-    bar: "obj1",
-    foo: foo
-};
-
-let obj2 = {
-    bar: "obj2"
-};
-
-foo();          //"global"
-obj1.foo();     //"obj1"
-foo.call(obj2); //"obj2"
-new foo();      //undefined
+const sentence = getDay`${a},${b},${c}`;
+console.log(sentence);
+//2019-8-1是星期四
+//2019-9-1是星期日
+//2019-10-1是星期二
