@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        需求一:定義一v-big指令，和v-text功能類似，但會把綁定的數值放大十倍
+        需求二:定義一v-fbind指令，和v-bind類似，但可以讓其所綁定的input標籤預設獲取焦點
+     -->
+
+    <div id="demo">
+        <h2>當前n值: {{n}}</h2>
+        <!-- <h2>放大10倍後的n值: <span v-big="n"></span></h2> -->
+        <h2>放大10倍後的n值: <span v-big-number="n"></span></h2>
+        <button @click="n++">n+1</button>
+        <hr>
+        <input type="text" v-fbind:value="n">
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    n: 1,
+                }
+            },
+            directives: {
+                //需求一 簡寫 = created() + updated()
+                //自定義函數取名完整寫法: 'big-number': function (element, binding) {
+                'big-number'(element, binding) {
+                    //參數一: 指令所在的DOM元素(真實DOM), 參數二: 指令所用到的值(表達式)
+                    //big何時被調用? 1.指令與元素成功綁定時 2. 指令所在模板被重新渲染時
+                    element.innerText = binding.value * 10;
+                },
+
+                //需求二 完整寫法(局部)
+                fbind: {
+                    //指令與元素成功綁定時
+                    created(element, binding) {
+                        element.value = binding.value;
+                    },
+                    //指令所在元素的父組件和所有子節點掛載完成後
+                    mounted(element, binding) {
+                        element.focus();
+                    },
+                    //指令所在模板被重新解析時/父組件及子節點都更新後
+                    updated(element, binding) {
+                        element.value = binding.value;
+                    }
+                }
+            },
+        })
+
+        全局自定義函數寫法
+        // vm.directive('big-number', function (element, binding) {
+        //     element.innerText = binding.value * 10;
+        // },)
+        // vm.directive('fbind', {
+        //     created(element, binding) {
+        //         element.value = binding.value;
+        //     },
+        //     mounted(element, binding) {
+        //         element.focus();
+        //     },
+        //     updated(element, binding) {
+        //         element.value = binding.value;
+        //     }
+        // })
+
+        vm.mount("#demo")
+    </script>
+</body>
+
+</html>
