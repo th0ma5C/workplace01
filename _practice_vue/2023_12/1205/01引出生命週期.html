@@ -20,12 +20,21 @@
                     opacity: 1,
                 }
             },
+            mounted() { //Vue完成模板解析並把真實的DOM元素放入頁面後(掛載完畢)調用
+                setInterval(() => {
+                    this.opacity -= 0.01;
+                    if (this.opacity <= 0) this.opacity = 1;
+                }, 16);
+            },
 
-        });
+        }).mount("#demo");
 
+        //透過外部定時器實現(不推薦)
+        // setInterval(() => {
+        //     vm.opacity -= 0.01;
+        //     if (vm.opacity <= 0) vm.opacity = 1;
+        // }, 16);
 
-
-        vm.mount("#demo")
     </script>
 </body>
 
