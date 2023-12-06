@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <h2 :style="{opacity}">歡迎學習Vue</h2>
+        <button @click="opacity=1">透明度:1</button>
+        <button @click="stop">停止變換</button>
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    opacity: 1,
+                }
+            },
+            methods: {
+                stop() {
+                    clearInterval(this.timer);
+                    //this.$destroy(); //vue3已刪除此方法
+                }
+            },
+            mounted() {
+                this.timer = setInterval(() => {
+                    this.opacity -= 0.01;
+                    if (this.opacity <= 0) this.opacity = 1;
+                }, 16);
+            },
+            beforeUnmount() {
+                clearInterval(this.timer);
+            },
+        }).mount("#demo");
+    </script>
+</body>
+
+</html>
