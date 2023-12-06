@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <school></school>
+        <hr>
+        <student></student>
+    </div>
+
+    <script>
+        const app = Vue.createApp({});
+
+        app
+            .component(
+                'school',
+                {
+                    template: `
+                    <div>
+                        <h2>學校名稱: {{schoolName}}</h2>
+                        <h2>學校地址: {{schoolAddr}}</h2>
+                    </div>
+                    
+                    `
+                    ,
+                    data() {
+                        return {
+                            schoolName: 'Google',
+                            schoolAddr: 'Taipei'
+                        }
+                    },
+                }
+            )
+            .component(
+                'student',
+                {
+                    template: `
+                    <div>
+                        <h2>學生姓名: {{studentName}}</h2>
+                        <h2>學生年齡: {{studentAge}}</h2>
+                    </div>
+                    `,
+                    data() {
+                        return {
+                            studentName: '張三',
+                            studentAge: 18
+                        }
+                    },
+                }
+            );
+
+        app.mount("#demo");
+    </script>
+</body>
+
+</html>
