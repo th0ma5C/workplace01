@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+    </div>
+
+    <script>
+        const vm = Vue.createApp({
+            template: `<app></app>`,
+        });
+
+        vm.component('app', {
+            template: `
+            <div>
+                <hello></hello>
+                <school></school>
+            </div>
+            `,
+            components: {
+                hello: {
+                    template: `
+                    <h1>{{msg}}</h1>
+                    `,
+                    data() {
+                        return {
+                            msg: '歡迎光臨'
+                        }
+                    },
+                },
+                school: {
+                    template: `
+                    <div>
+                        <h2>學校名稱: {{schoolName}}</h2>
+                        <h2>學校地址: {{schoolAddr}}</h2>
+                        <hr>
+                        <student></student>
+                    </div>
+                    
+                    `,
+                    data() {
+                        return {
+                            schoolName: 'Google',
+                            schoolAddr: 'Taipei'
+                        }
+                    },
+                    components: {
+                        student: {
+                            template: `
+                            <div>
+                                <h2>學生姓名: {{studentName}}</h2>
+                                <h2>學生年齡: {{studentAge}}</h2>
+                            </div>
+                            `,
+                            data() {
+                                return {
+                                    studentName: '張三',
+                                    studentAge: 18
+                                }
+                            },
+                        }
+                    }
+                },
+
+            }
+        })
+
+        vm.mount("#demo");
+    </script>
+
+</body>
+
+</html>
