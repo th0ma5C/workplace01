@@ -5,9 +5,6 @@ import App from './App.vue'
 const vm = createApp({
     // render() {
     //     return h(App)
-    // },
-    // render() {
-    //     return h(App)
     // }
     render: () => h(App)
     // template: `<app></app>`,
