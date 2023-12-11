@@ -1,23 +1,41 @@
 <template>
     <div>
-        <h1 v-text="msg" ref="title"></h1>
-        <School ref="sch" />
+        <div class="todoContainer">
+            <div class="todoWrap">
+                <TodoHeader :addTodo="addTodo"></TodoHeader>
+                <TodoList :todos="todos"></TodoList>
+                <TodoFooter></TodoFooter>
+            </div>
+        </div>
     </div>
 </template>
+
 <script>
-import School from './components/Student.vue';
+import TodoHeader from './components/TodoHeader.vue';
+import TodoList from './components/TodoList.vue';
+import TodoFooter from './components/TodoFooter.vue';
+
 export default {
-    name: 'App',
-    components: { Student },
+    components: { TodoHeader, TodoList, TodoFooter },
     data() {
         return {
-            msg: '歡迎光臨'
+            todos: [
+                { id: '001', title: '吃飯', done: true },
+                { id: '002', title: '睡覺', done: false },
+                { id: '003', title: '打代碼', done: true },
+            ]
         }
     },
     methods: {
-        showDOM() {
-            console.log(this.$refs)
+        addTodo(todoObj) {
+            this.todos.unshift(todoObj)
         }
     },
 }
 </script>
+
+<style>
+ul {
+    list-style-type: none;
+}
+</style>

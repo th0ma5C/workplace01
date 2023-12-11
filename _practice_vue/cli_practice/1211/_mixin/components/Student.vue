@@ -1,26 +1,26 @@
 <template>
     <div class="demo">
-        <h1>{{ msg }}</h1>
-        <h2>學生名稱: {{ name }}</h2>
-        <h2>學生年齡: {{ age }}</h2>
+        <h2 @click="showName">學生名稱: {{ name }}</h2>
         <h2>學生性別: {{ sex }}</h2>
     </div>
 </template>
 <script>
+// 引入混合
+// import { mixin } from '../mixin.js';
 export default {
     name: 'my-Student',
     data() {
         return {
-            msg: '我是一位學生',
             name: '張三',
-            age: 18,
             sex: '男'
         }
     },
+    // mixins: [mixin]
+    // methods: {
+    //     showName() {
+    //         alert(this.name)
+    //     }
+    // },
 }
 </script>
-<style>
-.demo {
-    background-color: gray;
-}
-</style>
+<style></style>
