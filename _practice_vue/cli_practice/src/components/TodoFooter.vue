@@ -1,9 +1,10 @@
 <template>
     <div v-show="total">
-        <label for="">
+        <label for="listFooter">
             <!-- <input type="checkbox" :checked="isAll"
                 @change="checkAll">全選 -->
-            <input type="checkbox" v-model="isAll">全選
+            <input type="checkbox" v-model="isAll"
+                name="listFooter">全選
         </label>
         <span>
             <span>已完成:{{ todoTotal }}</span>/全部:{{ total }}

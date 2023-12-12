@@ -1,9 +1,9 @@
 <template>
     <div>
         <li>
-            <label for="">
+            <label for="list">
                 <input type="checkbox" :checked="todo.done"
-                    @change="handleCheck(todo.id)">
+                    @change="handleCheck(todo.id)" name="list">
                 <!-- 下為用v-model實現不太推薦，因為直接修改props -->
                 <!-- <input type="checkbox" v-model="todo.done"> -->
                 <span>{{ todo.title }}</span>

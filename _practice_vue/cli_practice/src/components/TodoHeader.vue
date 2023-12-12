@@ -1,7 +1,8 @@
 <template>
     <div class="todoHeader">
         <input type="text" placeholder="Enter新增代辦事項"
-            @keyup.enter="add" v-model.trim="title">
+            @keyup.enter="add" v-model.trim="title"
+            name="newTodo">
     </div>
 </template>
 

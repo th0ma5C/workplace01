@@ -23,11 +23,7 @@ export default {
     components: { TodoHeader, TodoList, TodoFooter },
     data() {
         return {
-            todos: [
-                { id: '001', title: '吃飯', done: true },
-                { id: '002', title: '睡覺', done: false },
-                { id: '003', title: '打代碼', done: true },
-            ]
+            todos: JSON.parse(localStorage.getItem('todos')) || [],
         }
     },
     methods: {
@@ -57,6 +53,18 @@ export default {
                 return !todo.done;
             })
         }
+    },
+    watch: {
+        todos: {
+            deep: true,
+            handler(value) {
+                console.log(JSON.stringify(value))
+                localStorage.setItem('todos', JSON.stringify(value))
+            }
+        },
+        // todos(value) {
+        //     localStorage.setItem('todos', JSON.stringify(value))
+        // }
     },
 }
 </script>
