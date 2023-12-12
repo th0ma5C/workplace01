@@ -1,7 +1,10 @@
 <template>
     <div>
         <ul class="todoList">
-            <TodoItem v-for="todoObj in todos" :key="todoObj.id" :todo="todoObj"></TodoItem>
+            <TodoItem v-for="todoObj in todos" :key="todoObj.id"
+                :todo="todoObj" :checkTodo="checkTodo"
+                :deleteTodo="deleteTodo">
+            </TodoItem>
         </ul>
 
     </div>
@@ -13,7 +16,7 @@ import TodoItem from './TodoItem.vue';
 export default {
     name: 'TodoList',
     components: { TodoItem },
-    props: ["todos"]
+    props: ["todos", "checkTodo", 'deleteTodo']
 }
 </script>
 

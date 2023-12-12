@@ -1,6 +1,7 @@
 <template>
     <div class="todoHeader">
-        <input type="text" placeholder="Enter新增代辦事項" @keyup.enter="add" v-model.trim="title">
+        <input type="text" placeholder="Enter新增代辦事項"
+            @keyup.enter="add" v-model.trim="title">
     </div>
 </template>
 
@@ -15,6 +16,7 @@ export default {
         }
     },
     methods: {
+        // 直接操作DOM
         // add(e) {
         //     const todoObj = { id: nanoid(), title: e.target.value, done: false }
         //     this.addTodo(todoObj);
