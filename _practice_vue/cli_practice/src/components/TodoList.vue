@@ -2,8 +2,7 @@
     <div>
         <ul class="todoList">
             <TodoItem v-for="todoObj in todos" :key="todoObj.id"
-                :todo="todoObj" :checkTodo="checkTodo"
-                :deleteTodo="deleteTodo">
+                :todo="todoObj">
             </TodoItem>
         </ul>
 
@@ -16,7 +15,7 @@ import TodoItem from './TodoItem.vue';
 export default {
     name: 'TodoList',
     components: { TodoItem },
-    props: ["todos", "checkTodo", 'deleteTodo']
+    props: ["todos"]
 }
 </script>
 

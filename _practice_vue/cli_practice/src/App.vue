@@ -3,8 +3,10 @@
         <div class="todoContainer">
             <div class="todoWrap">
                 <TodoHeader @addTodo="addTodo"></TodoHeader>
-                <TodoList :todos="todos" :checkTodo="checkTodo"
-                    :deleteTodo="deleteTodo">
+                <!-- <TodoList :todos="todos" :checkTodo="checkTodo"
+                    :deleteTodo="deleteTodo"> -->
+                <!-- 用事件總線mitt實現 -->
+                <TodoList :todos="todos">
                 </TodoList>
                 <TodoFooter :todos="todos"
                     @checkAllTodo="checkAllTodo"
@@ -65,6 +67,14 @@ export default {
         // todos(value) {
         //     localStorage.setItem('todos', JSON.stringify(value))
         // }
+    },
+    mounted() {
+        this.$mitt.on('checkTodo', this.checkTodo);
+        this.$mitt.on('deleteTodo', this.deleteTodo);
+    },
+    beforeUnmount() {
+        this.$mitt.off('checkTodo');
+        this.$mitt.off('deleteTodo');
     },
 }
 </script>

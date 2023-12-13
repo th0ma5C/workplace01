@@ -18,17 +18,21 @@
 export default {
     name: 'TodoItem',
     // 接收todo物件
-    props: ['todo', 'checkTodo', 'deleteTodo'],
+    props: ['todo'],
     methods: {
         // 勾選
         handleCheck(id) {
             // 通知App組件將對應todo物件的done值取反
-            this.checkTodo(id);
+            // this.checkTodo(id);
+            // mitt實現
+            this.$mitt.emit('checkTodo', id);
         },
         // 刪除
         handleDelete(id) {
             if (confirm('確認刪除嗎?')) {
-                this.deleteTodo(id)
+                // this.deleteTodo(id)
+                // mitt實現
+                this.$mitt.emit('deleteTodo', id);
             }
         },
     },
