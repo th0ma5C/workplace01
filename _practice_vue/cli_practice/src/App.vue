@@ -68,6 +68,7 @@ export default {
         //     localStorage.setItem('todos', JSON.stringify(value))
         // }
     },
+    // 事件總線
     mounted() {
         this.$mitt.on('checkTodo', this.checkTodo);
         this.$mitt.on('deleteTodo', this.deleteTodo);
