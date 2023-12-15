@@ -17,7 +17,10 @@
 <script>
 export default {
     name: 'TodoFooter',
+    // props實現
+    // props: ['todos','checkAllTodo', 'clearAllTodo'],
     props: ['todos'],
+    // 自定義事件實現
     emits: ['checkAllTodo', 'clearAllTodo'],
     computed: {
         total() {

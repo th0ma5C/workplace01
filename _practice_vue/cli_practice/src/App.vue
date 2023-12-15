@@ -2,6 +2,7 @@
     <div>
         <div class="todoContainer">
             <div class="todoWrap">
+                <!-- 自定義事件實現 -->
                 <TodoHeader @addTodo="addTodo"></TodoHeader>
                 <!-- <TodoList :todos="todos" :checkTodo="checkTodo"
                     :deleteTodo="deleteTodo"> -->
@@ -40,8 +41,14 @@ export default {
             })
         },
         // 刪除todo
-        deleteTodo(id) {
+        deleteTodo(_, id) { //pubsub接收兩個參數，故用'_'接收但沒有使用
             this.todos = this.todos.filter(todo => todo.id !== id)
+        },
+        // 更新todo
+        updateTodo(id, title) {
+            this.todos.forEach((todo) => {
+                if (todo.id == id) todo.title = title;
+            })
         },
         // 全選框
         checkAllTodo(done) {
@@ -54,13 +61,13 @@ export default {
             this.todos = this.todos.filter((todo) => {
                 return !todo.done;
             })
-        }
+        },
     },
     watch: {
         todos: {
             deep: true,
             handler(value) {
-                console.log(JSON.stringify(value))
+                // console.log(JSON.stringify(value))
                 localStorage.setItem('todos', JSON.stringify(value))
             }
         },
@@ -70,12 +77,21 @@ export default {
     },
     // 事件總線
     mounted() {
+        // mitt實現
         this.$mitt.on('checkTodo', this.checkTodo);
-        this.$mitt.on('deleteTodo', this.deleteTodo);
+        this.$mitt.on('updateTodo', ({ id, value }) => {
+            this.updateTodo(id, value);
+        });
+        // this.$mitt.on('deleteTodo', this.deleteTodo);
+        // pubsub訂閱消息
+        this.pubId = this.PubSub.subscribe('deleteTodo', this.deleteTodo)
     },
     beforeUnmount() {
         this.$mitt.off('checkTodo');
-        this.$mitt.off('deleteTodo');
+        this.$mitt.off('updateTodo');
+        // this.$mitt.off('deleteTodo');
+
+        this.PubSub.unsubscribe(this.pubId);
     },
 }
 </script>
