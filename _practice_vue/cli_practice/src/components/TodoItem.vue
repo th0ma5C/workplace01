@@ -48,6 +48,7 @@ export default {
         // 編輯
         handleEdit(todo) {
             todo.isEdit = true;
+            // console.log('isEdit' in todo);
             // 下一次渲染DOM時再執行獲取焦點
             // setTimeout(() => {
             //     this.$refs.inputTitle.focus();
