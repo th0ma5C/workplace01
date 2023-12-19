@@ -25,6 +25,17 @@ app.all('/json-server', (request, response) => {
     // 使用express的json方法
     response.json(data);
 });
+// 延時響應
+app.get('/delay', (request, response) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Headers', '*');
+    const data = {
+        msg: '延時響應',
+    }
+    // setTimeout(() => {
+    response.json(data);
+    // }, 3000);
+});
 app.listen(8000, () => {
     console.log('服務已啟動，8000端口監聽中...');
 });
