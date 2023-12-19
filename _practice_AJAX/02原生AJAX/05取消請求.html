@@ -18,23 +18,15 @@
 <body>
     <div id="result"></div>
     <button>點擊發送請求</button>
+    <button>點擊取消請求</button>
 
     <script>
         const result = document.getElementById('result');
-        const btn = document.getElementsByTagName('button')[0];
+        const btn = document.querySelectorAll('button');
+        let xhr = null;
 
-        btn.addEventListener('click', function () {
-            const xhr = new XMLHttpRequest();
-            // 超時設置 2秒
-            xhr.timeout = 2000;
-            // 超時回調
-            xhr.ontimeout = function () {
-                alert('網路異常，請稍後重試')
-            }
-            // 網路異常回調
-            xhr.onerror = function () {
-                alert('連線問題')
-            }
+        btn[0].onclick = function () {
+            xhr = new XMLHttpRequest();
             xhr.open('GET', 'http://127.0.0.1:8000/delay');
             xhr.send();
             xhr.responseType = 'json';
@@ -45,7 +37,14 @@
                     }
                 }
             }
-        })
+        }
+        // 使用abort()手動取消請求
+        btn[1].onclick = function () {
+            xhr.abort();
+            alert('取消請求');
+        }
+
+
     </script>
 </body>
 

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+    <style>
+        #result {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result"></div>
+    <button>點擊發送GET請求</button>
+    <button>點擊發送POST請求</button>
+    <button>點擊發送通用請求</button>
+
+    <script>
+        // GET
+        $('button').eq(0).click(function () {
+            $.get('http://127.0.0.1:8000/jquery-server', { a: 100, b: 200 }, function (data) {
+                console.log(data);
+                $('#result').html(data.msg)
+            }, 'json');
+        })
+        // POST
+        $('button').eq(1).click(function () {
+            $.post('http://127.0.0.1:8000/jquery-server', { a: 200, b: 300 }, function (data) {
+                console.log(data);
+                $('#result').html(data.msg)
+            }, 'json');
+        })
+        // 通用
+        $('button').eq(2).click(function () {
+            $.ajax({
+                // url
+                url: 'http://127.0.0.1:8000/delay',
+                // 參數
+                data: { a: 100, b: 200 },
+                // 請求類型
+                type: 'GET',
+                // 回傳格式
+                dataType: 'json',
+                // 成功回調
+                success: function (data) {
+                    console.log(data);
+                    $('#result').html(data.msg)
+                },
+                // 超時時限
+                // timeout: 2000,
+                // 失敗回調
+                error: function () {
+                    console.log('請重試')
+                },
+                // 頭數據
+                headers: {
+                    c: 300,
+                    d: 400
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
