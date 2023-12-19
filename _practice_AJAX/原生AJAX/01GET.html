@@ -10,12 +10,47 @@
 
 <body>
     <button>點擊發送請求</button>
-    <div
+    <div id="result"
         style="width: 200px;height: 100px; border: 1px solid black;">
     </div>
 
     <script>
-        // 
+        // 獲取DOM元素
+        const btn = document.getElementsByTagName('button')[0];
+        const result = document.getElementById('result');
+        // 綁定事件
+        btn.onclick = function () {
+            // 創建對象
+            const xhr = new XMLHttpRequest();
+            // 初始化: 設定請求方法和url
+            xhr.open('get', 'http://127.0.0.1:8000/server');
+            // 發送
+            xhr.send();
+            // 事件綁定: 處領伺服器返回的結果
+            /* 
+            on 當...的時候
+            readystate 是xhr對象中的屬性， 表示狀態 0 1 2 3 4
+            change 改變
+            */
+            xhr.onreadystatechange = function () {
+                // 判斷伺服器返回的所有結果
+                if (xhr.readyState == 4) {
+                    // 判斷響應狀態碼 200 404 403...等 2xx開頭的為成功
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        // 處理結果 行 頭 空行 體
+                        // 響應
+                        // console.log(xhr.status); //狀態碼
+                        // console.log(xhr.statusText); //狀態字符串
+                        // console.log(xhr.getAllResponseHeaders()); //所有響應頭
+                        // console.log(xhr.response); //響應體
+
+                        // 設定result文本
+                        result.innerHTML = xhr.response;
+                    }
+                }
+            }
+
+        }
     </script>
 </body>
 
