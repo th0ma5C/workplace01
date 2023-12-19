@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result"></div>
+
+    <script>
+        // 獲取DOM元素
+        const result = document.getElementById("result");
+        // 綁定事件
+        result.addEventListener("mouseover", function () {
+            // 創建對象
+            const xhr = new XMLHttpRequest();
+            // 初始化類型、URL
+            xhr.open('POST', 'http://127.0.0.1:8000/server');
+            // 設定請求頭，一般會放置身分檢驗的數據
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            // 發送請求體
+            // xhr.send('a=100&b=200');
+            xhr.send('a:100&b:200');
+            // 事件綁定
+            xhr.onreadystatechange = function () {
+                // 判斷
+                if (xhr.readyState == 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        result.innerHTML = xhr.response;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

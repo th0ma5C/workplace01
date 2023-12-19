@@ -23,7 +23,8 @@
             // 創建對象
             const xhr = new XMLHttpRequest();
             // 初始化: 設定請求方法和url
-            xhr.open('get', 'http://127.0.0.1:8000/server');
+            // 使用'?'分割，'&'傳多個參數，設定get發送之參數
+            xhr.open('get', 'http://127.0.0.1:8000/server?a=100&b=200&c=300');
             // 發送
             xhr.send();
             // 事件綁定: 處領伺服器返回的結果
@@ -39,11 +40,12 @@
                     if (xhr.status >= 200 && xhr.status < 300) {
                         // 處理結果 行 頭 空行 體
                         // 響應
-                        // console.log(xhr.status); //狀態碼
-                        // console.log(xhr.statusText); //狀態字符串
-                        // console.log(xhr.getAllResponseHeaders()); //所有響應頭
-                        // console.log(xhr.response); //響應體
-
+                        /*
+                        console.log(xhr.status); //狀態碼
+                        console.log(xhr.statusText); //狀態字符串
+                        console.log(xhr.getAllResponseHeaders()); //所有響應頭
+                        console.log(xhr.response); //響應體
+                        */
                         // 設定result文本
                         result.innerHTML = xhr.response;
                     }
