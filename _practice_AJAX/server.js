@@ -45,6 +45,24 @@ app.all('/jquery-server', (request, response) => {
     }
     response.json(data);
 });
+// axios服務
+app.all('/axios-server', (request, response) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Headers', '*');
+    const data = {
+        msg: '使用axios請求',
+    }
+    response.json(data);
+});
+// fetch
+app.all('/fetch-server', (request, response) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Headers', '*');
+    const data = {
+        msg: '使用fetch請求',
+    }
+    response.json(data);
+});
 app.listen(8000, () => {
     console.log('服務已啟動，8000端口監聽中...');
 });
