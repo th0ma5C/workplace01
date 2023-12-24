@@ -1,8 +1,11 @@
 <template>
     <div class="category">
         <h3>{{ title }}分類</h3>
+        <!-- 預設插槽 -->
+        <!-- 具名插槽 -->
+        <slot name="center"></slot>
+        <slot name="footer"></slot>
         <!-- 作用域插槽 -->
-        <slot></slot>
     </div>
 </template>
 
