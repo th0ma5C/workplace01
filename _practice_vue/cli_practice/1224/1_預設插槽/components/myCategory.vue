@@ -1,10 +1,8 @@
 <template>
     <div class="category">
         <h3>{{ title }}分類</h3>
-        <!-- 默認插槽 -->
+        <!-- 預設插槽 -->
         <slot></slot>
-        <!-- 具名插槽 -->
-        <!-- 作用域插槽 -->
     </div>
 </template>
 
