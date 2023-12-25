@@ -3,6 +3,7 @@ import App from './App.vue';
 import mitt from 'mitt';
 // import PubSub from 'pubsub-js';
 import axios from 'axios';
+import store from './store';
 
 // const vm = createApp({
 //     render: () => h(App),
@@ -16,6 +17,5 @@ vm.config.globalProperties.$mitt = mitt();
 // 添加axios至全局
 vm.config.globalProperties.axios = axios;
 // 安裝store插件
-// App.use(store);
-
+vm.use(store);
 vm.mount("#app");
