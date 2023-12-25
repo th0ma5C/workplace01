@@ -1,6 +1,8 @@
 <template>
     <div>
         <h1>當前和為:{{ $store.state.sum }}</h1>
+        <h3>當前合的10倍為{{ $store.getters.bigSum }}</h3>
+        <h3>我在{{ $store.state.addr }}的{{ $store.state.school }}</h3>
         <select v-model.number="n">
             <option value="1">1</option>
             <option value="2">2</option>

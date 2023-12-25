@@ -32,6 +32,14 @@ export default createStore({
     },
     // state用於儲存數據
     state: {
-        sum: 0 //當前和
+        sum: 0, //當前和
+        school: 'google',
+        addr: 'taipei'
     },
+    // getters用於加工數據
+    getters: {
+        bigSum(state) {
+            return state.sum * 10;
+        }
+    }
 });
