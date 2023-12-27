@@ -5,6 +5,7 @@ import myAbout from '../pages/myAbout.vue'
 import myHome from '../pages/myHome.vue'
 import homeNews from '../pages/homeNews.vue'
 import homeMsg from '../pages/homeMsg.vue'
+import msgDetail from '../pages/msgDetail.vue'
 // 創建並暴露路由器
 export default createRouter({
     history: createWebHistory(),
@@ -23,7 +24,13 @@ export default createRouter({
                 },
                 {
                     path: 'homeMsg',
-                    component: homeMsg
+                    component: homeMsg,
+                    children: [
+                        {
+                            path: 'msgDetail',
+                            component: msgDetail,
+                        }
+                    ]
                 },
             ]
         },

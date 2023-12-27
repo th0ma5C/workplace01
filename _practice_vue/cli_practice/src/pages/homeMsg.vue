@@ -1,22 +1,28 @@
 <template>
     <div>
         <ul>
-            <li>
-                <a href="/message1">message001</a>&nbsp;&nbsp;
-            </li>
-            <li>
-                <a href="/message2">message002</a>&nbsp;&nbsp;
-            </li>
-            <li>
-                <a href="/message/3">message003</a>&nbsp;&nbsp;
+            <li v-for="m in msgList" :key="m.id">
+                <router-link to="/myHome/homeMsg/msgDetail">
+                    {{ m.title }}</router-link>&nbsp;&nbsp;
             </li>
         </ul>
+        <hr>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'homeMsg'
+    name: 'homeMsg',
+    data() {
+        return {
+            msgList: [
+                { id: '001', title: '消息01' },
+                { id: '002', title: '消息02' },
+                { id: '003', title: '消息03' },
+            ]
+        }
+    },
 }
 </script>
 
