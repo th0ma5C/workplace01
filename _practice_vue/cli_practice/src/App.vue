@@ -1,25 +1,52 @@
 <template>
     <div>
-        <myCount></myCount>
-        <hr>
-        <myPerson></myPerson>
+        <div class="row">
+            <myBanner></myBanner>
+        </div>
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-2">
+                <div class="list-group">
+                    <!-- 原生跳轉 -->
+                    <!-- <a class="list-group-item"
+                        href="./about.html">About</a>
+                    <a class="list-group-item active"
+                        href="./home.html">Home</a> -->
+
+                    <!-- 路由跳轉 -->
+                    <router-link class="list-group-item"
+                        active-class="active" to="/myAbout">
+                        About</router-link>
+                    <router-link class="list-group-item"
+                        active-class="active" to="/myHome">
+                        Home
+                    </router-link>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="panel">
+                    <div class="panel-body">
+                        <!-- 指定組件呈現位置 -->
+                        <router-view></router-view>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-import myCount from './components/myCount.vue';
-import myPerson from './components/myPerson.vue';
+import myBanner from './components/myBanner.vue';
 export default {
     name: 'App',
-    components: { myCount, myPerson },
+    components: {
+        myBanner,
+    },
 }
 </script>
 
 <style>
-.container,
-.foot {
-    display: flex;
-    justify-content: space-around;
+body {
+    padding: 10px;
 }
 
 img {
