@@ -17,16 +17,26 @@
                     </li>
                 </ul>
                 <div>
-                    <router-view></router-view>
+                    <!-- <router-view></router-view> -->
+                    <router-view v-slot="{ Component }">
+                        <keep-alive include="homeNews">
+                            <component :key="$route.name"
+                                :is="Component" />
+                        </keep-alive>
+                    </router-view>
                 </div>
+                <button
+                    @click="console.log(this.$route);">test</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
-    name: 'myHome'
+    name: 'myHome',
+    components: {}
 }
 </script>
 
