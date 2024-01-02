@@ -1,8 +1,8 @@
 <template>
     <div>
         <ul>
-            <li>消息編號:</li>
-            <li>消息標題:</li>
+            <li>消息編號:{{ $route.query.id }}</li>
+            <li>消息標題:{{ $route.query.title }}</li>
         </ul>
     </div>
 </template>

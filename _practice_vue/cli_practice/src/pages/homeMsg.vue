@@ -2,8 +2,22 @@
     <div>
         <ul>
             <li v-for="m in msgList" :key="m.id">
-                <router-link to="/myHome/homeMsg/msgDetail">
-                    {{ m.title }}</router-link>&nbsp;&nbsp;
+                <!-- 跳轉路由並攜帶query參數，使用to字符串寫法 -->
+                <!-- <router-link
+                    :to='`/myHome/homeMsg/msgDetail?id=${m.id}&title=${m.title}`'>
+                    {{ m.title }}</router-link>&nbsp;&nbsp; -->
+
+                <!-- 跳轉路由並攜帶query參數，使用to物件寫法 -->
+                <router-link :to="{
+                    // path: '/myHome/homeMsg/msgDetail',
+                    name: 'msg',
+                    query: {
+                        id: m.id,
+                        title: m.title
+                    }
+                }">
+                    {{ m.title }}
+                </router-link>&nbsp;&nbsp;
             </li>
         </ul>
         <hr>

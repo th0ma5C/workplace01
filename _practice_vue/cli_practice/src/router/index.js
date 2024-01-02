@@ -11,6 +11,7 @@ export default createRouter({
     history: createWebHistory(),
     routes: [
         {
+            name: 'about',
             path: '/myAbout',
             component: myAbout
         },
@@ -27,6 +28,7 @@ export default createRouter({
                     component: homeMsg,
                     children: [
                         {
+                            name: 'msg',
                             path: 'msgDetail',
                             component: msgDetail,
                         }
