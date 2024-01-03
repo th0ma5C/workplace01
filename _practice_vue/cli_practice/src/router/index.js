@@ -13,21 +13,48 @@ const router = createRouter({
         {
             name: 'about',
             path: '/myAbout',
-            component: myAbout
+            component: myAbout,
+            meta: {
+                isAuth: true,
+                title: '關於'
+            }
         },
         {
             path: '/myHome',
             component: myHome,
+            meta: {
+                title: '主頁'
+            },
             children: [
                 {
                     name: 'homeNews',
                     path: 'homeNews',
-                    component: homeNews
+                    component: homeNews,
+                    meta: {
+                        isAuth: true,
+                        title: '新聞'
+                    },
+                    // 單一路由守衛
+                    /* beforeEnter: (to, from, next) => {
+                        if (to.meta.isAuth) {
+                            if (localStorage.getItem('school') === 'google') {
+                                next();
+                            } else {
+                                alert('無權限');
+                            }
+                        } else {
+                            next()
+                        }
+                    } */
                 },
                 {
                     name: 'homeMsg',
                     path: 'homeMsg',
                     component: homeMsg,
+                    meta: {
+                        isAuth: true,
+                        title: '訊息'
+                    },
                     children: [
                         {
                             name: 'msg',
@@ -46,16 +73,30 @@ const router = createRouter({
                             props({ query: { id, title } }) {
                                 return { id, title }
                             },
+
                         }
-                    ]
+                    ],
                 },
             ]
         },
     ]
 });
-// 全局前置路由守衛，初始化和路由切換前調用
-router.beforeEach(() => {
-    console.log('@');
-})
+// 全局前置路由守衛，初始化和路由切換前被調用
+/* router.beforeEach((to, from, next) => {
+    if (to.meta.isAuth) { //判斷是否需要權限
+        if (localStorage.getItem('school') === 'google') {
+            next();
+        } else {
+            alert('無權限');
+        }
+    } else {
+        next()
+    }
+}); */
+
+// 全局後置路由守衛，初始化和每次路由切換之後被調用
+/* router.afterEach((to,) => {
+    document.title = to.meta.title || '主頁';
+}) */
 
 export default router
