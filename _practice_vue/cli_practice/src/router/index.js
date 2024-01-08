@@ -67,12 +67,17 @@ const router = createRouter({
                             // props: true,
                             // props第三種寫法，值為函數，該函數須返回一個物件，物件中每組key-value透過props傳給該組件
                             // props($route) {
+                            //     console.log($route);
                             //     return { id: $route.query.id, title: $route.query.title }
                             // },
                             // 參數解構賦值
-                            props({ query: { id, title } }) {
-                                return { id, title }
+                            // props({ query: { id, title } }) {
+                            //     return { id, title }
+                            // },
+                            props($route) {
+                                return $route.query
                             },
+
 
                         }
                     ],
