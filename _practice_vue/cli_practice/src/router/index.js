@@ -20,6 +20,7 @@ const router = createRouter({
             }
         },
         {
+            name: 'myHome',
             path: '/myHome',
             component: myHome,
             meta: {
@@ -84,6 +85,10 @@ const router = createRouter({
                 },
             ]
         },
+        {
+            path: '/',
+            redirect: 'myHome'
+        }
     ]
 });
 // 全局前置路由守衛，初始化和路由切換前被調用
