@@ -17,7 +17,6 @@
                     </li>
                 </ul>
                 <div>
-                    <!-- <router-view></router-view> -->
                     <router-view v-slot="{ Component }">
                         <keep-alive include="homeNews">
                             <component :key="$route.name"
