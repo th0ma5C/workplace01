@@ -1,25 +1,75 @@
 <template>
-    <div>
-        <h2>當前和為{{ sum }}</h2>
-        <button @click="changeSum" ref="title">+1</button>
+    <div class="container">
+        <button class="prev" @click="prev">&lt;</button>
+        <transition-group name="list" tag="ul">
+            <li v-for="(i) in swiper" :key="i.title"
+                class="slide">
+                {{ i.title }}
+            </li>
+        </transition-group>
+        <button class="next" @click="next">&gt;</button>
+
     </div>
 </template>
 
-<script lang="ts" setup>
-import { ref, watch } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
-let sum = ref(0);
-let title = ref()
-function changeSum() {
-    sum.value += 1;
-    console.log(title.value);
+const swiper = ref([
+    { title: '最新美味上架！立即探索我們最新的素食餐盒和果昔，品嚐獨特的素食美味。' },
+    { title: '最新消息、特別優惠、限量商品和精彩活動都在這裡！。' },
+    { title: '過敏原報告，查看我們食物過敏警報，確保您點的安心。' },
+    { title: 'APP限定好康：下載我們的APP，即刻獲得專屬優惠及最新活動資訊。' },
+    { title: '加入會員，享專屬優待！加入我們的會員計畫，即刻享有限定優惠和會員專屬好康。' },
+])
+
+function prev() {
+    let slide = swiper.value.pop();
+    swiper.value.unshift(slide);
 }
-
-let stopWatch = watch(sum, (newval, oldval) => {
-    console.log('SUM變化了', newval, oldval);
-    if (newval > 10) { stopWatch() };
-})
+function next() {
+    let slide = swiper.value.shift();
+    swiper.value.push(slide);
+}
 
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style-type: none;
+        text-align: center;
+
+        .slide {
+            min-width: 100%;
+            transition: transform 0.5s ease;
+        }
+    }
+}
+
+// @keyframes slideIn{
+//     from{
+//         transform: translateX(100%);
+//     }
+//     to{
+//         transform: translateX(0);
+//     }
+// }
+// @keyframes slideOut{
+//     from{
+//         transform: translateX(0);
+//     }
+//     to{
+//         transform: translateX(-100%);
+//     }
+// }
+</style>
