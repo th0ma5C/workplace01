@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <button class="prev" @click="prev">&lt;</button>
-        <transition-group name="list" tag="ul">
+        <transition-group name="swiper" tag="ul">
             <li v-for="(i) in swiper" :key="i.title"
                 class="slide">
                 {{ i.title }}
@@ -42,34 +42,30 @@ function next() {
     overflow: hidden;
     width: 100%;
 
+    button {
+        z-index: 2;
+    }
+
     ul {
         margin: 0;
         padding: 0;
         display: flex;
         list-style-type: none;
         text-align: center;
+        transform: translateX(-200%);
+
+        li:first-child,
+        li:last-child {
+            opacity: 0;
+        }
 
         .slide {
             min-width: 100%;
-            transition: transform 0.5s ease;
         }
     }
-}
 
-// @keyframes slideIn{
-//     from{
-//         transform: translateX(100%);
-//     }
-//     to{
-//         transform: translateX(0);
-//     }
-// }
-// @keyframes slideOut{
-//     from{
-//         transform: translateX(0);
-//     }
-//     to{
-//         transform: translateX(-100%);
-//     }
-// }
+    .swiper-move {
+        transition: transform 0.5s ease;
+    }
+}
 </style>
