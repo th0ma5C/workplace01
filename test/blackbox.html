@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+        src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <style>
+        .broadcast-column {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 500px;
+            height: 100px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 100%;
+            background-color: #f2f2f2;
+        }
+
+        .drag-handle {
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .message-content {
+            flex: 1;
+            padding: 10px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="broadcastColumn" class="broadcast-column">
+        <div class="button-container left">
+            <button class="drag-handle">◀</button>
+        </div>
+        <div class="message-content">
+            <p>Your message content here</p>
+            <p>Your message content here1</p>
+            <p>Your message content here12</p>
+            <p>Your message content here123</p>
+        </div>
+        <div class="button-container right">
+            <button class="drag-handle">▶</button>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $("#broadcastColumn").draggable({
+                axis: "x",
+                containment: "parent",
+            });
+
+            $(".drag-handle").on("mousedown", function (event) {
+                const handle = $(this);
+                const column = handle.closest(".broadcast-column");
+
+                function moveAt(pageX) {
+                    column.css("left", pageX - column.width() / 2);
+                }
+
+                moveAt(event.pageX);
+
+                $(document).on("mousemove", function (event) {
+                    moveAt(event.pageX);
+                });
+
+                $(document).on("mouseup", function () {
+                    $(document).off("mousemove");
+                    $(document).off("mouseup");
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
