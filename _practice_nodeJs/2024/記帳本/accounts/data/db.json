@@ -1,49 +1,12 @@
 {
   "accounts": [
     {
-      "id": "uOAXv0t6K",
-      "title": "薪水",
-      "time": "2024-03-08",
-      "type": "1",
-      "account": "30000",
-      "remarks": "2月"
-    },
-    {
-      "id": "93jqoeOhm",
-      "title": "薪水",
-      "time": "2024-03-08",
-      "type": "1",
-      "account": "30000",
-      "remarks": "2月"
-    },
-    {
-      "id": "l_rXd6U_l",
-      "title": "薪水",
-      "time": "2024-03-08",
-      "type": "1",
-      "account": "30000",
-      "remarks": "2月"
-    },
-    {
-      "title": "吃飯",
+      "id": "6t4wr_ueK",
+      "title": "飲料",
       "time": "2024-03-09",
       "type": "-1",
-      "account": "150",
-      "remarks": "午餐"
-    },
-    {
-      "title": "薪水",
-      "time": "2024-03-08",
-      "type": "1",
-      "account": "30000",
-      "remarks": "2月"
-    },
-    {
-      "title": "薪水",
-      "time": "2024-03-08",
-      "type": "1",
-      "account": "30000",
-      "remarks": "2月"
+      "account": "50",
+      "remarks": ""
     },
     {
       "id": "0u3fdJmN9",

@@ -13,12 +13,17 @@ const shortId = require('shortid');
 
 /**記帳列表 */
 router.get('/account', function (req, res, next) {
-  res.render('list');
+  // 獲取帳單數據
+  let accounts = db.get('accounts').value();
+
+  res.render('list', { accounts });
 });
+
 /**添加列表 */
 router.get('/account/create', function (req, res, next) {
   res.render('create');
 });
+
 /**添加紀錄 */
 router.post('/account', (req, res) => {
   // 生成ID
@@ -30,4 +35,15 @@ router.post('/account', (req, res) => {
 
   res.render('success', { msg: '添加成功！', url: '/account' });
 })
+
+/**刪除紀錄 */
+router.get('/account/:id', (req, res) => {
+  // 獲取ID
+  let id = req.params.id;
+  // 刪除ID
+  db.get('accounts').remove({ id }).write();
+  // 提示
+  res.render('success', { msg: '刪除成功！', url: '/account' })
+})
+
 module.exports = router;
