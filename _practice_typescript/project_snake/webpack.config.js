@@ -11,16 +11,20 @@ module.exports = {
     entry: "./src/index.ts",
 
     devtool: "inline-source-map",
+    mode: 'development',
 
     devServer: {
-        contentBase: './dist'
+        static: {
+            directory: './dist',
+        },
     },
 
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "bundle.js",
         environment: {
-            arrowFunction: false // 关闭webpack的箭头函数，可选
+            arrowFunction: false,
+            const: false // 关闭webpack的箭头函数、const，可选
         }
     },
 
@@ -92,7 +96,9 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: 'TS测试'
+            // title: 'TS测试',
+            template: "./src/index.html",
+            // favicon: './src/favicon.ico'
         }),
         new MiniCssExtractPlugin({
             filename: "./css/[contenthash:8].bundle.css",
