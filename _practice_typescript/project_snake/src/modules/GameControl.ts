@@ -12,16 +12,16 @@ class GameControl {
     constructor() {
         this.snake = new Snake();
         this.food = new Food();
-        this.scorePanel = new ScorePanel();
+        this.scorePanel = new ScorePanel(10, 2);
 
         this.init();
     }
-
+    // 初始化
     init() {
         document.addEventListener('keydown', this.keydownHandler.bind(this));
         this.move();
     }
-
+    // 方向
     keydownHandler(e: KeyboardEvent) {
         // if(e.key)
         this.direction = e.key;
@@ -33,7 +33,7 @@ class GameControl {
          * ArrowRight
          */
     }
-
+    // 蛇移動
     move() {
         let X = this.snake.X;
         let Y = this.snake.Y;
@@ -64,9 +64,9 @@ class GameControl {
             this.isLive = false;
         }
 
-        this.isLive && setTimeout(this.move.bind(this), 300 - (this.scorePanel.level - 1) * 30);
+        this.isLive && setTimeout(this.move.bind(this), 200 - (this.scorePanel.level - 1) * 30);
     }
-
+    // 吃食物後發生事件
     eat(X: number, Y: number) {
         if (X === this.food.X && Y === this.food.Y) {
             this.food.changeFoodPosition();

@@ -11,7 +11,7 @@ class Food {
     get Y() {
         return this.element.offsetTop;
     }
-
+    // 隨機食物位置
     changeFoodPosition() {
         // 食物位置 0-290, 須可以被10整除 
         let top = Math.round(Math.random() * 29) * 10;
