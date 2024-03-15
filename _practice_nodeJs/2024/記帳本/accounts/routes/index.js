@@ -9,7 +9,10 @@ const adapter = new FileSync(__dirname + '/../data/db.json');
 const db = low(adapter);
 
 // 導入shortid
-const shortId = require('shortid');
+// const shortId = require('shortid');
+// 導入moment
+const moment = require('moment');
+const AccountModel = require('../models/accountModel');
 
 /**記帳列表 */
 router.get('/account', function (req, res, next) {
@@ -25,15 +28,19 @@ router.get('/account/create', function (req, res, next) {
 });
 
 /**添加紀錄 */
-router.post('/account', (req, res) => {
-  // 生成ID
-  let id = shortId.generate();
+router.post('/account', async (req, res) => {
   // 獲取請求紀錄
-  console.log(req.body);
+  // console.log(req.body);
   // 寫入文件
-  db.get('accounts').unshift({ id: id, ...req.body }).write();
-
-  res.render('success', { msg: '添加成功！', url: '/account' });
+  try {
+    await AccountModel.create({
+      ...req.body,
+      time: moment(req.body.time).toDate()
+    });
+    res.render('success', { msg: '添加成功！', url: '/account' });
+  } catch (error) {
+    res.status(500).send('插入失敗');
+  }
 })
 
 /**刪除紀錄 */
