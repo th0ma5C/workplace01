@@ -15,11 +15,18 @@ const moment = require('moment');
 const AccountModel = require('../models/accountModel');
 
 /**記帳列表 */
-router.get('/account', function (req, res, next) {
-  // 獲取帳單數據
-  let accounts = db.get('accounts').value();
-
-  res.render('list', { accounts });
+router.get('/account', async (req, res, next) => {
+  try {
+    // 獲取帳單數據
+    // let accounts = db.get('accounts').value();
+    // 讀取集合數據
+    const accounts = await AccountModel.find().sort({ time: -1 }).exec();
+    console.log(accounts);
+    res.render('list', { accounts: accounts, moment });
+  }
+  catch (err) {
+    res.status(500).send('讀取失敗');
+  }
 });
 
 /**添加列表 */
@@ -44,13 +51,19 @@ router.post('/account', async (req, res) => {
 })
 
 /**刪除紀錄 */
-router.get('/account/:id', (req, res) => {
+router.get('/account/:id', async (req, res) => {
   // 獲取ID
   let id = req.params.id;
   // 刪除ID
-  db.get('accounts').remove({ id }).write();
-  // 提示
-  res.render('success', { msg: '刪除成功！', url: '/account' })
+  try {
+    await AccountModel.deleteOne({ _id: id });
+    // 提示
+    res.render('success', { msg: '刪除成功！', url: '/account' });
+    // db.get('accounts').remove({ id }).write();
+  }
+  catch (err) {
+    res.status(500).send('刪除失敗');
+  }
 })
 
 module.exports = router;
