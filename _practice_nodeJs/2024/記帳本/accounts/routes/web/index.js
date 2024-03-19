@@ -2,17 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 // 導入lowdb
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
+// const low = require('lowdb')
+// const FileSync = require('lowdb/adapters/FileSync')
 
-const adapter = new FileSync(__dirname + '/../data/db.json');
-const db = low(adapter);
+// const adapter = new FileSync(__dirname + '/../data/db.json');
+// const db = low(adapter);
 
 // 導入shortid
 // const shortId = require('shortid');
 // 導入moment
 const moment = require('moment');
-const AccountModel = require('../models/accountModel');
+const AccountModel = require('../../models/accountModel');
 
 /**記帳列表 */
 router.get('/account', async (req, res, next) => {
@@ -21,7 +21,6 @@ router.get('/account', async (req, res, next) => {
     // let accounts = db.get('accounts').value();
     // 讀取集合數據
     const accounts = await AccountModel.find().sort({ time: -1 }).exec();
-    console.log(accounts);
     res.render('list', { accounts: accounts, moment });
   }
   catch (err) {
