@@ -2,30 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" type="text/css"
+        href="./test.css" />
 </head>
 
 <body>
-    <script>
-        function getDay(strings, ...values) {
-            let result = '', week = ['日', '一', '二', '三', '四', '五', '六'];
-
-            strings.forEach(function (key, i) {
-                if (values[i]) {
-                    let setTime = new Date(values[i]);//日期物件
-                    result += values[i] + '是星期' + week[setTime.getDay()] + '\n';
-                }
-            })
-            return result;
-        }
-
-        const a = '2019-8-1', b = '2019-9-1', c = '2019-10-1';
-
-        const sentence = getDay`${a},${b},${c},`;
-        console.log(sentence);
-    </script>
+    <div class="carousel">
+        <div class="container">
+            <div class="content red">1</div>
+            <div class="content yellow">2</div>
+            <div class="content blue">3</div>
+            <div class="content purple">4</div>
+        </div>
+    </div>
+    <div class="btnContainer">
+        <button class="btn btn-prev">&larr;</button>
+        <button class="btn btn-next">&rarr;</button>
+    </div>
 </body>
+<script type="text/javascript" src="./test.js"></script>
 
 </html>

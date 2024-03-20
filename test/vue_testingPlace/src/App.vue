@@ -43,6 +43,10 @@ let imgSwiper = computed(() => ({
     transform: `translateX(${translateX.value}%)`
 }))
 
+/**
+ * todo:前後個各複製一個節點，last切到first的動畫完成後，將動畫取消，跳回第一張。監聽器:transitionend
+ */
+
 let transitionName = ref('left-in');
 function changeSwiper(n: number) {
 
@@ -51,7 +55,6 @@ function changeSwiper(n: number) {
     // } else {
     //     imgs.unshift(imgs.pop()!)
     // }
-
 
     count += n;
     if (count == imgs.length) {
@@ -105,9 +108,10 @@ onMounted(() => {
 <style lang="scss">
 @import './assets/basic.scss';
 
-// .imgSwiper {
-//     transition: all 1s;
-// }
+.imgSwiper {
+    will-change: transform;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 // .left-in-move {
 //     transition: all 1s;

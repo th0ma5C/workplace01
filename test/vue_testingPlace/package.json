@@ -17,6 +17,7 @@
     "clsx": "^2.1.0",
     "embla-carousel-vue": "^8.0.0",
     "lucide-react": "^0.359.0",
+    "nanoid": "^5.0.6",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "vue": "^3.4.15"
