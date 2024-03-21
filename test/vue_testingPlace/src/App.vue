@@ -2,10 +2,10 @@
     <!-- <div class="img-container" ref="img"> -->
     <transition-group tag="div" class="img-container"
         :name="transitionName">
-        <a href="" v-for="(imgURL, index) in getImgURL"
-            :key="imgURL" @click.prevent :style="imgSwiper"
-            class="imgSwiper">
-            <img :src="imgURL" alt="">
+        <a href="" v-for="(img) in getImgURL" :key="img.id"
+            @click.prevent @transitionend="move"
+            :style="imgSwiper" class="imgSwiper">
+            <img :src="img.url" alt="">
         </a>
     </transition-group>
     <!-- </div> -->
@@ -22,7 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, nextTick, onMounted, ref } from 'vue';
+import { nanoid } from 'nanoid';
 
 const imgs = [
     { title: 'berry-smoothie' },
@@ -33,41 +34,39 @@ const imgs = [
     { title: 'vegetable' },
     { title: 'water' },
 ];
+let frontCloneImg = imgs.slice(0, 1), rearCloneImg = imgs.slice(-1);
+let showImgs = [...rearCloneImg, ...imgs, ...frontCloneImg];
+const getImgURL = showImgs.map(item => ({
+    id: nanoid(3),
+    url: new URL(`./assets/MainBanner/${item.title}.jpg`, import.meta.url).href
+}));
 
-const getImgURL = imgs.map(item => {
-    return new URL(`./assets/MainBanner/${item.title}.jpg`, import.meta.url).href;
-});
-
-let left = ref(0), translateX = ref(0), count = 0
+let transition = ref('transform 1s cubic-bezier(0.4, 0, 0.2, 1)'), translateX = ref(0), count = 0
 let imgSwiper = computed(() => ({
-    transform: `translateX(${translateX.value}%)`
+    transform: `translateX(${-100 + translateX.value}%)`,
+    // transition: `${transition.value}`
 }))
-
-/**
- * todo:前後個各複製一個節點，last切到first的動畫完成後，將動畫取消，跳回第一張。監聽器:transitionend
- */
 
 let transitionName = ref('left-in');
 function changeSwiper(n: number) {
-
-    // if (n > 0) {
-    //     imgs.push(imgs.shift()!)
-    // } else {
-    //     imgs.unshift(imgs.pop()!)
-    // }
-
     count += n;
-    if (count == imgs.length) {
-        count = 0;
-        translateX.value = 0;
-        return
-    } else if (count < 0) {
-        count = imgs.length - 1;
-        translateX.value = -(imgs.length - 1) * 100;
-        return
-    }
     translateX.value -= (n * 100);
 }
+function move() {
+    if (count == imgs.length) {
+        count = 0;
+        transition.value = 'transform 0s';
+        translateX.value = 0;
+    } else if (count < 0) {
+        count = imgs.length - 1;
+        transition.value = 'transform 0s';
+        translateX.value = -(imgs.length - 1) * 100;
+    }
+    nextTick(() => {
+        transition.value = 'transform 1s cubic-bezier(0.4, 0, 0.2, 1)';
+    })
+}
+
 function fn(index: number) {
     if (index == count) return;
     let i = index - count;
@@ -96,12 +95,9 @@ function fn(index: number) {
 //     console.log(show.value, nVal, oVal);
 // })
 
-
-
 onMounted(() => {
     // timer;
 })
-
 
 </script>
 
@@ -110,12 +106,14 @@ onMounted(() => {
 
 .imgSwiper {
     will-change: transform;
-    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// .left-in-move {
-//     transition: all 1s;
-// }
+
+.left-in-enter-active,
+.left-in-leave-active,
+.left-in-move {
+    transition: all 1s;
+}
 
 // .right-in-enter-from {
 //     left: 100%
