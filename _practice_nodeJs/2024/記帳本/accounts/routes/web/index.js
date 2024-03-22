@@ -14,8 +14,12 @@ var router = express.Router();
 const moment = require('moment');
 const AccountModel = require('../../models/accountModel');
 
+// 導入checkLogin
+const checkLogin = require('../../middlewares/checkLogin');
+
+
 /**記帳列表 */
-router.get('/account', async (req, res, next) => {
+router.get('/account', checkLogin, async (req, res, next) => {
   try {
     // 獲取帳單數據
     // let accounts = db.get('accounts').value();
