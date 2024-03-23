@@ -1,21 +1,27 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+// 導入moment
+const moment = require('moment');
+const AccountModel = require('../../models/accountModel');
+// 導入checkLogin
+const checkLogin = require('../../middlewares/checkLogin');
 
 // 導入lowdb
 // const low = require('lowdb')
 // const FileSync = require('lowdb/adapters/FileSync')
-
 // const adapter = new FileSync(__dirname + '/../data/db.json');
 // const db = low(adapter);
 
 // 導入shortid
 // const shortId = require('shortid');
-// 導入moment
-const moment = require('moment');
-const AccountModel = require('../../models/accountModel');
 
-// 導入checkLogin
-const checkLogin = require('../../middlewares/checkLogin');
+// 創建路由
+const router = express.Router();
+
+// 首頁路由規則
+router.get('/', (req, res) => {
+  // 重定向
+  res.redirect('/account');
+})
 
 
 /**記帳列表 */

@@ -1,12 +1,15 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+
+// 導入jwt
+const checkToken = require('../../middlewares/checkToken');
 
 // 導入moment
 const moment = require('moment');
 const AccountModel = require('../../models/accountModel');
 
 /**記帳列表 */
-router.get('/account', async (req, res, next) => {
+router.get('/account', checkToken, async (req, res, next) => {
     try {
         // 讀取集合數據
         const accounts = await AccountModel.find().sort({ time: -1 }).exec();
@@ -26,7 +29,7 @@ router.get('/account', async (req, res, next) => {
 });
 
 /**獲取單條紀錄 */
-router.get('/account/:id', async (req, res, next) => {
+router.get('/account/:id', checkToken, async (req, res, next) => {
     let { id } = req.params
     try {
         const data = await AccountModel.findById(id);
@@ -46,7 +49,7 @@ router.get('/account/:id', async (req, res, next) => {
 })
 
 /**更新單個紀錄 */
-router.patch('/account/:id', async (req, res, next) => {
+router.patch('/account/:id', checkToken, async (req, res, next) => {
     let { id } = req.params
     try {
         await AccountModel.updateOne({ _id: id }, req.body);
@@ -69,7 +72,7 @@ router.patch('/account/:id', async (req, res, next) => {
 
 
 /**添加紀錄 */
-router.post('/account', async (req, res) => {
+router.post('/account', checkToken, async (req, res) => {
     // 表單驗證
     // 寫入文件
     try {
@@ -92,7 +95,7 @@ router.post('/account', async (req, res) => {
 })
 
 /**刪除紀錄 */
-router.delete('/account/:id', async (req, res) => {
+router.delete('/account/:id', checkToken, async (req, res) => {
     // 獲取ID
     let id = req.params.id;
     // 刪除ID

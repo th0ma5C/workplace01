@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/web/index');
 const authRouter = require('./routes/web/auth');
+const authApiRouter = require('./routes/api/auth');
 // 導入account接口路由文件
 const accountRouter = require('./routes/api/account');
 // 導入express-session
@@ -44,10 +45,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/api', accountRouter);
+app.use('/api', authApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+  // 響應404
+  res.render('404');
 });
 
 // error handler
