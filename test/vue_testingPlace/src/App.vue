@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-
+        <img alt="">
     </div>
 </template>
 
@@ -8,6 +8,19 @@
 
 </script>
 
-<style scoped lang="scss">
-.container {}
+<style lang="scss">
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: lightcyan;
+}
+
+.container {
+    img {
+        height: 300px;
+        width: 300px;
+        background: none;
+        background-color: antiquewhite;
+    }
+}
 </style>
