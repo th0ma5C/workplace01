@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-
+        <div></div>
     </div>
 </template>
 
@@ -12,7 +12,13 @@
 .container {
     height: 100vh;
     width: 100vw;
-    background: lightblue;
-    mask: url('./assets/資產 1-100.jpg');
+    mask-image: url('./assets/1.png');
+    mask-repeat: no-repeat;
+
+    div {
+        background: lightblue;
+        width: 100%;
+        height: 100%;
+    }
 }
 </style>
