@@ -1,5 +1,5 @@
 <template>
-    <div :style="test">
+    <div class="a" :style="{ '--num': j + 'rem' }">
         abcde
     </div>
     <div v-if="i" @click="change">
@@ -27,7 +27,7 @@ let test = computed(() => ({
 <style scoped lang="scss">
 $size: 1rem;
 
-div {
+.a {
     font-size: var(--num, 1rem);
 }
 </style>
