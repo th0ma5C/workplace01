@@ -1,33 +1,30 @@
 <template>
-    <div class="a" :style="{ '--num': j + 'rem' }">
-        abcde
-    </div>
-    <div v-if="i" @click="change">
-        123456
-    </div>
-    <div v-else @click="change">
-        7891011
+    <div>
+        <button>測試</button>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-let i = ref(true);
-let j = ref(1)
-function change() {
-    i.value = !i.value
-    j.value++;
-}
-let test = computed(() => ({
-    'font-size': `${j.value}rem`
-}))
 
 </script>
 
 <style scoped lang="scss">
-$size: 1rem;
+@keyframes test {
+    from {
+        pointer-events: none;
+    }
 
-.a {
-    font-size: var(--num, 1rem);
+    to {
+        pointer-events: auto;
+    }
+}
+
+button {
+    animation: test 0.5s ease;
+    transition: all 0.5s;
+}
+
+button:hover {
+    transform: scale(1.5);
 }
 </style>
