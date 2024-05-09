@@ -1,6 +1,9 @@
 <template>
     <div>
-        <button>測試</button>
+        123
+    </div>
+    <div>
+        456
     </div>
 </template>
 
@@ -8,23 +11,4 @@
 
 </script>
 
-<style scoped lang="scss">
-@keyframes test {
-    from {
-        pointer-events: none;
-    }
-
-    to {
-        pointer-events: auto;
-    }
-}
-
-button {
-    animation: test 0.5s ease;
-    transition: all 0.5s;
-}
-
-button:hover {
-    transform: scale(1.5);
-}
-</style>
+<style scoped></style>
