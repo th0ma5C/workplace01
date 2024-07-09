@@ -5,72 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-    <title>IntersectionObserver with Mouse Follow</title>
+    <title>Datalist Example</title>
     <style>
-        body {
-            height: 200vh;
-            /* 增加页面高度以便测试滚动 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+        .filterWrapper {
+            margin: 20px;
         }
 
-        #target {
-            width: 300px;
-            height: 300px;
-            background-color: lightblue;
-            position: relative;
-            top: 0px;
-        }
-
-        #mouseFollower {
-            width: 50px;
-            height: 50px;
-            background-color: red;
-            position: absolute;
-            pointer-events: none;
+        .filter,
+        .sort {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 
 <body>
-    <div id="target">Target Area</div>
-    <div id="mouseFollower"></div>
+    <div class="filterWrapper">
+        <div class="filter">
+            <label>
+                篩選：
+                <input list="aaa" name="sort1">
+            </label>
+            <datalist id="aaa">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+            </datalist>
+        </div>
+        <div class="sort">
+            排序
+        </div>
+    </div>
+
+    <label>請問你使用什麼瀏覽器:
+        <input list="browsers" name="myBrowser"></label>
+    <datalist id="browsers">
+        <option value="Chrome">
+        <option value="Firefox">
+        <option value="Internet Explorer">
+        <option value="Opera">
+        <option value="Safari">
+    </datalist>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mouseFollower = document.getElementById('mouseFollower');
-            const target = document.getElementById('target');
-
-            // 创建 IntersectionObserver
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        console.log('Mouse follower is inside the target area.');
-                    } else {
-                        console.log('Mouse follower is outside the target area.');
-                    }
-                });
-            }, {
-                root: target,
-                rootMargin: '0px',
-                threshold: 1 // 可以根据需要调整阈值
-            });
-
-            // 观察目标区域
-            observer.observe(mouseFollower);
-
-            // 更新鼠标跟随区域的位置
-            document.addEventListener('mousemove', (event) => {
-                mouseFollower.style.left = `${event.pageX - 25}px`; // 调整位置以使区域中心对准鼠标
-                mouseFollower.style.top = `${event.pageY - 25}px`;
-
-                // 手动触发 IntersectionObserver 的检查
-                observer.unobserve(target);
-                observer.observe(target);
-            });
-        });
-
+        // 如果需要可以添加JavaScript代码
     </script>
 </body>
 
