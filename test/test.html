@@ -5,50 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
-    <title>Datalist Example</title>
+    <title>Styled Select</title>
     <style>
-        .filterWrapper {
-            margin: 20px;
+        .custom-select {
+            appearance: none;
+            /* Remove default styling */
+            -webkit-appearance: none;
+            /* For Safari */
+            -moz-appearance: none;
+            /* For Firefox */
+            background-color: red;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            width: 200px;
         }
 
-        .filter,
-        .sort {
-            margin-bottom: 10px;
+        .option {
+            background-color: yellow;
         }
     </style>
 </head>
 
 <body>
-    <div class="filterWrapper">
-        <div class="filter">
-            <label>
-                篩選：
-                <input list="aaa" name="sort1">
-            </label>
-            <datalist id="aaa">
-                <option value="1"></option>
-                <option value="2"></option>
-                <option value="3"></option>
-            </datalist>
-        </div>
-        <div class="sort">
-            排序
-        </div>
-    </div>
 
-    <label>請問你使用什麼瀏覽器:
-        <input list="browsers" name="myBrowser"></label>
-    <datalist id="browsers">
-        <option value="Chrome">
-        <option value="Firefox">
-        <option value="Internet Explorer">
-        <option value="Opera">
-        <option value="Safari">
-    </datalist>
+    <select class="custom-select">
+        <option value="1" class="option">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+    </select>
 
-    <script>
-        // 如果需要可以添加JavaScript代码
-    </script>
 </body>
 
 </html>
