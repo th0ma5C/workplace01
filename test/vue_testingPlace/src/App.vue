@@ -15,7 +15,7 @@
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="btnBac" filter="url('#btn')">
                         <rect id="center" class="center"
-                            y="12" width="72" height="26"
+                            y="13" width="72" height="26"
                             fill="currentColor" />
                         <path id="right" class="right"
                             d="M176 51L104.133 51L88 8.40846e-06L176 7.15256e-07L176 51Z"
