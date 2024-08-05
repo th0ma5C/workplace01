@@ -7,103 +7,27 @@
         content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .parent {
-            transition: all 0.5s ease;
-        }
+        body {
+            div {
+                width: 100vw;
+                height: 100vh;
 
-        .parent.expanded {
-            background-color: lightblue;
-            padding: 20px;
-        }
-
-        .child {
-            transition: all 0.5s ease;
-            /* Apply the transition effect */
-        }
-
-        .no-transition {
-            transition: none;
-            /* Disable the transition effect for this child */
+                ul {
+                    height: 100%;
+                }
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="parent">
-        <div class="child">This child will have the
-            transition
-            effect.</div>
-        <div class="no-transition">This child will not have
-            <!DOCTYPE html>
-            <html lang="en">
-
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport"
-                    content="width=device-width, initial-scale=1.0">
-                <title>SVG Font Without Canvas</title>
-                <style>
-                    body {
-                        margin: 0;
-                        padding: 0;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 100vh;
-                        background-color: #f8f9fa;
-                    }
-
-                    svg {
-                        overflow: visible;
-                    }
-                </style>
-            </head>
-
-            <body>
-                <svg xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
-
-                        text {
-                            font-family: 'Roboto', sans-serif;
-                            font-size: 100px;
-                            /* Adjust this size */
-                            fill: black;
-                            dominant-baseline: hanging;
-                        }
-                    </style>
-                    <text x="0" y="0" id="svg-text">Hello,
-                        world!</text>
-                </svg>
-
-                <script>
-                    window.onload = function () {
-                        const svgText = document.getElementById('svg-text');
-                        const bbox = svgText.getBBox();
-                        const svg = svgText.closest('svg');
-                        svg.setAttribute('width', bbox.width);
-                        svg.setAttribute('height', bbox.height);
-                        svg.setAttribute('viewBox', `0 0 ${bbox.width} ${bbox.height}`);
-                    }
-                </script>
-            </body>
-
-            </html>
-
-            the
-            transition effect.
-        </div>
+    <div>
+        <ul>
+            <div>
+                <span>123</span>
+            </div>
+        </ul>
     </div>
-    <button onclick="toggleParent()">Toggle Parent
-        Transition</button>
-
-    <script>
-        function toggleParent() {
-            const parent = document.querySelector('.parent');
-            parent.classList.toggle('expanded');
-        }
-
-    </script>
 </body>
 
 </html>
