@@ -1,4 +1,3 @@
-const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 
@@ -38,12 +37,18 @@ fs.readFile(filePath, 'utf8', (err, rawData) => {
     if (err) console.log(err);
 
     let data = JSON.parse(rawData);
-    for (let i of data) {
-        i.items.forEach((el) => {
-            el.rating = Number(getRandomInteger(2, 5))
-        })
-        console.log(i);
-    }
+    // for (let i of data) {
+    //     i.items.forEach((el) => {
+    //         el.rating = Number(getRandomInteger(2, 5));
+    //         el.date = getRandomDateInPastYear();
+    //     })
+    //     console.log(i);
+    // }
+
+    data.forEach((item) => {
+        item.date = getRandomDateInPastYear();
+        item.rating = Number(getRandomInteger(2, 5));
+    })
 
     fs.writeFile(nFilePath, JSON.stringify(data, null, 2), err => {
         if (err) {
