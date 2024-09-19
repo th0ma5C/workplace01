@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^1.6.2",
+    "cli_practice": "file:",
     "core-js": "^3.8.3",
     "mitt": "^3.0.1",
     "nanoid": "^5.0.4",

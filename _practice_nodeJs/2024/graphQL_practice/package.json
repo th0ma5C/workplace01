@@ -12,6 +12,7 @@
     "express": "~4.16.1",
     "graphql": "^16.9.0",
     "graphql-http": "^1.22.1",
+    "graphql-practice": "file:",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1"
   }
