@@ -1,28 +1,13 @@
-const fs = require('fs');
-const path = require('path');
+"use strict";
 
-const filePath = path.resolve(__dirname, 'test.json');
-const nFilePath = path.resolve(__dirname, 'nTest.json');
+var foo = (function () {
+    function foo(acc, x) {
+        if (x <= 1) return acc;
+        return foo((x / 2) + acc, x - 1);
+    }
+    return function (x) {
+        return foo(1, x);
+    }
+})();
 
-
-
-
-fs.readFile(filePath, 'utf8', (err, rawData) => {
-    if (err) console.log(err);
-
-    let data = JSON.parse(rawData);
-
-    data.forEach((cate) => {
-        cate.items.forEach((item) => {
-            item.tags.splice(4, 2)
-        })
-    })
-
-    fs.writeFile(nFilePath, JSON.stringify(data, null, 2), err => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        console.log('File has been written');
-    });
-})
+console.log(foo(123456));

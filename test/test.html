@@ -6,48 +6,10 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        ol {
-            counter-reset: list-counter;
-            /* 初始化计数器 */
-            list-style-type: none;
-            /* 移除默认的列表样式 */
-            padding-left: 0;
-        }
-
-        ol li {
-            display: inline-block;
-            margin-right: 10px;
-            position: relative;
-        }
-
-        ol li::before {
-            counter-increment: list-counter;
-            /* 计数器增加 */
-            content: counter(list-counter) ". ";
-            /* 显示编号 */
-            position: absolute;
-            /* left: -20px; */
-            /* 调整编号的位置，根据需要进行调整 */
-        }
-    </style>
 </head>
 
 <body>
-    <div>
-        <ol>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-            <li>1</li>
-        </ol>
-    </div>
+
 </body>
 
 </html>
